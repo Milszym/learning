@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Find Your Gaps</title>
+<title>Connected Speech Decoder</title>
 <style>
 /* Shared course stylesheet: cozy, bright, print-friendly, light/dark. */
 @import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,500..700,100&family=Nunito:ital,wght@0,400;0,600;0,700;0,800;1,400&display=swap");
@@ -257,53 +257,104 @@ td em { color: var(--accent); font-style: normal; font-weight: 800; }
 </head>
 <body>
 <main>
-  <p class="kicker">Lesson 1 · Diagnostic</p>
-  <h1>Find your gaps</h1>
-  <p class="subtitle">Thirteen lines of the kind you hear on screen. Your answers show where to focus.</p>
+  <p class="kicker">Lesson 11 · Listening</p>
+  <h1>Whatcha gonna do?</h1>
+  <p class="subtitle">Decode the squashed words of fast dialogue: <i>gonna, dunno, didja, innit</i> and friends.</p>
 
   <div class="meta">
     <span><b>Time</b> ~12 min</span>
-    <span><b>Win</b> you'll know your 2–3 weakest C1 areas</span>
-    <span><b>Mission</b> films &amp; series without subtitles</span>
+    <span><b>Win</b> turn 14 reduced forms back into full English instantly</span>
+    <span><b>Mission</b> follow fast, casual dialogue without rewinding</span>
   </div>
 
-  <h2>Why start here</h2>
-  <p>The Council of Europe describes C1 listening like this: you can follow speech "even when it is not clearly structured and when relationships are only implied," and understand "television programmes and films without too much effort."<sup class="cite"><a href="#s1">1</a></sup> A lot of that implied meaning sits in small grammar: <em>can't have</em> versus <em>must have</em>, an inverted <em>Should you…</em>, a stressed <em>I <b>did</b></em>. Miss one and you miss the joke.</p>
-  <p>You rate yourself as nearly C1, so I don't want to re-teach what you already know. This quiz samples the British Council's C1 grammar syllabus<sup class="cite"><a href="#s2">2</a></sup> plus the idioms and collocations native speakers drop into dialogue.</p>
+  <h2>The big idea</h2>
+  <p>In fast speech, words blur together: "the pronunciation of a word will change depending on the words around it."<sup class="cite"><a href="#s1">1</a></sup> You already know one result: <i>shoulda</i> = <i>should have</i>. Your job here is only to <b>hear</b> these forms and rebuild the full words, not to write them.</p>
 
   <div class="callout">
-    <span class="label">How to take it</span>
-    Answer from your gut. Don't look anything up and don't agonise; a wrong answer here is useful data, not failure. Read the explanation after every question, including the ones you get right.
+    <span class="label">Spelling warning</span>
+    <p>Spellings like <i>gonna</i> or <i>dunno</i> are informal and non-standard. You'll see them in subtitles, song lyrics and text messages. Oxford's advice: don't write them "unless you are copying somebody's speech."<sup class="cite"><a href="#s2">2</a></sup></p>
   </div>
 
-  <h2>The quiz</h2>
-  <div id="quiz"><p class="callout"><span class="label">Quiz not loaded</span>If you can read this, the quiz script didn't run. Ask Claude to serve the lessons locally, or open this file in Chrome or Safari.</p></div>
+  <h2>Why it happens</h2>
+  <div class="rules">
+    <div class="rule" style="--c: var(--accent)">
+      <h3>Weak forms (schwa)</h3>
+      <p class="pattern">unstressed <i>to, of, a, you</i> → /ə/</p>
+      <p><i>a piece <b>of</b> cake</i> → /ə piːs <b>ə</b> keɪk/<sup class="cite"><a href="#s3">3</a></sup></p>
+      <p>That's where <i>gonna, wanna, kinda, outta</i> get their final <i>-a</i>.</p>
+    </div>
+    <div class="rule" style="--c: var(--sky)">
+      <h3>Elision (dropped sounds)</h3>
+      <p class="pattern">/t/ or /d/ between consonants disappears</p>
+      <p><i>I can'<b>t</b> do it</i> → "I can' do it"<sup class="cite"><a href="#s4">4</a></sup></p>
+      <p><i>nex<b>t</b> week</i> → "nex' week"</p>
+    </div>
+    <div class="rule" style="--c: var(--mint)">
+      <h3>Assimilation (sounds merge)</h3>
+      <p class="pattern">/d/ + <i>you</i> → /dʒ/ · /t/ + <i>you</i> → /tʃ/</p>
+      <p><i>woul<b>d y</b>ou</i> → "wou-<b>ja</b>"; <i>di<b>d y</b>ou</i> → "<b>didja</b>"<sup class="cite"><a href="#s5">5</a></sup></p>
+      <p><i>mee<b>t y</b>ou</i> → "mee-<b>chu</b>"; <i>wha<b>t</b> (are) <b>y</b>ou</i> → "<b>whatcha</b>"<sup class="cite"><a href="#s6">6</a></sup></p>
+    </div>
+  </div>
 
-  <h2>Next</h2>
-  <p>When you finish, copy the result box into the chat. I'll turn your misses into a learning record and build Lesson 2 around the most useful gap for watching films and series.</p>
+  <h2>The decoder</h2>
+  <div class="table-wrap"><table>
+    <tr><th>You hear</th><th>Full form</th><th>Only when…</th></tr>
+    <tr><td><em>gonna</em></td><td>going to</td><td>it's the future: <i>I'm gonna ring her</i>. Never for movement: <s>I'm gonna the pub</s>.<sup class="cite"><a href="#s2">2</a></sup></td></tr>
+    <tr><td><em>wanna</em></td><td>want to / want a</td><td><i>want</i> is right next to <i>to</i> or <i>a</i>: <i>Wanna drink?</i> Not <s>I wanna you to…</s><sup class="cite"><a href="#s7">7</a></sup></td></tr>
+    <tr><td><em>gotta</em></td><td>(have) got to / got a</td><td><i>You've gotta see this. Gotta pen?</i><sup class="cite"><a href="#s8">8</a></sup></td></tr>
+    <tr><td><em>dunno · lemme · gimme</em></td><td>(I) don't know · let me · give me</td><td></td></tr>
+    <tr><td><em>d'you / d'ya · didja</em></td><td>do you · did you</td><td><i>ya</i> = <i>you</i>.<sup class="cite"><a href="#s9">9</a></sup></td></tr>
+    <tr><td><em>whatcha</em></td><td>what are / have / do you</td><td>the next word tells you which: <i>Whatcha doing? Whatcha got?</i></td></tr>
+    <tr><td><em>kinda · sorta · outta</em></td><td>kind of · sort of · out of</td><td><i>kinda / sorta</i> often soften: "slightly".</td></tr>
+    <tr><td><em>innit</em> (BrE)</td><td>isn't it, or ANY tag</td><td><i>You got it, innit?</i> = <i>didn't you?</i><sup class="cite"><a href="#s10">10</a></sup></td></tr>
+  </table></div>
+
+  <div class="callout">
+    <span class="label">Trap: wotcha</span>
+    <p>In British English, <i>Wotcha!</i> on its own is a friendly <b>hello</b> (originally from <i>what cheer?</i>), not "what are you".<sup class="cite"><a href="#s11">11</a></sup> <i>Wotcha, Dave!</i> = <i>Hi, Dave!</i></p>
+  </div>
+
+  <h2>Practice</h2>
+  <p>Most questions show a line as a subtitle would write it: rebuild the <b>full standard form</b> (typed or chosen), or spot the one that no native speaker would say. The last two are review.</p>
+  <div id="quiz"><p class="callout"><span class="label">Quiz not loaded</span>If you can read this, the quiz script didn't run. Try opening the file in Chrome or Safari.</p></div>
+
+  <h2>Listen for it</h2>
+  <div class="callout">
+    <span class="label">Real-world task · next episode you watch</span>
+    <p>Watch 10 minutes with English subtitles <b>off</b>. Each time you hear a squashed chunk (<i>gonna, didja, whatcha, innit</i>), pause and say the full form out loud. Then rewatch the same 10 minutes with subtitles on and check. With <a href="https://www.languagereactor.com/" target="_blank" rel="noopener">Language Reactor</a>, search the subtitle panel for "gonna" or "wanna". Bring the hardest line back to the chat.</p>
+  </div>
 
   <div class="callout">
     <span class="label">Primary source</span>
-    <a href="https://learnenglish.britishcouncil.org/free-resources/grammar/c1" target="_blank" rel="noopener">British Council LearnEnglish: C1 grammar</a>. Fourteen short, free pages with explanations and exercises. Skim the titles now and notice which ones make you think "hmm, not sure."
+    <a href="https://www.bbc.co.uk/learningenglish/english/features/pronunciation" target="_blank" rel="noopener">BBC Learning English: Tim's Pronunciation Workshop</a>. Short videos with real Londoners, each one on a single process (schwa, elision of /t/, <i>Would you…?</i>). Watch one a day; ear training works best in small doses.
   </div>
 
   <div class="callout">
     <span class="label">Keep for later</span>
-    <a href="../reference/c1-grammar-map.html">C1 grammar map</a>: one page with every structure from this quiz, with patterns and on-screen examples.
+    <a href="../reference/c1-grammar-map.html">C1 grammar map</a> now has a longer "Listening: reduced forms" table.
   </div>
 
-  <p class="muted"><b>Questions?</b> Ask Claude. If an explanation didn't click, or you want more examples of something, just ask in the chat. I'm your teacher and can help with anything that's unclear.</p>
+  <p class="muted"><b>Questions?</b> Ask Claude. Heard a squashed phrase you can't decode, like "Djeet yet?" or "Wassup?" Paste the subtitle line into the chat and we'll rebuild it together.</p>
 
   <hr>
   <ol class="sources">
-    <li id="s1">Council of Europe, <a href="https://www.coe.int/en/web/common-european-framework-reference-languages/cefr-descriptors">CEFR descriptors</a> (self-assessment grid, C1 listening).</li>
-    <li id="s2">British Council, <a href="https://learnenglish.britishcouncil.org/free-resources/grammar/c1">LearnEnglish C1 grammar</a>.</li>
-    <li id="s3">Cambridge Dictionary, <a href="https://dictionary.cambridge.org/grammar/british-grammar/">English Grammar Today</a>.</li>
+    <li id="s1">British Council TeachingEnglish, <a href="https://www.teachingenglish.org.uk/professional-development/teachers/knowing-subject/c/connected-speech">Connected speech</a>.</li>
+    <li id="s2">Oxford Learner's Dictionaries, <a href="https://www.oxfordlearnersdictionaries.com/definition/english/gonna">gonna</a> (see also the note "Contractions in non-standard language").</li>
+    <li id="s3">BBC Learning English, <a href="https://www.bbc.co.uk/learningenglish/english/features/pronunciation/tims-pronunciation-workshop-ep-6">Tim's Pronunciation Workshop: Schwa</a>.</li>
+    <li id="s4">BBC Learning English, <a href="https://www.bbc.co.uk/learningenglish/english/features/pronunciation/tims-pronunciation-workshop-ep-4">Tim's Pronunciation Workshop: Elision of /t/</a>.</li>
+    <li id="s5">BBC Learning English, <a href="https://www.bbc.co.uk/learningenglish/english/features/pronunciation/tims-pronunciation-workshop-ep-24">Tim's Pronunciation Workshop: Would you…?</a></li>
+    <li id="s6">BBC Learning English, <a href="https://www.bbc.co.uk/learningenglish/english/features/pronunciation/tims-pronunciation-workshop-ep-29">Tim's Pronunciation Workshop: Assimilation of /t/ followed by /j/</a>.</li>
+    <li id="s7">Oxford Learner's Dictionaries, <a href="https://www.oxfordlearnersdictionaries.com/definition/english/wanna">wanna</a>; Cambridge Dictionary, <a href="https://dictionary.cambridge.org/dictionary/english/wanna">wanna</a>.</li>
+    <li id="s8">Oxford Learner's Dictionaries, <a href="https://www.oxfordlearnersdictionaries.com/definition/english/gotta">gotta</a>; Cambridge Dictionary, <a href="https://dictionary.cambridge.org/dictionary/english/gotta">gotta</a>.</li>
+    <li id="s9">Cambridge Dictionary, <a href="https://dictionary.cambridge.org/dictionary/english/d-you">d'you</a> and <a href="https://dictionary.cambridge.org/dictionary/english/ya">ya</a>.</li>
+    <li id="s10">Oxford Learner's Dictionaries, <a href="https://www.oxfordlearnersdictionaries.com/definition/english/innit">innit</a>; Cambridge Dictionary, <a href="https://dictionary.cambridge.org/dictionary/english/innit">innit</a>.</li>
+    <li id="s11">Cambridge Dictionary, <a href="https://dictionary.cambridge.org/dictionary/english/wotcha">wotcha</a>; Oxford Learner's Dictionaries, <a href="https://www.oxfordlearnersdictionaries.com/definition/english/wotcha">wotcha</a>.</li>
   </ol>
 
   <nav class="nav">
-    <a href="../reference/c1-grammar-map.html">Reference: C1 grammar map</a>
-    <a href="0002-past-tense-present-meaning.html">Lesson 2: Past tense, present meaning →</a>
+    <a href="0010-idioms-in-conversation.html">← Lesson 10: Idioms in conversation</a>
+    <a href="0012-mixed-review.html">Lesson 12: Mixed review →</a>
   </nav>
 </main>
 
@@ -517,114 +568,100 @@ td em { color: var(--accent); font-style: normal; font-weight: 800; }
 })();
 </script>
 <script>
-const BC = "https://learnenglish.britishcouncil.org/free-resources/grammar/c1/";
 const CD = "https://dictionary.cambridge.org/";
+const OX = "https://www.oxfordlearnersdictionaries.com/definition/english/";
+const BBC = "https://www.bbc.co.uk/learningenglish/english/features/pronunciation/";
 Quiz.mount(document.getElementById("quiz"), {
-  id: "0001-find-your-gaps",
+  id: "0011-connected-speech",
   questions: [
     {
-      tag: "Past deduction (can't have / must have)",
-      link: BC + "modals-probability",
-      prompt: `<p class="line">"Her coat's still on the hook. She <span class="gap"></span> left yet."</p>`,
-      options: ["can't have", "mustn't have", "needn't have", "didn't have"],
-      answer: 0,
-      explain: `For a confident negative deduction about the past, English uses <b>can't have</b> or <b>couldn't have</b> + past participle. <i>Mustn't have</i> isn't used for deduction in British English, even though the positive is <i>must have</i>. It's a classic trap because Polish <i>nie musiała</i> feels like a direct match.`
+      tag: "Reduced forms: whatcha / gonna",
+      link: BBC + "tims-pronunciation-workshop-ep-29",
+      prompt: `<p class="line">"So he's lied to you twice now. <b>Whatcha gonna</b> do about it?"</p><p class="q-hint">Type the full standard form of the <b>bold words</b> (three or four words).</p>`,
+      accept: ["what are you going to", "what're you going to"],
+      explain: `<b>whatcha</b> = <i>what are you</i> here, because <i>gonna</i> needs <i>are</i> before it. The /t/ of <i>what</i> merges with <i>you</i> into /tʃ/, and <b>gonna</b> = <i>going to</i> for the future.`
     },
     {
-      tag: "needn't have vs didn't need to",
-      link: CD + "grammar/british-grammar/need",
-      prompt: `<p class="line">"We didn't need to take a taxi."</p><p>What does this sentence tell us for certain?</p>`,
-      options: ["They definitely took a taxi.", "They definitely didn't take one.", "Only that it was unnecessary.", "That taxis were not available."],
-      answer: 2,
-      explain: `<b>Didn't need to</b> only says there was no necessity. We don't know if they took one or not (usually they didn't). Compare <b>We needn't have taken a taxi</b>: they <i>did</i> take one, and it turned out to be pointless.`
+      tag: "Reduced forms: dunno",
+      link: OX + "dunno",
+      prompt: `<p class="line">"Where's Jess?" "<b>Dunno</b>. She was here a minute ago."</p><p class="q-hint">Type the full standard form of <b>dunno</b>, including the subject.</p>`,
+      accept: ["I don't know", "I do not know"],
+      explain: `<b>dunno</b> = <i>(I) don't know</i>. The <i>I</i> is often dropped completely, and <i>don't</i> shrinks to a quick "d'n".`
     },
     {
-      tag: "Inversion in conditionals",
-      link: BC + "inversion-conditionals",
-      prompt: `<p class="line">"<span class="gap"></span> you need anything at all, just give me a shout."</p>`,
-      options: ["Should", "Would", "Were", "Had"],
-      answer: 0,
-      explain: `<b>Should you need…</b> = <i>If you (happen to) need…</i>. It's a slightly formal way of making a first conditional, common in hotels, customer service and polite characters. <i>Were</i> and <i>Had</i> also invert, but for second and third conditionals (<i>Were I you…</i>, <i>Had I known…</i>).`
+      tag: "Reduced forms: didja / d'you",
+      link: BBC + "tims-pronunciation-workshop-ep-24",
+      prompt: `<p class="line">"<b>Didja</b> see the look on his face when she walked in?"</p><p class="q-hint">Type the full standard form of <b>didja</b> (two words).</p>`,
+      accept: ["did you"],
+      explain: `<b>Assimilation</b>: /d/ + <i>you</i> merges into /dʒ/, and <i>you</i> weakens to schwa, so <i>did you</i> → "didja". Same process as <i>would you</i> → "wou-ja".`
     },
     {
-      tag: "Inversion after negative adverbials",
-      link: BC + "inversion-after-negative-adverbials",
-      prompt: `<p class="line">"Little <span class="gap"></span> that his new partner was the one behind it all."</p>`,
-      options: ["did he know", "he did know", "does he knew", "he had known"],
-      answer: 0,
-      explain: `After a negative or restrictive word at the start (<i>Little, Never, Rarely, No sooner, Not only</i>), the auxiliary comes before the subject: <b>Little did he know…</b>. It's a stock phrase in film trailers and narration.`
+      tag: "Reduced forms: gotta",
+      link: OX + "gotta",
+      prompt: `<p class="line">"Wait, you've <b>gotta</b> be kidding me. He said that? To her face?"</p><p class="q-hint">Type the full standard form of <b>gotta</b> (two words).</p>`,
+      accept: ["got to"],
+      explain: `<b>gotta</b> = <i>got to</i>, so <i>you've gotta be kidding</i> = <i>you've got to be kidding</i> (= you must be joking). It can also mean <i>got a</i>: <i>Gotta pen?</i>`
     },
     {
-      tag: "Cleft sentences",
-      link: CD + "grammar/british-grammar/cleft-sentences-it-was-in-june-we-got-married",
-      prompt: `<p class="line">"What I really can't stand <span class="gap"></span> the way he chews with his mouth open."</p>`,
-      options: ["is", "are", "it's", "that"],
-      answer: 0,
-      explain: `A <b>wh-cleft</b> (<i>What I can't stand is…</i>) puts the new, important information at the end for emphasis. The <i>what</i>-clause acts as a singular subject, so the verb is <b>is</b>. Adding <i>it's</i> is a common learner error.`
+      tag: "Reduced forms: lemme / gimme",
+      link: CD + "dictionary/english/lemme",
+      prompt: `<p class="line">"<b>Lemme</b> grab my coat and then we'll get outta here."</p><p class="q-hint">Type the full standard form of <b>lemme</b> (two words).</p>`,
+      accept: ["let me"],
+      explain: `<b>lemme</b> = <i>let me</i>; its twin is <b>gimme</b> = <i>give me</i>. And <b>outta</b> = <i>out of</i>: the weak <i>of</i> is just a schwa.`
     },
     {
-      tag: "Unreal time (It's high time…)",
-      link: BC + "unreal-time",
-      prompt: `<p class="line">"It's gone midnight. It's high time we <span class="gap"></span> home."</p>`,
-      options: ["went", "go", "gone", "going"],
-      answer: 0,
-      explain: `After <b>It's (high/about) time</b> + subject, English uses a past form with present meaning: <b>It's time we went</b>. The past tense here signals "this should already be happening", not past time. Same logic as <i>I'd rather you didn't</i> and <i>I wish I knew</i>.`
+      tag: "Reduced forms: kinda / sorta",
+      link: CD + "dictionary/english/kinda",
+      prompt: `<p class="line">"Honestly? The dinner was <b>kinda</b> awkward. Nobody said a word."</p><p class="q-hint">Type the full standard form of <b>kinda</b> (two words).</p>`,
+      accept: ["kind of"],
+      explain: `<b>kinda</b> = <i>kind of</i> (= slightly, somewhat), and <b>sorta</b> = <i>sort of</i>. Both soften what follows, so the dinner was a bit awkward, not a disaster.`
     },
     {
-      tag: "Participle clauses",
-      link: BC + "participle-clauses",
-      prompt: `<p class="line">"<span class="gap"></span> the film twice already, I knew exactly what was coming."</p>`,
-      options: ["Having seen", "Being seen", "Once seeing", "After see"],
+      tag: "Reduced forms: wotcha",
+      link: CD + "dictionary/english/wotcha",
+      prompt: `<p class="line">"<b>Wotcha</b>, Dave! Haven't seen you in ages. How's the new job?"</p><p>What is <i>wotcha</i> doing here?</p>`,
+      options: ["a friendly informal greeting", "a question about plans", "an angry informal warning", "a polite formal goodbye"],
       answer: 0,
-      explain: `A <b>perfect participle clause</b> (<i>Having + past participle</i>) shows one action finished before another, with the same subject: <b>Having seen</b> = <i>Because I had seen</i>. <i>Being seen</i> would be passive (someone saw <i>me</i>).`
+      explain: `In British English, <b>Wotcha!</b> on its own is a friendly <b>hello</b> between friends (from old <i>what cheer?</i>). Don't confuse it with <i>whatcha</i> + verb (<i>Whatcha doing?</i>).`
     },
     {
-      tag: "Articles (general vs specific)",
-      link: CD + "grammar/british-grammar/a-an-and-the",
-      prompt: `<p class="line">"<span class="gap"></span> life is short, but <span class="gap"></span> life he led was extraordinary."</p><p class="muted">Ø = no article</p>`,
-      options: ["Ø … the", "The … the", "Ø … Ø", "A … a"],
+      tag: "Reduced forms: gonna",
+      link: OX + "gonna",
+      prompt: `<p>Which line would a native speaker <b>never</b> say, even in the fastest speech?</p>`,
+      options: ["I'm gonna the pub later.", "I'm gonna ring her later.", "We're gonna miss the train.", "It's gonna rain all day."],
       answer: 0,
-      explain: `Abstract nouns used <b>in general</b> take no article: <b>Life is short</b>. Once the noun is <b>made specific</b>, here by <i>he led</i>, it takes <b>the</b>: <b>the life he led</b>. Polish has no articles, so this general/specific switch is a lifelong C1 polishing point.`
+      explain: `<b>gonna</b> only replaces <i>going to</i> + verb for the <b>future</b>. In <i>I'm going to the pub</i>, <i>going</i> is a verb of movement and <i>to</i> goes with <i>the pub</i>, so it can't shrink: you'll hear "I'm goin' to the pub".`
     },
     {
-      tag: "Idioms",
-      link: CD + "dictionary/english/spill-the-beans",
-      prompt: `<p class="line">"Don't tell your brother about the surprise party. He'll <span class="gap"></span>."</p>`,
-      options: ["spill the beans", "break the ice", "hit the sack", "bite the bullet"],
+      tag: "Reduced forms: wanna",
+      link: OX + "wanna",
+      prompt: `<p>Which line would a native speaker <b>never</b> say, even in the fastest speech?</p>`,
+      options: ["I wanna you to listen.", "D'you wanna grab some lunch?", "I just wanna go home.", "Wanna see my new flat?"],
       answer: 0,
-      explain: `<b>Spill the beans</b> = reveal a secret. The others: <i>break the ice</i> = end an awkward silence; <i>hit the sack</i> = go to bed; <i>bite the bullet</i> = force yourself to do something unpleasant.`
+      explain: `<b>wanna</b> = <i>want to</i> or <i>want a</i>, so <i>want</i> must sit <b>right next to</b> <i>to</i> or <i>a</i>. In <i>I want you to listen</i>, <i>you</i> is in the way, so it can't merge: you'd hear "I wan' you to listen".`
     },
     {
-      tag: "Implied meaning (he would say that)",
-      link: CD + "dictionary/english/would",
-      prompt: `<p class="line">"The manager says the project's going brilliantly."<br>"Well, he <i>would</i> say that, wouldn't he?"</p><p>What does the second speaker mean?</p>`,
-      options: ["Of course; he's biased.", "He announced it earlier.", "He'd say it eventually.", "He wanted to, secretly."],
+      tag: "Reduced forms: innit",
+      link: OX + "innit",
+      prompt: `<p class="line">"You were at Kaz's party on Saturday, <b>innit</b>? I saw the photos."</p><p>Which standard tag does <i>innit</i> replace here?</p>`,
+      options: ["weren't you", "isn't it", "wasn't it", "aren't you"],
       answer: 0,
-      explain: `With stress on <b>would</b>, <b>he would say that</b> means "of course he says that; it's in his interest." It's a sceptical, often sarcastic reply, and it only shows up in the stress, which is why subtitles don't help much here.`
+      explain: `<b>innit</b> started as <i>isn't it</i>, but in informal British speech it can replace <b>any</b> question tag. Here the statement is <i>You were…</i>, so the standard tag is <i>weren't you?</i>`
     },
     {
-      tag: "Collocations",
-      link: CD + "dictionary/english/rave",
-      prompt: `<p class="line">"Her first novel got <span class="gap"></span> reviews, so the pressure's on for the second."</p>`,
-      options: ["rave", "raving", "rant", "roaring"],
+      tag: "Review: idioms in conversation",
+      link: CD + "dictionary/english/cut-some-slack",
+      prompt: `<p class="muted">Review from Lesson 10</p><p class="line">"He's been useless all week." "Oh, cut him some slack. His mum's in hospital."</p><p>What does the second speaker want?</p>`,
+      options: ["Judge him less harshly now.", "Give him extra work today.", "Tell him the whole truth.", "Leave him alone for good."],
       answer: 0,
-      explain: `<b>Rave reviews</b> = extremely enthusiastic reviews. It's a fixed collocation: <i>rave</i> is used as an adjective here. (<i>Roaring success</i> is also a collocation, but it doesn't go with <i>reviews</i>.)`
+      explain: `<b>cut someone some slack</b> = don't judge them as severely as usual, because they're having problems right now.`
     },
     {
-      tag: "Emphatic do/did",
-      link: BC + "emphasis-cleft-sentences-inversion-auxiliaries",
-      prompt: `<p class="line">"You didn't even lock the door!"<br>"I <span class="gap"></span> lock it! I remember doing it."</p>`,
-      options: ["did", "do", "have", "was"],
-      answer: 0,
-      explain: `<b>I did lock it</b>, with <i>did</i> stressed, contradicts the other speaker forcefully. In positive statements, adding a stressed <i>do/does/did</i> adds emphasis. You'll hear it constantly in arguments on screen.`
-    },
-    {
-      tag: "Reduced forms in fast speech",
-      link: CD + "grammar/british-grammar/should",
-      prompt: `<p>You hear: <span class="line" style="display:inline">"You <b>shoulda</b> told me!"</span></p><p>What's the full form?</p>`,
-      options: ["should have told", "should of told", "should had told", "should a told"],
-      answer: 0,
-      explain: `In fast speech, <i>have</i> after a modal shrinks to /əv/ or just /ə/: <b>shoulda, coulda, woulda, must've</b>. It is always <b>should have</b>. <i>Should of</i> is a spelling mistake natives make because the sounds are the same. Train your ear to hear /ə/ as <i>have</i>.`
+      tag: "Review: reduced modals",
+      link: BBC + "tims-pronunciation-workshop-ep-26",
+      prompt: `<p class="muted">Review from Lesson 1</p><p class="line">"She's never late. She <b>must've</b> missed the train."</p><p class="q-hint">In speech this sounds like "musta". Type the full standard form of <b>must've</b> (two words).</p>`,
+      accept: ["must have"],
+      explain: `After a modal, auxiliary <i>have</i> weakens to /əv/ or just /ə/: <b>must've</b> = <i>must have</i>, a confident deduction about the past. Same as <i>shoulda</i> = <i>should have</i>.`
     }
   ]
 });
