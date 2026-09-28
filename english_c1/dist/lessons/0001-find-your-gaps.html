@@ -259,46 +259,39 @@ td em { color: var(--accent); font-style: normal; font-weight: 800; }
 <main>
   <p class="kicker">Lesson 1 · Diagnostic</p>
   <h1>Find your gaps</h1>
-  <p class="subtitle">Thirteen lines of the kind you hear on screen. Your answers show where to focus.</p>
+  <p class="subtitle">Six lines of the kind you hear on screen. Your answers show where to focus.</p>
 
   <div class="meta">
-    <span><b>Time</b> ~12 min</span>
-    <span><b>Win</b> you'll know your 2–3 weakest C1 areas</span>
+    <span><b>Time</b> ~3 min</span>
+    <span><b>Win</b> you'll know your weakest C1 areas</span>
     <span><b>Mission</b> films &amp; series without subtitles</span>
   </div>
 
   <h2>Why start here</h2>
-  <p>The Council of Europe describes C1 listening like this: you can follow speech "even when it is not clearly structured and when relationships are only implied," and understand "television programmes and films without too much effort."<sup class="cite"><a href="#s1">1</a></sup> A lot of that implied meaning sits in small grammar: <em>can't have</em> versus <em>must have</em>, an inverted <em>Should you…</em>, a stressed <em>I <b>did</b></em>. Miss one and you miss the joke.</p>
-  <p>You rate yourself as nearly C1, so I don't want to re-teach what you already know. This quiz samples the British Council's C1 grammar syllabus<sup class="cite"><a href="#s2">2</a></sup> plus the idioms and collocations native speakers drop into dialogue.</p>
-
-  <div class="callout">
-    <span class="label">How to take it</span>
-    Answer from your gut. Don't look anything up and don't agonise; a wrong answer here is useful data, not failure. Read the explanation after every question, including the ones you get right.
-  </div>
+  <p>At C1 you can understand "television programmes and films without too much effort,"<sup class="cite"><a href="#s1">1</a></sup> and a lot of implied meaning sits in small grammar. This quiz samples the British Council's C1 grammar syllabus<sup class="cite"><a href="#s2">2</a></sup> plus the idioms and collocations natives drop into dialogue. Answer from your gut: a wrong answer is useful data, not failure.</p>
 
   <h2>The quiz</h2>
   <div id="quiz"><p class="callout"><span class="label">Quiz not loaded</span>If you can read this, the quiz script didn't run. Ask Claude to serve the lessons locally, or open this file in Chrome or Safari.</p></div>
 
   <h2>Next</h2>
-  <p>When you finish, copy the result box into the chat. I'll turn your misses into a learning record and build Lesson 2 around the most useful gap for watching films and series.</p>
+  <p>Copy the result box into the chat and I'll build the next lessons around your gaps.</p>
 
   <div class="callout">
     <span class="label">Primary source</span>
-    <a href="https://learnenglish.britishcouncil.org/free-resources/grammar/c1" target="_blank" rel="noopener">British Council LearnEnglish: C1 grammar</a>. Fourteen short, free pages with explanations and exercises. Skim the titles now and notice which ones make you think "hmm, not sure."
+    <a href="https://learnenglish.britishcouncil.org/free-resources/grammar/c1" target="_blank" rel="noopener">British Council LearnEnglish: C1 grammar</a>
   </div>
 
   <div class="callout">
     <span class="label">Keep for later</span>
-    <a href="../reference/c1-grammar-map.html">C1 grammar map</a>: one page with every structure from this quiz, with patterns and on-screen examples.
+    <a href="../reference/c1-grammar-map.html">C1 grammar map</a>: every structure from this quiz on one page.
   </div>
 
-  <p class="muted"><b>Questions?</b> Ask Claude. If an explanation didn't click, or you want more examples of something, just ask in the chat. I'm your teacher and can help with anything that's unclear.</p>
+  <p class="muted"><b>Questions?</b> Ask Claude, e.g. "Why is it <i>can't have</i> and not <i>mustn't have</i>?"</p>
 
   <hr>
   <ol class="sources">
     <li id="s1">Council of Europe, <a href="https://www.coe.int/en/web/common-european-framework-reference-languages/cefr-descriptors">CEFR descriptors</a> (self-assessment grid, C1 listening).</li>
     <li id="s2">British Council, <a href="https://learnenglish.britishcouncil.org/free-resources/grammar/c1">LearnEnglish C1 grammar</a>.</li>
-    <li id="s3">Cambridge Dictionary, <a href="https://dictionary.cambridge.org/grammar/british-grammar/">English Grammar Today</a>.</li>
   </ol>
 
   <nav class="nav">
@@ -528,15 +521,7 @@ Quiz.mount(document.getElementById("quiz"), {
       prompt: `<p class="line">"Her coat's still on the hook. She <span class="gap"></span> left yet."</p>`,
       options: ["can't have", "mustn't have", "needn't have", "didn't have"],
       answer: 0,
-      explain: `For a confident negative deduction about the past, English uses <b>can't have</b> or <b>couldn't have</b> + past participle. <i>Mustn't have</i> isn't used for deduction in British English, even though the positive is <i>must have</i>. It's a classic trap because Polish <i>nie musiała</i> feels like a direct match.`
-    },
-    {
-      tag: "needn't have vs didn't need to",
-      link: CD + "grammar/british-grammar/need",
-      prompt: `<p class="line">"We didn't need to take a taxi."</p><p>What does this sentence tell us for certain?</p>`,
-      options: ["They definitely took a taxi.", "They definitely didn't take one.", "Only that it was unnecessary.", "That taxis were not available."],
-      answer: 2,
-      explain: `<b>Didn't need to</b> only says there was no necessity. We don't know if they took one or not (usually they didn't). Compare <b>We needn't have taken a taxi</b>: they <i>did</i> take one, and it turned out to be pointless.`
+      explain: `For a confident negative deduction about the past, use <b>can't have</b> or <b>couldn't have</b> + past participle. <i>Mustn't have</i> isn't used for deduction in British English.`
     },
     {
       tag: "Inversion in conditionals",
@@ -544,23 +529,7 @@ Quiz.mount(document.getElementById("quiz"), {
       prompt: `<p class="line">"<span class="gap"></span> you need anything at all, just give me a shout."</p>`,
       options: ["Should", "Would", "Were", "Had"],
       answer: 0,
-      explain: `<b>Should you need…</b> = <i>If you (happen to) need…</i>. It's a slightly formal way of making a first conditional, common in hotels, customer service and polite characters. <i>Were</i> and <i>Had</i> also invert, but for second and third conditionals (<i>Were I you…</i>, <i>Had I known…</i>).`
-    },
-    {
-      tag: "Inversion after negative adverbials",
-      link: BC + "inversion-after-negative-adverbials",
-      prompt: `<p class="line">"Little <span class="gap"></span> that his new partner was the one behind it all."</p>`,
-      options: ["did he know", "he did know", "does he knew", "he had known"],
-      answer: 0,
-      explain: `After a negative or restrictive word at the start (<i>Little, Never, Rarely, No sooner, Not only</i>), the auxiliary comes before the subject: <b>Little did he know…</b>. It's a stock phrase in film trailers and narration.`
-    },
-    {
-      tag: "Cleft sentences",
-      link: CD + "grammar/british-grammar/cleft-sentences-it-was-in-june-we-got-married",
-      prompt: `<p class="line">"What I really can't stand <span class="gap"></span> the way he chews with his mouth open."</p>`,
-      options: ["is", "are", "it's", "that"],
-      answer: 0,
-      explain: `A <b>wh-cleft</b> (<i>What I can't stand is…</i>) puts the new, important information at the end for emphasis. The <i>what</i>-clause acts as a singular subject, so the verb is <b>is</b>. Adding <i>it's</i> is a common learner error.`
+      explain: `<b>Should you need…</b> = <i>If you (happen to) need…</i>: a slightly formal first conditional. <i>Were</i> and <i>Had</i> invert for second and third conditionals.`
     },
     {
       tag: "Unreal time (It's high time…)",
@@ -568,23 +537,7 @@ Quiz.mount(document.getElementById("quiz"), {
       prompt: `<p class="line">"It's gone midnight. It's high time we <span class="gap"></span> home."</p>`,
       options: ["went", "go", "gone", "going"],
       answer: 0,
-      explain: `After <b>It's (high/about) time</b> + subject, English uses a past form with present meaning: <b>It's time we went</b>. The past tense here signals "this should already be happening", not past time. Same logic as <i>I'd rather you didn't</i> and <i>I wish I knew</i>.`
-    },
-    {
-      tag: "Participle clauses",
-      link: BC + "participle-clauses",
-      prompt: `<p class="line">"<span class="gap"></span> the film twice already, I knew exactly what was coming."</p>`,
-      options: ["Having seen", "Being seen", "Once seeing", "After see"],
-      answer: 0,
-      explain: `A <b>perfect participle clause</b> (<i>Having + past participle</i>) shows one action finished before another, with the same subject: <b>Having seen</b> = <i>Because I had seen</i>. <i>Being seen</i> would be passive (someone saw <i>me</i>).`
-    },
-    {
-      tag: "Articles (general vs specific)",
-      link: CD + "grammar/british-grammar/a-an-and-the",
-      prompt: `<p class="line">"<span class="gap"></span> life is short, but <span class="gap"></span> life he led was extraordinary."</p><p class="muted">Ø = no article</p>`,
-      options: ["Ø … the", "The … the", "Ø … Ø", "A … a"],
-      answer: 0,
-      explain: `Abstract nouns used <b>in general</b> take no article: <b>Life is short</b>. Once the noun is <b>made specific</b>, here by <i>he led</i>, it takes <b>the</b>: <b>the life he led</b>. Polish has no articles, so this general/specific switch is a lifelong C1 polishing point.`
+      explain: `After <b>It's (high) time</b> + subject, English uses a past form with present meaning: "this should already be happening", not past time.`
     },
     {
       tag: "Idioms",
@@ -592,15 +545,7 @@ Quiz.mount(document.getElementById("quiz"), {
       prompt: `<p class="line">"Don't tell your brother about the surprise party. He'll <span class="gap"></span>."</p>`,
       options: ["spill the beans", "break the ice", "hit the sack", "bite the bullet"],
       answer: 0,
-      explain: `<b>Spill the beans</b> = reveal a secret. The others: <i>break the ice</i> = end an awkward silence; <i>hit the sack</i> = go to bed; <i>bite the bullet</i> = force yourself to do something unpleasant.`
-    },
-    {
-      tag: "Implied meaning (he would say that)",
-      link: CD + "dictionary/english/would",
-      prompt: `<p class="line">"The manager says the project's going brilliantly."<br>"Well, he <i>would</i> say that, wouldn't he?"</p><p>What does the second speaker mean?</p>`,
-      options: ["Of course; he's biased.", "He announced it earlier.", "He'd say it eventually.", "He wanted to, secretly."],
-      answer: 0,
-      explain: `With stress on <b>would</b>, <b>he would say that</b> means "of course he says that; it's in his interest." It's a sceptical, often sarcastic reply, and it only shows up in the stress, which is why subtitles don't help much here.`
+      explain: `<b>Spill the beans</b> = reveal a secret. <i>Break the ice</i> = end an awkward silence; <i>hit the sack</i> = go to bed; <i>bite the bullet</i> = force yourself to do something unpleasant.`
     },
     {
       tag: "Collocations",
@@ -608,15 +553,7 @@ Quiz.mount(document.getElementById("quiz"), {
       prompt: `<p class="line">"Her first novel got <span class="gap"></span> reviews, so the pressure's on for the second."</p>`,
       options: ["rave", "raving", "rant", "roaring"],
       answer: 0,
-      explain: `<b>Rave reviews</b> = extremely enthusiastic reviews. It's a fixed collocation: <i>rave</i> is used as an adjective here. (<i>Roaring success</i> is also a collocation, but it doesn't go with <i>reviews</i>.)`
-    },
-    {
-      tag: "Emphatic do/did",
-      link: BC + "emphasis-cleft-sentences-inversion-auxiliaries",
-      prompt: `<p class="line">"You didn't even lock the door!"<br>"I <span class="gap"></span> lock it! I remember doing it."</p>`,
-      options: ["did", "do", "have", "was"],
-      answer: 0,
-      explain: `<b>I did lock it</b>, with <i>did</i> stressed, contradicts the other speaker forcefully. In positive statements, adding a stressed <i>do/does/did</i> adds emphasis. You'll hear it constantly in arguments on screen.`
+      explain: `<b>Rave reviews</b> = extremely enthusiastic reviews, a fixed collocation. <i>Roaring success</i> is also a collocation, but it doesn't go with <i>reviews</i>.`
     },
     {
       tag: "Reduced forms in fast speech",
@@ -624,7 +561,7 @@ Quiz.mount(document.getElementById("quiz"), {
       prompt: `<p>You hear: <span class="line" style="display:inline">"You <b>shoulda</b> told me!"</span></p><p>What's the full form?</p>`,
       options: ["should have told", "should of told", "should had told", "should a told"],
       answer: 0,
-      explain: `In fast speech, <i>have</i> after a modal shrinks to /əv/ or just /ə/: <b>shoulda, coulda, woulda, must've</b>. It is always <b>should have</b>. <i>Should of</i> is a spelling mistake natives make because the sounds are the same. Train your ear to hear /ə/ as <i>have</i>.`
+      explain: `In fast speech, <i>have</i> after a modal shrinks to /əv/ or /ə/: <b>shoulda, coulda, woulda</b>. It is always <b>should have</b>; <i>should of</i> is a spelling mistake.`
     }
   ]
 });

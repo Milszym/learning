@@ -259,43 +259,38 @@ td em { color: var(--accent); font-style: normal; font-weight: 800; }
 <main>
   <p class="kicker">Lesson 12 · Review</p>
   <h1>Mixed review</h1>
-  <p class="subtitle">Sixteen lines from Lessons 2–11, all shuffled together. No new rules, just retrieval.</p>
+  <p class="subtitle">Six lines from Lessons 2–11, shuffled together. No new rules, just retrieval.</p>
 
   <div class="meta">
-    <span><b>Time</b> ~12 min</span>
-    <span><b>Win</b> find what has stuck, and what hasn't yet</span>
-    <span><b>Mission</b> recall it at the speed of real dialogue</span>
+    <span><b>Time</b> ~3 min</span>
+    <span><b>Win</b> find what has stuck, and what hasn't</span>
+    <span><b>Mission</b> recall it at the speed of dialogue</span>
   </div>
 
   <h2>Why mix it up?</h2>
-  <p>In a single-topic lesson you know which rule is coming, so the question does half the work for you. On screen, nobody warns you that an inverted conditional or a reporting verb is next. A large review of learning research rated two techniques as the most effective: <b>practice testing</b> (pulling answers out of memory) and <b>distributed practice</b> (spacing reviews out over time).<sup class="cite"><a href="#s1">1</a></sup> This lesson does both. It also mixes topics, so each question first makes you work out <i>which</i> rule applies.</p>
-
-  <div class="callout">
-    <span class="label">How to take it</span>
-    Don't look back at the lessons first. Getting stuck is part of it: the effort of retrieving is what makes it stick. Each missed area in your summary links back to its lesson.
-  </div>
+  <p>On screen, nobody warns you which rule is next, so each question first makes you work out <i>which</i> rule applies. <b>Practice testing</b> and <b>distributed practice</b> were rated the most effective learning techniques.<sup class="cite"><a href="#s1">1</a></sup></p>
 
   <h2>Practice</h2>
-  <p>Ten typed questions and six with options, in no particular order.</p>
+  <p>Six quick lines from six different lessons, in no particular order.</p>
   <div id="quiz"><p class="callout"><span class="label">Quiz not loaded</span>If you can read this, the quiz script didn't run. Try opening the file in Chrome or Safari.</p></div>
 
   <h2>Listen for it</h2>
   <div class="callout">
     <span class="label">Real-world task · one episode, one tally</span>
-    <p>Pick one episode of a dialogue-heavy series. Keep a quick tally of every structure from this course that you catch: an <i>I wish…</i>, a <i>You're always…</i>, a <i>mind you</i>, a <i>got sacked</i>, a <i>gonna</i>. Aim for ten. Bring the best three lines back to the chat and we'll unpack them together.</p>
+    <p>In one episode, tally every structure from this course you catch (<i>I wish…</i>, <i>mind you</i>, <i>gonna</i>) and <b>aim for ten</b>.</p>
   </div>
 
   <div class="callout">
     <span class="label">Primary source</span>
-    <a href="https://www.psychologicalscience.org/publications/journals/pspi/learning-techniques.html" target="_blank" rel="noopener">Dunlosky et al. (2013), <i>Improving Students' Learning With Effective Learning Techniques</i></a>. The review behind this lesson's approach. The summary page is enough; the full paper is long.
+    <a href="https://www.psychologicalscience.org/publications/journals/pspi/learning-techniques.html" target="_blank" rel="noopener">Dunlosky et al. (2013), <i>Improving Students' Learning With Effective Learning Techniques</i></a>
   </div>
 
   <div class="callout">
     <span class="label">Keep for later</span>
-    Everything from the course on two pages: the <a href="../reference/c1-grammar-map.html">C1 grammar map</a> and the <a href="../reference/vocabulary-bank.html">vocabulary bank</a>.
+    The <a href="../reference/c1-grammar-map.html">C1 grammar map</a> and the <a href="../reference/vocabulary-bank.html">vocabulary bank</a>: the whole course on two pages.
   </div>
 
-  <p class="muted"><b>Questions?</b> Ask Claude. Paste your result in the chat and I'll plan the next lessons around what didn't stick. If any explanation didn't click, ask for more examples.</p>
+  <p class="muted"><b>Questions?</b> Ask Claude, e.g. "Plan my next lessons around what I missed."</p>
 
   <hr>
   <ol class="sources">
@@ -538,72 +533,28 @@ Quiz.mount(document.getElementById("quiz"), {
       prompt: `<p class="line">"Honestly, you <span class="gap"></span> your keys. Check your coat pocket."</p><p class="q-hint">Type be + always + the right form of <b>lose</b>.</p>`,
       accept: ["are always losing", "'re always losing"],
       explain: `<b>always + present continuous</b> complains about a habit that annoys the speaker: <i>You're always losing your keys.</i>` },
-    { ...from(9),
-      prompt: `<p class="line">"Nobody knows for sure, but the singer is said <span class="gap"></span> millions from that tour."</p><p class="q-hint">Type to have + the past participle of <b>earn</b>.</p>`,
-      accept: ["to have earned", "to have earnt"],
-      explain: `<b>be said to have + past participle</b> reports a claim about the past without naming the source: <i>She is said to have earned millions.</i>` },
-    { ...from(4),
-      prompt: `<p class="line">"I'm not going to the reunion." "Neither <span class="gap"></span> I. Awkward, isn't it?"</p><p class="q-hint">Type the missing verb.</p>`,
-      accept: ["am"],
-      explain: `Reuse the verb from the first sentence: <i>I'm not</i> → <b>Neither am I</b>. The verb comes before the subject.` },
-    { ...from(10),
-      prompt: `<p class="line">"Honestly, jazz just isn't my cup of tea."</p><p>What does the speaker mean?</p>`,
-      options: ["I don't really enjoy it.", "I only listen at breakfast.", "I used to enjoy it.", "I play it quite badly."],
-      answer: 0,
-      explain: `<b>not my cup of tea</b> = not something I like. It's a polite, understated way to say you don't enjoy something.` },
     { ...from(2),
       prompt: `<p class="line">"I'd rather you <span class="gap"></span> in the car, if you don't mind."</p><p class="q-hint">Type the correct form of <b>not smoke</b>.</p>`,
       accept: ["didn't smoke", "did not smoke"],
       explain: `<b>would rather + another person + past simple</b>, even though it's about now: <i>I'd rather you didn't smoke.</i>` },
+    { ...from(6),
+      prompt: `<p class="line">"The hotel room was tiny. <span class="gap"></span>, the staff couldn't have been nicer."</p><p class="q-hint">Type the two-word marker starting with <b>mind</b>.</p>`,
+      accept: ["mind you"],
+      explain: `<b>Mind you</b> adds a point that softens or balances what you've just said. It's mainly British and very common in conversation.` },
     { ...from(8),
       prompt: `<p class="line">"The minister denied <span class="gap"></span> the money, but nobody believed him."</p>`,
       options: ["taking", "take", "taken", "takes"],
       answer: 0,
       explain: `<b>deny + -ing</b>: <i>He denied taking the money.</i> <i>Deny</i> is never followed by <i>to</i> + infinitive.` },
-    { ...from(6),
-      prompt: `<p class="line">"The hotel room was tiny. <span class="gap"></span>, the staff couldn't have been nicer."</p><p class="q-hint">Type the two-word marker starting with <b>mind</b>.</p>`,
-      accept: ["mind you"],
-      explain: `<b>Mind you</b> adds a point that softens or balances what you've just said. It's mainly British and very common in conversation.` },
-    { ...from(5),
-      prompt: `<p class="line">"He copied the whole essay off the internet and somehow <span class="gap"></span> it."</p><p class="q-hint">Type get + two particles, in the past simple.</p>`,
-      accept: ["got away with"],
-      explain: `<b>get away with something</b> = do something wrong without being punished or caught.` },
+    { ...from(10),
+      prompt: `<p class="line">"Honestly, jazz just isn't my cup of tea."</p><p>What does the speaker mean?</p>`,
+      options: ["I don't really enjoy it.", "I only listen at breakfast.", "I used to enjoy it.", "I play it quite badly."],
+      answer: 0,
+      explain: `<b>not my cup of tea</b> = not something I like. It's a polite, understated way to say you don't enjoy something.` },
     { ...from(11),
       prompt: `<p class="line">"<b>Gimme</b> a sec, I'm just finishing this email."</p><p class="q-hint">Type the full standard form of <b>gimme</b> (two words).</p>`,
       accept: ["give me"],
-      explain: `<b>gimme</b> = <i>give me</i>: the /v/ drops out in fast speech. It's fine in subtitles and messages, but not in formal writing.` },
-    { ...from(3),
-      prompt: `<p class="line">"Look at her face. It's <span class="gap"></span> obvious she's lying."</p><p class="q-hint">Type the adverb meaning "embarrassingly". It starts with <b>pa</b>.</p>`,
-      accept: ["painfully"],
-      explain: `<b>painfully obvious</b> = so clear it's almost embarrassing. It's a fixed intensifying collocation.` },
-    { ...from(9),
-      prompt: `<p class="line">"Can you give me a lift tomorrow? I'm getting my car <span class="gap"></span>."</p>`,
-      options: ["serviced", "service", "servicing", "services"],
-      answer: 0,
-      explain: `<b>get / have + object + past participle</b>: someone else does the job for you. <i>I'm getting my car serviced.</i>` },
-    { ...from(7),
-      prompt: `<p class="line">"You're being very quiet tonight. Everything OK?"</p><p>What does the speaker mean?</p>`,
-      options: ["You're unusually quiet this evening.", "You're always a quiet person.", "You were quiet last night.", "You'll be quiet later tonight."],
-      answer: 0,
-      explain: `<b>be being + adjective</b> describes temporary behaviour, not someone's character: tonight isn't like you.` },
-    { ...from(8),
-      prompt: `<p class="line">"My sister still blames me <span class="gap"></span> Grandma's vase."</p><p class="q-hint">Type the preposition + the -ing form of <b>break</b>.</p>`,
-      accept: ["for breaking", "for having broken"],
-      explain: `<b>blame someone for + -ing</b>: <i>She blames me for breaking it.</i>` },
-    { ...from(2),
-      prompt: `<p class="line">"If only I <span class="gap"></span> the truth back then. I'd never have trusted him."</p>`,
-      options: ["had known", "have known", "would know", "was knowing"],
-      answer: 0,
-      explain: `A regret about the <b>past</b> takes the <b>past perfect</b>: <i>If only I had known.</i>` },
-    { ...from(10),
-      prompt: `<p class="line">"We all know he's leaving. Can we please talk about the <span class="gap"></span> in the room?"</p><p class="q-hint">Type one word.</p>`,
-      accept: ["elephant"],
-      explain: `<b>the elephant in the room</b> = an obvious problem that everyone avoids mentioning.` },
-    { ...from(6),
-      prompt: `<p class="line">"The film was nearly three hours long. Then again, the book's nine hundred pages."</p><p>What is <i>then again</i> doing here?</p>`,
-      options: ["Adding a contrasting thought.", "Repeating the same point.", "Changing the topic completely.", "Correcting a factual mistake."],
-      answer: 0,
-      explain: `<b>Then again</b> introduces a thought that balances or contrasts with what came before: the length makes sense, given the book.` }
+      explain: `<b>gimme</b> = <i>give me</i>: the /v/ drops out in fast speech. It's fine in subtitles and messages, but not in formal writing.` }
   ]
 });
 </script>
