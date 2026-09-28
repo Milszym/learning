@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Three hearts, blue blood</title>
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="stylesheet" href="../assets/quiz.css">
+<link rel="stylesheet" href="../assets/curio.css">
+</head>
+<body>
+<main>
+  <p class="kicker">Curiosity 3 · Nature</p>
+  <h1>Three hearts, blue blood</h1>
+  <p class="subtitle">The octopus runs on copper, not iron, and it needs a spare heart or two.</p>
+
+  <div class="meta">
+    <span><b>Time</b> ~2 min</span>
+    <span><b>Win</b> the best animal fact at any dinner</span>
+    <span><b>Bonus</b> 1 C1 word</span>
+  </div>
+
+  <div id="guess"><p class="callout"><span class="label">Guess first</span>How many hearts does an octopus have, and what colour is its blood? Decide before you scroll.</p></div>
+
+  <section data-after-guess>
+    <p class="reveal">An octopus has <mark>three hearts and blue blood</mark>, coloured by copper instead of iron.</p>
+
+    <div class="stats">
+      <div class="stat" style="--c: var(--grape)"><b>3</b><span>hearts: two for the gills, one for the body</span></div>
+      <div class="stat" style="--c: var(--sky)"><b>Cu</b><span>copper, not iron, carries its oxygen</span></div>
+    </div>
+
+    <p><b>Why it works:</b> two small hearts push blood through the gills; the third sends it round the body.<sup class="cite"><a href="#s1">1</a></sup> Oxygen rides on haemocyanin, a copper protein that turns blue when it picks oxygen up (and is colourless without it).<sup class="cite"><a href="#s2">2</a></sup> It works well in cold, oxygen-poor water. The catch: the body heart stops while the octopus swims, so it prefers to crawl.<sup class="cite"><a href="#s3">3</a></sup></p>
+
+    <div class="retell">
+      <span class="label">Retell it · say it out loud once</span>
+      <ol>
+        <li><b>Hook:</b> "Which animal has three hearts and blue blood?"</li>
+        <li><b>Detail:</b> "Two hearts pump blood through the gills, one pumps it round the body. The blood uses copper, not iron, so it's blue."</li>
+        <li><b>Kicker:</b> "Its main heart stops when it swims, which is why octopuses would rather crawl."</li>
+      </ol>
+    </div>
+
+    <div class="words">
+      <div class="word" style="--c: var(--grape)">
+        <h3>eerie<span class="pos">adjective</span></h3>
+        <p>Strange in a frightening and mysterious way.<sup class="cite"><a href="#s4">4</a></sup> <i>There's something <b>eerie</b> about an animal with three hearts and blue blood.</i></p>
+      </div>
+    </div>
+
+    <div id="quiz"><p class="callout"><span class="label">Quiz not loaded</span>If you can read this, the quiz script didn't run. Try opening the file in Chrome or Safari.</p></div>
+
+    <p class="muted"><b>Read more:</b> <a href="https://www.smithsonianmag.com/science-nature/ten-wild-facts-about-octopuses-they-have-three-hearts-big-brains-and-blue-blood-7625828/" target="_blank" rel="noopener">Smithsonian: ten wild facts about octopuses</a>. All retells: <a href="../reference/curiosity-deck.html">the curiosity deck</a>. <b>Questions?</b> Ask Claude, e.g. "Which other animals have blue blood?"</p>
+  </section>
+
+  <hr>
+  <ol class="sources">
+    <li id="s1">Wikipedia, <a href="https://en.wikipedia.org/wiki/Octopus">Octopus</a> (circulatory system: one systemic and two branchial hearts; systemic heart inactive while swimming).</li>
+    <li id="s2">Wikipedia, <a href="https://en.wikipedia.org/wiki/Hemocyanin">Hemocyanin</a> (colourless deoxygenated, blue oxygenated; better than haemoglobin in cold, low-oxygen conditions).</li>
+    <li id="s3">Smithsonian Magazine, <a href="https://www.smithsonianmag.com/science-nature/ten-wild-facts-about-octopuses-they-have-three-hearts-big-brains-and-blue-blood-7625828/">Ten wild facts about octopuses</a>.</li>
+    <li id="s4">Cambridge Dictionary, <a href="https://dictionary.cambridge.org/dictionary/english/eerie">eerie</a>.</li>
+  </ol>
+
+  <nav class="nav">
+    <a href="0002-a-day-longer-than-a-year.html">← Curiosity 2: A day longer than a year</a>
+    <a href="0004-the-invisible-gorilla.html">Curiosity 4: The invisible gorilla →</a>
+  </nav>
+</main>
+
+<script src="../assets/guess.js"></script>
+<script src="../assets/quiz.js"></script>
+<script>
+Guess.mount(document.getElementById("guess"), {
+  id: "0003",
+  prompt: "An octopus has how many hearts, and what colour is its blood?",
+  options: ["One heart, and green blood", "Three hearts, and blue blood", "Two hearts, and red blood"],
+  answer: 1,
+  right: "Right! Three hearts, and blood that turns blue with oxygen.",
+  wrong: "Good guess, but it's three hearts and blue, copper-based blood."
+});
+
+const WP = "https://en.wikipedia.org/wiki/";
+Quiz.mount(document.getElementById("quiz"), {
+  id: "0003-three-hearts-blue-blood",
+  questions: [
+    {
+      tag: "Octopus: the metal",
+      link: WP + "Hemocyanin",
+      prompt: `<p>Our blood uses iron to carry oxygen. Which metal does octopus blood use instead?</p><p class="q-hint">Type one word.</p>`,
+      accept: ["copper", "cu"],
+      explain: `<b>Copper</b>, inside the protein haemocyanin. It turns blue when it carries oxygen.`
+    },
+    {
+      tag: "Octopus: why three hearts",
+      link: WP + "Octopus",
+      prompt: `<p>What do the two smaller hearts of an octopus do?</p>`,
+      options: [
+        "They push the blood through the gills to collect oxygen",
+        "They take over only when the octopus is badly hurt",
+        "They pump ink into the sac when a predator attacks",
+        "They warm the blood before it goes into the brain"
+      ],
+      answer: 0,
+      explain: `The two <b>gill (branchial) hearts</b> push blood through the gills; the third, systemic heart sends the oxygen-rich blood round the body.`
+    },
+    {
+      tag: "Review: Cleopatra and the Moon",
+      link: WP + "Ptolemaic_dynasty",
+      prompt: `<p class="muted">Review from Curiosity 1</p><p>Cleopatra spoke Greek because she belonged to a Greek royal family that ruled Egypt. What was the dynasty called?</p><p class="q-hint">Type one word.</p>`,
+      accept: ["ptolemaic", "the ptolemaic", "ptolemaic dynasty", "the ptolemaic dynasty", "ptolemies", "the ptolemies"],
+      explain: `The <b>Ptolemaic</b> dynasty, founded by a general of Alexander the Great. Cleopatra VII was its last ruler.`
+    }
+  ]
+});
+</script>
+</body>
+</html>

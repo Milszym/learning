@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Honey never spoils</title>
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="stylesheet" href="../assets/quiz.css">
+<link rel="stylesheet" href="../assets/curio.css">
+</head>
+<body>
+<main>
+  <p class="kicker">Curiosity 16 · Nature</p>
+  <h1>Honey never spoils</h1>
+  <p class="subtitle">Bees build a food that microbes simply can't live in.</p>
+
+  <div class="meta">
+    <span><b>Time</b> ~2 min</span>
+    <span><b>Win</b> three reasons honey lasts, ready to explain</span>
+    <span><b>Bonus</b> 1 C1 word</span>
+  </div>
+
+  <div id="guess"><p class="callout"><span class="label">Guess first</span>In a properly sealed jar, how long does honey stay safe to eat: about two years, about twenty years, or practically for ever? Decide before you scroll.</p></div>
+
+  <section data-after-guess>
+    <p class="reveal">Sealed properly, honey <mark>essentially never spoils</mark>: it's too dry, too acidic and too sugary for microbes.</p>
+
+    <div class="stats">
+      <div class="stat" style="--c: var(--sun)"><b>17–18%</b><span>water in ripe honey (nectar: 60–80%)</span></div>
+      <div class="stat" style="--c: var(--accent)"><b>pH ≈ 4</b><span>acidic, from gluconic acid</span></div>
+      <div class="stat" style="--c: var(--sky)"><b>H₂O₂</b><span>hydrogen peroxide, made by a bee enzyme</span></div>
+    </div>
+
+    <p><b>Why it works:</b> Bees fan nectar until only about 17–18% water is left, so the sugar pulls water out of any microbe that lands in it.<sup class="cite"><a href="#s1">1</a></sup> A bee enzyme, glucose oxidase, adds gluconic acid and a little hydrogen peroxide.<sup class="cite"><a href="#s2">2</a></sup> The catch is the seal: open honey soaks up moisture from humid air and can ferment. The popular "edible honey from pharaohs' tombs" story is often repeated but poorly documented.</p>
+
+    <div class="retell">
+      <span class="label">Retell it · say it out loud once</span>
+      <ol>
+        <li><b>Hook:</b> "Why is honey the one food in your kitchen that never goes off?"</li>
+        <li><b>Detail:</b> "Bees dry nectar from about 70% water down to 17%, then add acid and a dash of hydrogen peroxide."</li>
+        <li><b>Kicker:</b> "Microbes don't die of hunger in honey. They die of thirst."</li>
+      </ol>
+    </div>
+
+    <div class="words">
+      <div class="word" style="--c: var(--sun)">
+        <h3>pristine<span class="pos">adjective</span></h3>
+        <p>Original and pure; not spoiled or worn from use.<sup class="cite"><a href="#s3">3</a></sup> <i>Keep the lid on tight and the honey stays <b>pristine</b> for decades.</i></p>
+      </div>
+    </div>
+
+    <div id="quiz"><p class="callout"><span class="label">Quiz not loaded</span>If you can read this, the quiz script didn't run. Try opening the file in Chrome or Safari.</p></div>
+
+    <p class="muted"><b>Read more:</b> <a href="https://www.smithsonianmag.com/science-nature/the-science-behind-honeys-eternal-shelf-life-1218690/" target="_blank" rel="noopener">Smithsonian: The Science Behind Honey's Eternal Shelf Life</a>. All retells: <a href="../reference/curiosity-deck.html">the curiosity deck</a>. <b>Questions?</b> Ask Claude, e.g. "Why does honey crystallise, and is it still safe?"</p>
+  </section>
+
+  <hr>
+  <ol class="sources">
+    <li id="s1">Mandal, M. D. &amp; Mandal, S. (2011), <a href="https://doi.org/10.1016/S2221-1691(11)60016-6">Honey: its medicinal property and antibacterial activity</a>, <i>Asian Pacific Journal of Tropical Biomedicine</i> 1(2): 154–160 (water drops from 70–80% to 17–18%; acid pH; glucose oxidase).</li>
+    <li id="s2">Smithsonian Magazine, <a href="https://www.smithsonianmag.com/science-nature/the-science-behind-honeys-eternal-shelf-life-1218690/">The Science Behind Honey's Eternal Shelf Life</a> (pH 3–4.5; the need for a seal).</li>
+    <li id="s3">Cambridge Dictionary, <a href="https://dictionary.cambridge.org/dictionary/english/pristine">pristine</a>.</li>
+  </ol>
+
+  <nav class="nav">
+    <a href="0015-gps-needs-einstein.html">← Curiosity 15: GPS needs Einstein</a>
+    <a href="0017-blue-sunsets-on-mars.html">Curiosity 17: Blue sunsets on Mars →</a>
+  </nav>
+</main>
+
+<script src="../assets/guess.js"></script>
+<script src="../assets/quiz.js"></script>
+<script>
+Guess.mount(document.getElementById("guess"), {
+  id: "0016",
+  prompt: "Sealed properly, how long does honey stay safe to eat?",
+  options: ["Roughly two years", "Roughly twenty years", "Practically for ever"],
+  answer: 2,
+  right: "Right! Sealed honey essentially never spoils.",
+  wrong: "Longer than that: sealed honey essentially never spoils."
+});
+
+const WP = "https://en.wikipedia.org/wiki/";
+Quiz.mount(document.getElementById("quiz"), {
+  id: "0016-honey-never-spoils",
+  questions: [
+    {
+      tag: "Honey: the water content",
+      link: WP + "Honey",
+      prompt: `<p>Roughly what percentage of ripe honey is water?</p><p class="q-hint">Type a number (a range is fine).</p>`,
+      accept: ["17", "18", "17%", "18%", "17-18", "17–18", "17-18%", "17–18%", "about 17", "about 18", "17 percent", "18 percent", "seventeen", "eighteen"],
+      explain: `About <b>17–18%</b>, down from 60–80% in fresh nectar. Too little water for microbes to grow.`
+    },
+    {
+      tag: "Honey: why the seal matters",
+      link: "https://www.smithsonianmag.com/science-nature/the-science-behind-honeys-eternal-shelf-life-1218690/",
+      prompt: `<p>Why can honey left open in a humid kitchen eventually spoil?</p>`,
+      options: [
+        "It absorbs water from the air, so yeasts can ferment it",
+        "Air turns its sugar into alcohol without any yeast at all",
+        "Oxygen destroys the acid, so that bacteria can multiply inside it",
+        "Sunlight slowly breaks all the sugar down into water and gas"
+      ],
+      answer: 0,
+      explain: `Honey is <b>hygroscopic</b>: it pulls water from the air. Once it's wet enough, yeasts can ferment it. Dryness is its main defence.`
+    },
+    {
+      tag: "Review: GPS needs Einstein",
+      link: "https://www.astronomy.ohio-state.edu/pogge.1/Ast162/Unit5/gps.html",
+      prompt: `<p class="muted">Review from Curiosity 15</p><p>Without relativity corrections, roughly how many kilometres a day would GPS errors grow?</p><p class="q-hint">Type a number.</p>`,
+      accept: ["10", "11", "10 km", "11 km", "ten", "eleven", "about 10", "about 11", "10 kilometres", "10 kilometers", "12", "13"],
+      explain: `About <b>10 km a day</b>: 38 µs of clock drift times the speed of light is roughly 11 km.`
+    }
+  ]
+});
+</script>
+</body>
+</html>

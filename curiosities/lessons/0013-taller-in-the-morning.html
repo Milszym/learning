@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Taller in the morning</title>
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="stylesheet" href="../assets/quiz.css">
+<link rel="stylesheet" href="../assets/curio.css">
+</head>
+<body>
+<main>
+  <p class="kicker">Curiosity 13 · Body</p>
+  <h1>Taller in the morning</h1>
+  <p class="subtitle">You shrink a little every day, and grow back every night.</p>
+
+  <div class="meta">
+    <span><b>Time</b> ~2 min</span>
+    <span><b>Win</b> a body fact anyone can test with a tape measure</span>
+    <span><b>Bonus</b> 1 C1 word</span>
+  </div>
+
+  <div id="guess"><p class="callout"><span class="label">Guess first</span>When are you tallest: just after waking up, or just before bed? Decide before you scroll.</p></div>
+
+  <section data-after-guess>
+    <p class="reveal">You are <mark>roughly 1–2 cm taller when you wake up</mark> than when you go to bed.</p>
+
+    <div class="stats">
+      <div class="stat" style="--c: var(--sky)"><b>~19 mm</b><span>average daily swing in height (about 1%)</span></div>
+      <div class="stat" style="--c: var(--sun)"><b>&gt;50%</b><span>of the day's loss happens in the first hour up</span></div>
+      <div class="stat" style="--c: var(--mint)"><b>~70%</b><span>regained in the first half of the night</span></div>
+    </div>
+
+    <p><b>Why it works:</b> The discs between your vertebrae are water-rich cushions. Standing and sitting squeeze them all day, so they thin out; lying down lets them soak up water again.<sup class="cite"><a href="#s2">2</a></sup><sup class="cite"><a href="#s3">3</a></sup> Two small studies both found an average of 19.3 mm, with individuals ranging from 8 to 26 mm.<sup class="cite"><a href="#s1">1</a></sup><sup class="cite"><a href="#s2">2</a></sup> Measure later than dawn and you'll see less: one study found about 7 mm over seven hours.<sup class="cite"><a href="#s4">4</a></sup></p>
+
+    <div class="retell">
+      <span class="label">Retell it · say it out loud once</span>
+      <ol>
+        <li><b>Hook:</b> "Did you know you're shorter now than when you woke up?"</li>
+        <li><b>Numbers:</b> "About 2 cm, around 1% of your height. Over half of it goes in the first hour after you get up."</li>
+        <li><b>Kicker:</b> "Your spinal discs are sponges: squeezed all day, refilled all night."</li>
+      </ol>
+    </div>
+
+    <div class="words">
+      <div class="word" style="--c: var(--sky)">
+        <h3>imperceptible<span class="pos">adjective</span></h3>
+        <p>Unable to be noticed or felt because it is very slight.<sup class="cite"><a href="#s5">5</a></sup> <i>The daily shrinking is <b>imperceptible</b> in the mirror, but a careful measurement catches it.</i></p>
+      </div>
+    </div>
+
+    <div id="quiz"><p class="callout"><span class="label">Quiz not loaded</span>If you can read this, the quiz script didn't run. Try opening the file in Chrome or Safari.</p></div>
+
+    <p class="muted"><b>Read more:</b> <a href="https://pubmed.ncbi.nlm.nih.gov/6600017/" target="_blank" rel="noopener">Reilly, Tyrrell &amp; Troup (1984), "Circadian variation in human stature"</a>. All retells: <a href="../reference/curiosity-deck.html">the curiosity deck</a>. <b>Questions?</b> Ask Claude, e.g. "Why do astronauts get taller in space?"</p>
+  </section>
+
+  <hr>
+  <ol class="sources">
+    <li id="s1">Reilly, T., Tyrrell, A. &amp; Troup, J. D. (1984), <a href="https://pubmed.ncbi.nlm.nih.gov/6600017/">Circadian variation in human stature</a>, <i>Chronobiology International</i> 1(2) (19.3 mm, 1.1% of stature; eight adults).</li>
+    <li id="s2">Roberts, N. et al. (1998), <a href="https://pubmed.ncbi.nlm.nih.gov/9445091/">Quantitative analysis of diurnal variation in volume and water content of lumbar intervertebral discs</a>, <i>Clinical Anatomy</i> 11(1) (overnight gain 19.3 mm, range 8–26 mm; disc water rises).</li>
+    <li id="s3">Tyrrell, A. R., Reilly, T. &amp; Troup, J. D. (1985), <a href="https://pubmed.ncbi.nlm.nih.gov/4002039/">Circadian variation in stature and the effects of spinal loading</a>, <i>Spine</i> 10(2) (54% lost in the first hour; about 70% regained in the first half of the night).</li>
+    <li id="s4">Floyd, B. et al. (2017), <a href="https://pubmed.ncbi.nlm.nih.gov/28400060/">Factors influencing diurnal variation in height among adults</a>, <i>HOMO</i> 68(3).</li>
+    <li id="s5">Cambridge Dictionary, <a href="https://dictionary.cambridge.org/dictionary/english/imperceptible">imperceptible</a>.</li>
+  </ol>
+
+  <nav class="nav">
+    <a href="0012-mammoths-and-pyramids.html">← Curiosity 12: Mammoths and pyramids</a>
+    <a href="0014-ok-was-a-joke.html">Curiosity 14: OK was a joke →</a>
+  </nav>
+</main>
+
+<script src="../assets/guess.js"></script>
+<script src="../assets/quiz.js"></script>
+<script>
+Guess.mount(document.getElementById("guess"), {
+  id: "0013",
+  prompt: "When are you at your tallest?",
+  options: ["Just after you wake up", "Just before you go to bed"],
+  answer: 0,
+  right: "Right! Many people guess there's no difference. Here's why you're correct.",
+  wrong: "You're in good company: it feels like height is fixed. It's just after waking."
+});
+
+const WP = "https://en.wikipedia.org/wiki/";
+Quiz.mount(document.getElementById("quiz"), {
+  id: "0013-taller-in-the-morning",
+  questions: [
+    {
+      tag: "Morning height: how much",
+      link: "https://pubmed.ncbi.nlm.nih.gov/6600017/",
+      prompt: `<p>Roughly how many centimetres taller are you on waking than at bedtime?</p><p class="q-hint">Type a number or a range, e.g. "3" or "3–4".</p>`,
+      accept: ["2", "1-2", "1–2", "1 to 2", "2 cm", "about 2", "about 2 cm", "1", "1 cm", "about 1", "1.9", "1.9 cm", "1-2 cm", "1–2 cm", "one to two", "two"],
+      explain: `About <b>1–2 cm</b>: the classic studies found an average of <b>19.3 mm</b>, about 1% of height.`
+    },
+    {
+      tag: "Morning height: the mechanism",
+      link: WP + "Intervertebral_disc",
+      prompt: `<p>What causes the daily change in height?</p>`,
+      options: [
+        "Spinal discs lose water under load and refill lying down",
+        "The skull's bones shift apart a little while you sleep",
+        "Foot arches flatten after a long day on your feet",
+        "Neck muscles tire and let the head sink by evening"
+      ],
+      answer: 0,
+      explain: `The <b>intervertebral discs</b> are squeezed by body weight all day and <b>soak water back</b> overnight when you lie down.`
+    },
+    {
+      tag: "Review: The birthday paradox",
+      link: WP + "Birthday_problem",
+      prompt: `<p class="muted">Review from Curiosity 10</p><p>In a group of 23 people, how many different pairs of people can you form?</p><p class="q-hint">Type a number.</p>`,
+      accept: ["253", "253 pairs", "two hundred and fifty-three", "two hundred fifty-three"],
+      explain: `23 × 22 ÷ 2 = <b>253</b> pairs: that's why a shared birthday is already a coin flip.`
+    }
+  ]
+});
+</script>
+</body>
+</html>

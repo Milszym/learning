@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The birthday paradox</title>
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="stylesheet" href="../assets/quiz.css">
+<link rel="stylesheet" href="../assets/curio.css">
+</head>
+<body>
+<main>
+  <p class="kicker">Curiosity 10 · Maths</p>
+  <h1>The birthday paradox</h1>
+  <p class="subtitle">Two football teams plus the referee: enough for a coin-flip chance of a shared birthday.</p>
+
+  <div class="meta">
+    <span><b>Time</b> ~2 min</span>
+    <span><b>Win</b> a bet you'll usually win at parties</span>
+    <span><b>Bonus</b> 1 C1 word</span>
+  </div>
+
+  <div id="guess"><p class="callout"><span class="label">Guess first</span>How many people do you need in a room for a better-than-even chance that two share a birthday? Decide before you scroll.</p></div>
+
+  <section data-after-guess>
+    <p class="reveal">With just <mark>23 people</mark>, the chance that two share a birthday is already about 50.7%.</p>
+
+    <div class="stats">
+      <div class="stat" style="--c: var(--sky)"><b>23</b><span>people in the room</span></div>
+      <div class="stat" style="--c: var(--sun)"><b>253</b><span>possible pairs to compare</span></div>
+      <div class="stat" style="--c: var(--accent)"><b>50.7%</b><span>chance of a shared birthday</span></div>
+    </div>
+
+    <p><b>Why it feels wrong:</b> We picture ourselves: the chance that one of 22 others shares <i>my</i> birthday is only about 6%. But any pair counts, and 23 people make 253 pairs; with 70 people the chance hits 99.9%.<sup class="cite"><a href="#s1">1</a></sup> The maths assumes 365 equally likely birthdays and ignores leap years. Real births are slightly uneven, which only raises the odds, and real data still give 23.<sup class="cite"><a href="#s2">2</a></sup></p>
+
+    <div class="retell">
+      <span class="label">Retell it · say it out loud once</span>
+      <ol>
+        <li><b>Hook:</b> "How many people do you need before two probably share a birthday?"</li>
+        <li><b>Numbers:</b> "Just 23. That's 253 pairs and a 50.7% chance. With 70 people, it's 99.9%."</li>
+        <li><b>Kicker:</b> "It's not about <i>your</i> birthday. It's about any two people, and pairs pile up fast."</li>
+      </ol>
+    </div>
+
+    <div class="words">
+      <div class="word" style="--c: var(--sky)">
+        <h3>counterintuitive<span class="pos">adjective</span></h3>
+        <p>Not happening in the way you would expect.<sup class="cite"><a href="#s3">3</a></sup> <i>It's <b>counterintuitive</b>, but two football teams and a referee are enough for an even chance of a shared birthday.</i></p>
+      </div>
+    </div>
+
+    <div id="quiz"><p class="callout"><span class="label">Quiz not loaded</span>If you can read this, the quiz script didn't run. Try opening the file in Chrome or Safari.</p></div>
+
+    <p class="muted"><b>Read more:</b> <a href="https://rss.onlinelibrary.wiley.com/doi/full/10.1111/j.1740-9713.2007.00246.x" target="_blank" rel="noopener">Cortina Borja &amp; Haigh, "The birthday problem", <i>Significance</i> (Royal Statistical Society)</a>. All retells: <a href="../reference/curiosity-deck.html">the curiosity deck</a>. <b>Questions?</b> Ask Claude, e.g. "Why does the birthday paradox matter for passwords and hash functions?"</p>
+  </section>
+
+  <hr>
+  <ol class="sources">
+    <li id="s1">Wikipedia, <a href="https://en.wikipedia.org/wiki/Birthday_problem">Birthday problem</a> (253 pairs, 50.7% at 23, 99.9% at 70).</li>
+    <li id="s2">Cortina Borja, M. &amp; Haigh, J. (2007), <a href="https://rss.onlinelibrary.wiley.com/doi/full/10.1111/j.1740-9713.2007.00246.x">The birthday problem</a>, <i>Significance</i> 4(3), 124–127 (real birth data from England and Wales).</li>
+    <li id="s3">Cambridge Dictionary, <a href="https://dictionary.cambridge.org/dictionary/english/counterintuitive">counterintuitive</a>.</li>
+  </ol>
+
+  <nav class="nav">
+    <a href="0009-more-trees-than-stars.html">← Curiosity 9: More trees than stars</a>
+    <a href="0011-sharks-older-than-trees.html">Curiosity 11: Sharks older than trees →</a>
+  </nav>
+</main>
+
+<script src="../assets/guess.js"></script>
+<script src="../assets/quiz.js"></script>
+<script>
+Guess.mount(document.getElementById("guess"), {
+  id: "0010",
+  prompt: "How many people give a better-than-even chance that two share a birthday?",
+  options: ["23 people", "57 people", "183 people"],
+  answer: 0,
+  right: "Right! Most people guess far higher. Here's why you're correct.",
+  wrong: "You're in good company: most people guess far higher. It's just 23 (57 gives you 99%)."
+});
+
+const WP = "https://en.wikipedia.org/wiki/";
+Quiz.mount(document.getElementById("quiz"), {
+  id: "0010-the-birthday-paradox",
+  questions: [
+    {
+      tag: "Birthday paradox: the magic number",
+      link: WP + "Birthday_problem",
+      prompt: `<p>What is the smallest group with a better than 50% chance that two people share a birthday?</p><p class="q-hint">Type a number.</p>`,
+      accept: ["23", "23 people", "twenty-three", "twenty three"],
+      explain: `<b>23</b> people give about 50.7%. At 22 it's about 47.6%.`
+    },
+    {
+      tag: "Birthday paradox: why so few",
+      link: WP + "Birthday_problem",
+      prompt: `<p>Why are so few people enough?</p>`,
+      options: [
+        "Any pair can match, and 23 people make 253 pairs",
+        "Most people are born in the same few summer months",
+        "Leap years make some of the birthdays twice as likely",
+        "Twins and siblings tend to turn up in large groups"
+      ],
+      answer: 0,
+      explain: `The trick is <b>pairs</b>, not people: 23 people give 253 chances for a match. The maths even assumes perfectly even birthdays.`
+    },
+    {
+      tag: "Review: The invisible gorilla",
+      link: WP + "Inattentional_blindness",
+      prompt: `<p class="muted">Review from Curiosity 4</p><p>Why did so many viewers miss the gorilla in Simons &amp; Chabris's video?</p>`,
+      options: [
+        "Their attention was locked on counting all the passes",
+        "The gorilla crossed the screen in a split second",
+        "The video was too dark to see the costume",
+        "Most of the viewers had watched the clip before"
+      ],
+      answer: 0,
+      explain: `<b>Inattentional blindness</b>: a demanding task (counting passes) leaves no attention for an unexpected object, even an obvious one.`
+    }
+  ]
+});
+</script>
+</body>
+</html>

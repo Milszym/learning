@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Curiosity Deck</title>
+<style>
+/* Curiosities stylesheet: cool "night-sky museum" palette (teal, amber, cobalt, lime, plum),
+   deliberately different from english_c1's warm candy palette. Print-friendly, light/dark. */
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,500..700,100&family=Nunito:ital,wght@0,400;0,600;0,700;0,800;1,400&display=swap");
+
+:root {
+  --bg: #edf3f8;          /* cool blue-grey paper */
+  --fg: #13233a;          /* deep navy ink */
+  --muted: #5b6f86;
+  --rule: #d2dfea;
+  --panel: #ffffff;
+  --accent: #0b8577;      /* teal */
+  --sun: #e8980c;         /* amber */
+  --sky: #2f63d8;         /* cobalt */
+  --mint: #6ea614;        /* lime */
+  --grape: #a23b72;       /* plum */
+  --good: #10a37f;
+  --good-bg: #dcfbef;
+  --bad: #e5484d;
+  --bad-bg: #ffe4e6;
+  --shadow: 0 6px 0 rgba(19, 35, 58, .08), 0 12px 28px rgba(19, 35, 58, .09);
+  --radius: 18px;
+  --blob: 22%;
+  --measure: 40rem;
+  --font-body: "Nunito", "Segoe UI Rounded", "SF Pro Rounded", system-ui, sans-serif;
+  --font-display: "Fraunces", Georgia, serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0e1a2b; --fg: #e8f1fa; --muted: #9db2c7; --rule: #233a55; --panel: #152840;
+    --accent: #2cc4b0; --sun: #f7b733; --sky: #6b95f2; --mint: #9bd13a; --grape: #d46a9f;
+    --good: #4ee3b0; --good-bg: #133a35; --bad: #ff8a8f; --bad-bg: #40202b;
+    --shadow: 0 6px 0 rgba(0, 0, 0, .28), 0 12px 28px rgba(0, 0, 0, .32);
+    --blob: 12%;
+  }
+}
+:root[data-theme="dark"] {
+    --bg: #0e1a2b; --fg: #e8f1fa; --muted: #9db2c7; --rule: #233a55; --panel: #152840;
+    --accent: #2cc4b0; --sun: #f7b733; --sky: #6b95f2; --mint: #9bd13a; --grape: #d46a9f;
+    --good: #4ee3b0; --good-bg: #133a35; --bad: #ff8a8f; --bad-bg: #40202b;
+    --shadow: 0 6px 0 rgba(0, 0, 0, .28), 0 12px 28px rgba(0, 0, 0, .32);
+    --blob: 12%;
+}
+
+* { box-sizing: border-box; }
+html { font-size: 18px; }
+body {
+  margin: 0; padding: 3rem 16px 5rem;
+  background:
+    radial-gradient(circle at 8% 4%, color-mix(in srgb, var(--sun) var(--blob), transparent) 0 14rem, transparent 14rem),
+    radial-gradient(circle at 96% 18%, color-mix(in srgb, var(--sky) var(--blob), transparent) 0 11rem, transparent 11rem),
+    var(--bg);
+  background-attachment: fixed;
+  color: var(--fg);
+  font-family: var(--font-body); line-height: 1.6;
+}
+main { max-width: var(--measure); margin: 0 auto; }
+
+/* Header */
+.kicker {
+  display: inline-block; font: 800 .72rem/1 var(--font-body); letter-spacing: .1em; text-transform: uppercase;
+  color: #fff; background: var(--accent); padding: .45rem .75rem; border-radius: 999px; margin: 0 0 1rem;
+}
+h1 { font-family: var(--font-display); font-variation-settings: "SOFT" 100; font-weight: 700; font-size: 2.6rem; line-height: 1.1; margin: 0 0 .5rem; }
+.subtitle { color: var(--muted); font-size: 1.15rem; margin: 0 0 1.8rem; }
+h2 { font-family: var(--font-display); font-variation-settings: "SOFT" 100; font-weight: 600; font-size: 1.6rem; margin: 2.6rem 0 .7rem; }
+h3 { font-weight: 800; font-size: 1.1rem; margin: 1.6rem 0 .3rem; }
+a { color: inherit; text-decoration: underline 2px var(--accent); text-underline-offset: 3px; }
+a:hover { color: var(--accent); }
+hr { border: 0; border-top: 2px dashed var(--rule); margin: 2.5rem 0; }
+code, kbd { font-family: ui-monospace, Menlo, monospace; font-size: .85em; }
+small, .muted { color: var(--muted); }
+
+/* Meta chips: time, goal */
+.meta { display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: 2rem; }
+.meta span { font-size: .85rem; background: var(--panel); border: 2px solid var(--rule); border-radius: 999px; padding: .35rem .8rem; }
+.meta span:nth-child(1) { border-color: var(--sun); }
+.meta span:nth-child(2) { border-color: var(--mint); }
+.meta span:nth-child(3) { border-color: var(--sky); }
+.meta b { font-weight: 800; }
+
+/* Callouts */
+.callout { background: var(--panel); border-radius: var(--radius); box-shadow: var(--shadow); border-top: 6px solid var(--grape); padding: 1rem 1.2rem; margin: 1.4rem 0; }
+.callout:nth-of-type(3n+2) { border-top-color: var(--sky); }
+.callout:nth-of-type(3n) { border-top-color: var(--mint); }
+.callout > :first-child { margin-top: 0; } .callout > :last-child { margin-bottom: 0; }
+.callout .label { font: 800 .72rem var(--font-body); letter-spacing: .1em; text-transform: uppercase; color: var(--grape); display: block; margin-bottom: .3rem; }
+
+/* Dialogue lines, as heard on screen */
+.line { font-style: italic; font-size: 1.08rem; padding: .1rem 0 .1rem .9rem; border-left: 4px solid var(--sun); margin: .5rem 0; }
+
+/* Citations */
+sup.cite a { text-decoration: none; color: #fff; background: var(--sky); border-radius: 999px; padding: 0 .35em; font: 800 .62rem var(--font-body); }
+ol.sources { font-size: .85rem; color: var(--muted); padding-left: 1.2rem; }
+
+/* Tables (reference sheets) */
+table { width: 100%; border-collapse: separate; border-spacing: 0; font-size: .92rem; margin: 1rem 0; background: var(--panel); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); }
+th { text-align: left; font: 800 .7rem var(--font-body); letter-spacing: .08em; text-transform: uppercase; color: #fff; background: var(--grape); padding: .6rem .8rem; }
+td { border-top: 1px solid var(--rule); padding: .65rem .8rem; vertical-align: top; }
+td em { color: var(--accent); font-style: normal; font-weight: 800; }
+.table-wrap { overflow-x: auto; }
+
+/* Rule cards (knowledge sections) */
+.rules { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: .9rem; margin: 1.2rem 0; }
+.rule { background: var(--panel); border-radius: var(--radius); box-shadow: var(--shadow); padding: 1rem 1.1rem; border-top: 6px solid var(--c, var(--grape)); }
+.rule h3 { margin: 0 0 .3rem; font-size: 1rem; }
+.rule .pattern { font-weight: 800; color: var(--c, var(--grape)); font-size: .92rem; margin: 0 0 .4rem; }
+.rule p { margin: .3rem 0; font-size: .95rem; }
+
+/* Footer nav */
+.nav { display: flex; justify-content: space-between; gap: 1rem; font-weight: 700; font-size: .9rem; margin-top: 3rem; padding-top: 1rem; border-top: 2px dashed var(--rule); }
+
+@media (max-width: 600px) {
+  html { font-size: 17px; }
+  body { padding-top: 1.5rem; }
+  h1 { font-size: 2rem; }
+}
+@media print {
+  :root { --bg: #fff; --fg: #000; --shadow: none; }
+  body { padding: 0; font-size: 11pt; background: #fff; }
+  .no-print, .nav { display: none !important; }
+  a { text-decoration: none; }
+  table, .callout, .q { break-inside: avoid; }
+  table, .callout { border: 1px solid #ccc; }
+}
+</style>
+<style>
+/* Curiosity-lesson components: guess card, reveal, timeline, retell card, word cards.
+   Relies on tokens from style.css. */
+
+/* Guess first (assets/guess.js) */
+.guess { background: var(--panel); border-radius: var(--radius); box-shadow: var(--shadow); border-top: 8px solid var(--sun); padding: 1.2rem 1.3rem 1.3rem; margin: 1.4rem 0; }
+.guess .label { font: 800 .72rem var(--font-body); letter-spacing: .1em; text-transform: uppercase; color: var(--muted); display: block; margin-bottom: .4rem; }
+.guess-prompt { font-family: var(--font-display); font-variation-settings: "SOFT" 100; font-weight: 600; font-size: 1.35rem; line-height: 1.3; margin: 0 0 1rem; }
+.guess .q-opts { --q-color: var(--sun); }
+.guess-verdict { margin: 1rem 0 0; font-weight: 700; animation: q-rise .3s ease; }
+.guess-verdict:empty { display: none; }
+[data-after-guess][hidden] { display: none !important; }
+
+/* The reveal: one big sentence */
+.reveal { font-family: var(--font-display); font-variation-settings: "SOFT" 100; font-weight: 700; font-size: 1.7rem; line-height: 1.25; margin: 1.6rem 0 1rem; }
+.reveal mark { background: linear-gradient(transparent 60%, color-mix(in srgb, var(--sun) 70%, transparent) 60%); color: inherit; }
+
+/* Proportional timeline (assets/timeline.js) */
+.tl { position: relative; margin: 1.6rem 0 1.4rem; padding: 4.6rem 0 2.4rem; }
+.tl-track { position: relative; height: 6px; border-radius: 999px; background: var(--rule); }
+.tl-span { position: absolute; top: -3px; height: 12px; border-radius: 999px; background: color-mix(in srgb, var(--c) 45%, transparent); }
+.tl-span-label { position: absolute; top: 1.1rem; transform: translateX(-50%); white-space: nowrap; font-weight: 800; font-size: .85rem; color: var(--c); }
+.tl-pt { position: absolute; top: 50%; width: 18px; height: 18px; margin: -9px 0 0 -9px; border-radius: 50%; background: var(--c); border: 3px solid var(--panel); box-shadow: 0 0 0 2px var(--c); }
+.tl-lab { position: absolute; width: 9rem; font-size: .82rem; line-height: 1.25; transform: translateX(-50%); text-align: center; }
+.tl-lab b { display: block; color: var(--c); font-size: .95rem; }
+.tl-lab.up { bottom: 1.6rem; }
+.tl-lab.down { top: 1.6rem; }
+.tl-lab.start { transform: none; text-align: left; margin-left: -9px; }
+.tl-lab.end { transform: translateX(-100%); text-align: right; margin-left: 9px; }
+.tl-caption { font-size: .85rem; color: var(--muted); text-align: center; margin-top: -1rem; }
+
+/* Big-number comparison: <div class="stats"><div class="stat" style="--c: var(--sky)"><b>243</b><span>Earth days: one Venus day</span></div>…</div> */
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr)); gap: .9rem; margin: 1.4rem 0; }
+.stat { background: var(--panel); border-radius: var(--radius); box-shadow: var(--shadow); border-top: 6px solid var(--c, var(--grape)); padding: 1rem 1.1rem; text-align: center; }
+.stat b { display: block; font-family: var(--font-display); font-variation-settings: "SOFT" 100; font-weight: 700; font-size: 2.3rem; line-height: 1.1; color: var(--c, var(--grape)); }
+.stat span { display: block; font-size: .88rem; color: var(--muted); margin-top: .3rem; }
+.stats:has(> .vs) { grid-template-columns: 1fr auto 1fr; }
+.stats:has(> .vs):has(> .stat:nth-child(4)) { grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr)); }
+.stat.vs { align-self: center; background: none; box-shadow: none; border: 0; padding: 0; font-weight: 800; color: var(--muted); }
+
+/* Retell card: the conversation-ready version */
+.retell { position: relative; background: var(--panel); border-radius: var(--radius); box-shadow: var(--shadow); border: 3px solid var(--mint); padding: 1.1rem 1.3rem; margin: 1.4rem 0; }
+.retell .label { font: 800 .72rem var(--font-body); letter-spacing: .1em; text-transform: uppercase; color: var(--mint); display: block; margin-bottom: .4rem; }
+.retell ol { margin: .3rem 0 0; padding-left: 1.3rem; }
+.retell li { margin: .35rem 0; }
+.retell li::marker { font-weight: 800; color: var(--mint); }
+
+/* Words to steal (English C1 bonus) */
+.words { display: grid; grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); gap: .9rem; margin: 1.2rem 0; }
+.word { background: var(--panel); border-radius: var(--radius); box-shadow: var(--shadow); padding: .9rem 1.1rem; border-left: 6px solid var(--c, var(--grape)); }
+.word h3 { margin: 0; font-family: var(--font-display); font-weight: 600; font-size: 1.25rem; }
+.word .pos { font-size: .8rem; color: var(--muted); font-weight: 700; margin-left: .3rem; }
+.word p { margin: .3rem 0; font-size: .95rem; }
+
+@media print {
+  [data-after-guess][hidden] { display: block !important; }
+  .guess, .retell, .word { box-shadow: none; border: 1px solid #ccc; }
+}
+@media (max-width: 600px) {
+  .reveal { font-size: 1.4rem; }
+  .tl-lab { width: 6.5rem; font-size: .75rem; }
+}
+</style>
+</head>
+<body>
+<main>
+  <p class="kicker">Reference</p>
+  <h1>The curiosity deck</h1>
+  <p class="subtitle">Every curiosity, compressed to what you need to retell it. Cover the right-hand columns and test yourself.</p>
+
+  <h2>Retell cards</h2>
+  <div class="table-wrap"><table>
+    <tr><th>#</th><th>Hook</th><th>Key numbers</th><th>The why</th></tr>
+    <tr>
+      <td><a href="../lessons/0001-cleopatra-and-the-moon.html">1</a></td>
+      <td>Cleopatra lived closer in time to the <em>Moon landing</em> than to the <em>Great Pyramid</em>.</td>
+      <td>Pyramid c. 2560 BC · Cleopatra 69–30 BC · Apollo 11 1969. Gaps: <em>≈ 2,530</em> vs <em>1,998</em> years.</td>
+      <td>Ancient Egypt lasted 3,000+ years; she was a Greek (Ptolemaic) queen at its very end. The pyramids were older to her than she is to us.</td>
+    </tr>
+      <tr><td><a href="../lessons/0002-a-day-longer-than-a-year.html">2</a></td><td>On Venus, a <em>day</em> (one spin) is longer than a <em>year</em>, and it spins <em>backwards</em>.</td><td>One spin <em>≈ 243</em> Earth days · one orbit <em>≈ 225</em> · sunrise to sunrise ≈ 117.</td><td>Venus spins extremely slowly and the "wrong" way (retrograde), so the Sun rises in the west.</td></tr>
+    <tr><td><a href="../lessons/0003-three-hearts-blue-blood.html">3</a></td><td>An octopus has <em>three hearts</em> and <em>blue blood</em>.</td><td><em>2</em> gill hearts + <em>1</em> body heart · copper (haemocyanin), not iron.</td><td>Copper-based haemocyanin turns blue with oxygen and suits cold, oxygen-poor water. The body heart stops when it swims, so it prefers to crawl.</td></tr>
+    <tr><td><a href="../lessons/0004-the-invisible-gorilla.html">4</a></td><td>About half of people counting basketball passes miss a <em>gorilla</em> walking through the game.</td><td>Simons &amp; Chabris <em>1999</em> · <em>46%</em> of 192 viewers missed it · on screen <em>5 s</em>.</td><td>Inattentional blindness: attention is a spotlight, and what falls outside the task may never reach awareness.</td></tr>
+    <tr><td><a href="../lessons/0005-the-first-computer-bug.html">5</a></td><td>The famous <em>moth</em> in the Harvard logbook was not the origin of the word <em>bug</em>.</td><td>Edison's "bugs" <em>1878</em> · moth in the Mark II <em>9 Sept 1947</em>.</td><td>"First actual case of bug being found" is a joke: engineers already called faults bugs. Hopper popularised the story.</td></tr>
+    <tr><td><a href="../lessons/0006-when-nice-meant-foolish.html">6</a></td><td>"<em>Nice</em>" first meant <em>foolish</em> or ignorant.</td><td>Latin <em>nescius</em> "not knowing" · "foolish" late 1200s · "pleasant" <em>1769</em>.</td><td>ne- ("not") + scire ("to know"). It drifted through "timid", "fussy" and "precise" before becoming a compliment.</td></tr>
+    <tr><td><a href="../lessons/0007-older-than-the-aztecs.html">7</a></td><td><em>Oxford</em> was teaching students before the Aztecs founded <em>Tenochtitlan</em>.</td><td>Teaching by <em>1096</em> · Tenochtitlan <em>1325</em> · Aztec Empire 1428. Gap: <em>229</em> years.</td><td>Oxford has no founding date, but even its growth after 1167 predates Tenochtitlan. The Mexica people arrived c. 1250; it's their capital and empire that are younger.</td></tr>
+    <tr><td><a href="../lessons/0008-bananas-are-berries.html">8</a></td><td>Botanically, a <em>banana</em> is a berry and a <em>strawberry</em> is not.</td><td>Berry = 1 flower, 1 ovary. A strawberry carries <em>~200</em> tiny fruits (achenes).</td><td>"Berry" is a kitchen word older than botany. A strawberry's flesh is the swollen flower base; its "seeds" are the real fruits.</td></tr>
+    <tr><td><a href="../lessons/0009-more-trees-than-stars.html">9</a></td><td>Earth has more <em>trees</em> than the Milky Way has <em>stars</em>.</td><td><em>~3 trillion</em> trees (Crowther et al., 2015) vs <em>100–400 billion</em> stars: roughly 8–30 trees per star.</td><td>The new count calibrated satellite maps with 400,000+ ground plots; the old satellite-only guess was 400 billion.</td></tr>
+    <tr><td><a href="../lessons/0010-the-birthday-paradox.html">10</a></td><td>In a group of just <em>23</em> people, two probably share a <em>birthday</em>.</td><td>23 people = <em>253 pairs</em> = <em>50.7%</em>. 70 people = 99.9%.</td><td>It's any pair, not you: pairs grow much faster than people. Uneven real birthdays only raise the odds.</td></tr>
+    <tr><td><a href="../lessons/0011-sharks-older-than-trees.html">11</a></td><td><em>Sharks</em> are older than <em>trees</em>.</td><td>Shark-like scales <em>~450 million</em> years; oldest fossil forest <em>~390 million</em>; shark teeth ~410 million.</td><td>Early land plants were small and low. Even if the oldest scales aren't true sharks, the teeth still beat the trees.</td></tr>
+    <tr><td><a href="../lessons/0012-mammoths-and-pyramids.html">12</a></td><td>Woolly <em>mammoths</em> were still alive when the <em>Great Pyramid</em> was built.</td><td>Pyramid c. <em>2560 BC</em>; last mammoths on Wrangel Island c. <em>2000 BC</em> (~4,000 years ago): ~500 years of overlap.</td><td>Rising seas stranded a herd on an Arctic island off Siberia about 10,000 years ago; it lasted ~6,000 more years.</td></tr>
+    <tr><td><a href="../lessons/0013-taller-in-the-morning.html">13</a></td><td>You're <em>taller in the morning</em> than at bedtime.</td><td>About <em>1–2 cm</em> (average 19.3 mm, ~1% of height); over half lost in the first hour up.</td><td>Spinal discs are squeezed by body weight all day and soak water back up overnight.</td></tr>
+    <tr><td><a href="../lessons/0014-ok-was-a-joke.html">14</a></td><td>Where does <em>OK</em> come from: a Choctaw word, a war code, or a <em>joke</em>?</td><td>23 March 1839, <i>Boston Morning Post</i>: "o.k." = "oll korrect"; 1840 "Old Kinderhook" campaign</td><td>An 1830s craze for joke abbreviations; Van Buren's campaign made this one stick</td></tr>
+    <tr><td><a href="../lessons/0015-gps-needs-einstein.html">15</a></td><td>Your phone's map would be useless without <em>Einstein</em></td><td>+45 µs (gravity) − 7 µs (speed) = 38 µs a day ≈ 10 km of error a day</td><td>Clocks tick faster in weaker gravity; GPS turns time into distance at light speed</td></tr>
+    <tr><td><a href="../lessons/0016-honey-never-spoils.html">16</a></td><td>Why does <em>sealed honey</em> never go off?</td><td>About 17–18% water (nectar 60–80%); pH about 3–4.5; a little hydrogen peroxide</td><td>Too dry, acidic and sugary for microbes: they die of thirst; open jars can absorb water and ferment</td></tr>
+    <tr><td><a href="../lessons/0017-blue-sunsets-on-mars.html">17</a></td><td>On the Red Planet, <em>sunsets are blue</em></td><td>Curiosity rover, 15 April 2015; Mars air is about 0.6% of Earth's pressure</td><td>Fine dust scatters blue light forward, near the Sun; red and yellow spread across the sky</td></tr>
+    <tr><td><a href="../lessons/0018-honest-placebos.html">18</a></td><td>Would a sugar pill work if you <em>knew</em> it was a sugar pill?</td><td>Kaptchuk 2010: 80 IBS patients, 3 weeks; 59% relief on open-label placebo vs 35% with no pills</td><td>The ritual of taking pills helps by itself; small pilot, self-reported symptoms, not cured disease</td></tr>
+    <tr><td><a href="../lessons/0019-napoleon-was-not-short.html">19</a></td><td>How <em>short</em> was Napoleon, really?</td><td>"5 pieds 2 pouces" ≈ 1.69 m, not 1.57 m; typical French conscript about 1.65 m</td><td>French inches were longer (27.07 mm); Gillray's "Little Boney" cartoons and his tall guards did the rest</td></tr>
+    <tr><td><a href="../lessons/0020-glass-is-not-a-liquid.html">20</a></td><td>Old church windows are thicker at the bottom, but <em>glass doesn't flow</em>.</td><td>Westminster Abbey glass (1268) flows at most <em>≈ 1 nm per billion years</em>: ≈ 14 nm over the age of the universe.</td><td>Old methods (the crown process) made uneven panes, and glaziers usually set the <em>thick edge down</em>. The sag was there on day one.</td></tr>
+    <tr><td><a href="../lessons/0021-crows-remember-faces.html">21</a></td><td>Crows <em>remember human faces</em> and scold the ones they fear, for years.</td><td>7 crows trapped in 2006 by people in a caveman mask · once <em>47 of 53</em> crows scolded it · stopped only in 2023, after <em>≈ 17 years</em>.</td><td>A neutral mask was ignored, so they read faces. Crows that never saw the trapping learned the grudge from others.</td></tr>
+    <tr><td><a href="../lessons/0022-robot-means-forced-labour.html">22</a></td><td>"Robot" comes from Czech <em>robota</em>: the <em>forced labour</em> serfs owed their lords.</td><td>Karel Čapek's play <em>R.U.R.</em> (1920) · in English by 1923 · robota abolished 1848.</td><td>Čapek wanted "labori"; his brother <em>Josef</em> suggested "roboti". Polish <em>robota</em>, same root, just means "work". His robots were synthetic flesh, not metal.</td></tr>
+    <tr><td><a href="../lessons/0023-the-coffee-pot-webcam.html">23</a></td><td>The camera usually called the <em>first webcam</em> watched a <em>coffee pot</em> in Cambridge.</td><td>Camera 1991 (lab network) · on the web <em>November 1993</em> · about 3 frames a minute · off in 2001; pot sold for £3,350.</td><td>Researchers on other floors were tired of climbing the stairs to an <em>empty pot</em>, so they checked it from their desks.</td></tr>
+    <tr><td><a href="../lessons/0024-the-bacteria-myth.html">24</a></td><td>"Bacteria outnumber your cells <em>10 to 1</em>" is a myth: it's roughly <em>1 to 1</em>.</td><td>≈ <em>38 trillion</em> bacteria vs ≈ <em>30 trillion</em> human cells (70 kg man, 2016) · ratio ≈ 1.3:1 · bacteria weigh ≈ 0.2 kg.</td><td>The 10:1 came from a rough 1972 guess about gut volume. One trip to the toilet may tip the balance to human cells.</td></tr>
+    <tr><td><a href="../lessons/0025-the-tallest-volcano.html">25</a></td><td><em>Olympus Mons</em> on Mars is about <em>2.5 Everests</em> tall, with a base the size of <em>Poland</em>.</td><td>≈ 22 km (21–26 km, depending on the reference) vs Everest 8.85 km · ≈ 600 km wide · ≈ 300,000 km² (Poland 312,700; Arizona 295,000).</td><td>No moving plates: the crust sat over one hot spot and lava kept piling up. Gravity only about a third of Earth's. Slopes so gentle you wouldn't notice the climb.</td></tr>
+    <tr><td><a href="../lessons/0026-the-great-emu-war.html">26</a></td><td>In 1932 Australia sent soldiers with <em>machine guns</em> against <em>emus</em>, and the emus won.</td><td>~<em>20,000</em> emus vs <em>3</em> soldiers, 2 Lewis guns · claimed 986 kills for 9,860 rounds (≈ 10 per bird, probably inflated).</td><td>The emus split into small groups and ran; the army withdrew twice. Bounties and fences later worked better.</td></tr>
+    <tr><td><a href="../lessons/0027-the-monty-hall-problem.html">27</a></td><td>Three doors, one car: after the host shows a goat, <em>switching</em> wins twice as often.</td><td>Stick <em>1/3</em> · switch <em>2/3</em> · ~10,000 letters to <i>Parade</i> (1990), nearly 1,000 from PhDs.</td><td>Your first pick is right 1 time in 3; the host knows and never reveals the car, so the other door carries 2/3. Only if he always opens a goat door.</td></tr>
+    <tr><td><a href="../lessons/0028-the-toughest-animal.html">28</a></td><td>Dried <em>tardigrades</em> survived 10 days in <em>open space</em> and revived with water.</td><td>FOTON-M3, Sept <em>2007</em> · <em>10</em> days · 258–281 km up · few survived full solar UV.</td><td>Vacuum kills by drying; they went up already dried and dormant ("tun"). UV, not vacuum, was the killer.</td></tr>
+    <tr><td><a href="../lessons/0029-goodbye-means-god-be-with-you.html">29</a></td><td>"Goodbye" is a worn-down <em>"God be with ye"</em>.</td><td>Phrase late <em>1300s</em> · "godbwye" <em>1570s</em> · "good-bye" <em>1590s</em>.</td><td>Frequent phrases shrink; "God" became "good" by analogy with "good day", "good night".</td></tr>
+    <tr><td><a href="../lessons/0030-a-light-day-away.html">30</a></td><td><em>Voyager 1</em>'s signal takes almost <em>a full day</em> to reach Earth.</td><td>Launched <em>1977</em> · ~61,000 km/h · one light-day (<em>25.9 bn km</em>) on 18 Nov 2026 · ~23.6 h in mid-2026.</td><td>Radio travels at light speed, no faster; a command and its reply now take about two days.</td></tr>
+  </table></div>
+
+  <h2>Words to steal</h2>
+  <div class="table-wrap"><table>
+    <tr><th>Word</th><th>Meaning</th><th>Example</th><th>From</th></tr>
+    <tr><td><em>contemporary</em> (n)</td><td>someone living in the same period as another</td><td>Cleopatra and Caesar were <em>contemporaries</em>.</td><td>1</td></tr>
+      <tr><td><em>sluggish</em> (adj)</td><td>moving or working more slowly than usual, with less energy</td><td>Venus has the most <em>sluggish</em> spin of any planet.</td><td>2</td></tr>
+    <tr><td><em>eerie</em> (adj)</td><td>strange in a frightening and mysterious way</td><td>There's something <em>eerie</em> about an animal with blue blood.</td><td>3</td></tr>
+    <tr><td><em>oblivious</em> (adj)</td><td>not aware of something, especially what is happening around you</td><td>Counting passes, half the viewers were <em>oblivious</em> to the gorilla.</td><td>4</td></tr>
+    <tr><td><em>apocryphal</em> (adj)</td><td>(of a story) probably not true, though often told and believed</td><td>The idea that the moth gave us the word "bug" is <em>apocryphal</em>.</td><td>5</td></tr>
+    <tr><td><em>pejorative</em> (adj)</td><td>expressing disapproval; suggesting something is not good</td><td>In medieval English, "nice" was a <em>pejorative</em> word.</td><td>6</td></tr>
+    <tr><td><em>venerable</em> (adj)</td><td>deserving respect because of age or historical importance</td><td>Oxford is a <em>venerable</em> institution.</td><td>7</td></tr>
+    <tr><td><em>misnomer</em> (n)</td><td>a name that does not suit what it refers to</td><td>"Strawberry" is a botanical <em>misnomer</em>.</td><td>8</td></tr>
+    <tr><td><em>staggering</em> (adj)</td><td>very shocking and surprising, especially because extremely large</td><td>Earth has a <em>staggering</em> 3 trillion trees.</td><td>9</td></tr>
+    <tr><td><em>counterintuitive</em> (adj)</td><td>not happening in the way you would expect</td><td>It's <em>counterintuitive</em>, but 23 people are enough.</td><td>10</td></tr>
+    <tr><td><em>predate</em> (v)</td><td>to have existed or happened before another thing</td><td>Sharks <em>predate</em> trees by tens of millions of years.</td><td>11</td></tr>
+    <tr><td><em>linger</em> (v)</td><td>to take a long time to leave or disappear</td><td>Mammoths <em>lingered</em> on Wrangel Island.</td><td>12</td></tr>
+    <tr><td><em>imperceptible</em> (adj)</td><td>so slight that it cannot be noticed or felt</td><td>The daily shrinking is <em>imperceptible</em> in the mirror.</td><td>13</td></tr>
+    <tr><td><em>ubiquitous</em> (adj)</td><td>seeming to be everywhere</td><td>"OK" is so <em>ubiquitous</em> you hear it in almost every language.</td><td>14</td></tr>
+    <tr><td><em>negligible</em> (adj)</td><td>too slight or small to be of importance</td><td>38 microseconds sounds <em>negligible</em>, but it's about 11 km of light travel.</td><td>15</td></tr>
+    <tr><td><em>pristine</em> (adj)</td><td>original and pure; not spoiled or worn from use</td><td>Keep the lid on and the honey stays <em>pristine</em> for decades.</td><td>16</td></tr>
+    <tr><td><em>hue</em> (n)</td><td>a colour, or a particular shade of a colour</td><td>The sky near the setting Sun on Mars takes on a cold blue <em>hue</em>.</td><td>17</td></tr>
+    <tr><td><em>sceptical</em> (adj)</td><td>doubting that something is true or useful</td><td>Patients were <em>sceptical</em> about fake pills, yet still felt better.</td><td>18</td></tr>
+    <tr><td><em>smear</em> (n)</td><td>an attempt to harm someone's reputation by publicly accusing them</td><td>"Little Boney" began as a British <em>smear</em>.</td><td>19</td></tr>
+    <tr><td><em>debunk</em> (v)</td><td>to show that an idea or belief is not true</td><td>A 2017 study <em>debunked</em> the myth of flowing medieval glass.</td><td>20</td></tr>
+    <tr><td><em>hold a grudge</em> (idiom)</td><td>to keep feeling anger and dislike for someone who treated you badly, often for a long time</td><td>Seattle's crows <em>held a grudge</em> against the caveman mask for 17 years.</td><td>21</td></tr>
+    <tr><td><em>drudgery</em> (n)</td><td>hard, boring work</td><td>Čapek's robots were made for <em>drudgery</em>.</td><td>22</td></tr>
+    <tr><td><em>mundane</em> (adj)</td><td>very ordinary and therefore not interesting</td><td>The first webcam had a gloriously <em>mundane</em> subject: a coffee pot.</td><td>23</td></tr>
+    <tr><td><em>outnumber</em> (v)</td><td>to be greater in number than someone or something</td><td>Bacteria only slightly <em>outnumber</em> our own cells.</td><td>24</td></tr>
+    <tr><td><em>dwarf</em> (v)</td><td>to make something seem small by comparison</td><td>Olympus Mons <em>dwarfs</em> Everest.</td><td>25</td></tr>
+    <tr><td><em>fiasco</em> (n)</td><td>a planned thing that fails completely, usually embarrassingly</td><td>The Emu War was a national <em>fiasco</em>.</td><td>26</td></tr>
+    <tr><td><em>baffle</em> (v)</td><td>to leave someone completely unable to understand or explain something</td><td>The puzzle <em>baffled</em> even mathematicians.</td><td>27</td></tr>
+    <tr><td><em>hardy</em> (adj)</td><td>strong enough to bear extreme or difficult conditions</td><td>Tardigrades are astonishingly <em>hardy</em>.</td><td>28</td></tr>
+    <tr><td><em>contraction</em> (n)</td><td>a short form of a word or words, used instead of the full form</td><td>"Goodbye" began as a <em>contraction</em> of "God be with ye".</td><td>29</td></tr>
+    <tr><td><em>far-flung</em> (adj)</td><td>very far away, or spread over a very large area</td><td>Voyager 1 is our most <em>far-flung</em> spacecraft.</td><td>30</td></tr>
+  </table></div>
+
+  <p class="muted"><b>Questions?</b> Ask Claude for a fresh retell drill across the whole deck.</p>
+
+  <nav class="nav">
+    <a href="../lessons/0001-cleopatra-and-the-moon.html">← Curiosity 1</a>
+    <a href="../lessons/0030-a-light-day-away.html">Curiosity 30 →</a>
+  </nav>
+</main>
+</body>
+</html>

@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The bacteria myth</title>
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="stylesheet" href="../assets/quiz.css">
+<link rel="stylesheet" href="../assets/curio.css">
+</head>
+<body>
+<main>
+  <p class="kicker">Curiosity 24 · Body</p>
+  <h1>The bacteria myth</h1>
+  <p class="subtitle">You've heard you're "90% bacteria". The real count is roughly a draw.</p>
+
+  <div class="meta">
+    <span><b>Time</b> ~2 min</span>
+    <span><b>Win</b> a polite correction of a famous "fact"</span>
+    <span><b>Bonus</b> 1 C1 word</span>
+  </div>
+
+  <div id="guess"><p class="callout"><span class="label">Guess first</span>How many bacteria live in your body for every one of your own human cells? Decide before you scroll.</p></div>
+
+  <section data-after-guess>
+    <p class="reveal">You carry roughly <mark>as many bacteria as human cells</mark>: about 1.3 to 1, not the famous 10 to 1.</p>
+
+    <div class="stats">
+      <div class="stat" style="--c: var(--grape)"><b>38 trillion</b><span>bacteria (mostly in the colon)</span></div>
+      <div class="stat vs">vs</div>
+      <div class="stat" style="--c: var(--sky)"><b>30 trillion</b><span>human cells, for a 70 kg man</span></div>
+      <div class="stat" style="--c: var(--mint)"><b>0.2 kg</b><span>total weight of all those bacteria</span></div>
+    </div>
+
+    <p><b>Why it feels wrong:</b> The 10:1 figure came from a 1972 back-of-the-envelope estimate that assumed a whole litre of gut packed with bacteria, and textbooks repeated it for decades.<sup class="cite"><a href="#s1">1</a></sup> Sender, Fuchs and Milo recounted in 2016, with wide error bars. The ratio also swings: one trip to the toilet removes a quarter to a third of the colon's contents, which may briefly tip the balance in favour of human cells.<sup class="cite"><a href="#s1">1</a></sup><sup class="cite"><a href="#s2">2</a></sup></p>
+
+    <div class="retell">
+      <span class="label">Retell it · say it out loud once</span>
+      <ol>
+        <li><b>Hook:</b> "Heard that you're mostly bacteria? Guess the real ratio."</li>
+        <li><b>Numbers:</b> "About 38 trillion bacteria vs 30 trillion human cells: roughly 1.3 to 1. And all the bacteria together weigh only about 0.2 kg."</li>
+        <li><b>Kicker:</b> "It's basically a draw, and every trip to the toilet shifts the score."</li>
+      </ol>
+    </div>
+
+    <div class="words">
+      <div class="word" style="--c: var(--mint)">
+        <h3>outnumber<span class="pos">verb</span></h3>
+        <p>To be greater in number than someone or something.<sup class="cite"><a href="#s3">3</a></sup> <i>Bacteria only slightly <b>outnumber</b> our own cells, not ten to one.</i></p>
+      </div>
+    </div>
+
+    <div id="quiz"><p class="callout"><span class="label">Quiz not loaded</span>If you can read this, the quiz script didn't run. Try opening the file in Chrome or Safari.</p></div>
+
+    <p class="muted"><b>Read more:</b> <a href="https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1002533" target="_blank" rel="noopener">Sender, Fuchs &amp; Milo (2016), PLOS Biology</a>. All retells: <a href="../reference/curiosity-deck.html">the curiosity deck</a>. <b>Questions?</b> Ask Claude, e.g. "Which kind of human cell is the most numerous, and why?"</p>
+  </section>
+
+  <hr>
+  <ol class="sources">
+    <li id="s1">Sender, Fuchs &amp; Milo, <a href="https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1002533">Revised estimates for the number of human and bacteria cells in the body</a>, PLOS Biology (2016).</li>
+    <li id="s2">Science News, <a href="https://www.sciencenews.org/article/bodys-bacteria-dont-outnumber-human-cells-so-much-after-all">Body's bacteria don't outnumber human cells so much after all</a> (2016).</li>
+    <li id="s3">Cambridge Dictionary, <a href="https://dictionary.cambridge.org/dictionary/english/outnumber">outnumber</a>.</li>
+  </ol>
+
+  <nav class="nav">
+    <a href="0023-the-coffee-pot-webcam.html">← Curiosity 23: The coffee pot webcam</a>
+    <a href="0025-the-tallest-volcano.html">Curiosity 25: The tallest volcano →</a>
+  </nav>
+</main>
+
+<script src="../assets/guess.js"></script>
+<script src="../assets/quiz.js"></script>
+<script>
+Guess.mount(document.getElementById("guess"), {
+  id: "0024",
+  prompt: "How many bacteria live in you for every human cell?",
+  options: ["About 100 bacteria per human cell", "About 10 bacteria per human cell", "About 1 bacterium per human cell"],
+  answer: 2,
+  right: "Right! You didn't fall for the famous 10 to 1.",
+  wrong: "That's the famous figure, but it's wrong. It's roughly 1 to 1."
+});
+
+Quiz.mount(document.getElementById("quiz"), {
+  id: "0024-the-bacteria-myth",
+  questions: [
+    {
+      tag: "Bacteria: the count",
+      link: "https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1002533",
+      prompt: `<p>The 2016 estimate: about 38 trillion bacteria vs how many trillion human cells?</p><p class="q-hint">Type a number of trillions.</p>`,
+      accept: ["30", "30 trillion", "thirty", "thirty trillion", "about 30"],
+      explain: `About <b>30 trillion</b> human cells vs <b>38 trillion</b> bacteria: roughly <b>1.3 to 1</b>.`
+    },
+    {
+      tag: "Bacteria: where 10:1 came from",
+      link: "https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1002533",
+      prompt: `<p>Why was the old "10 bacteria per human cell" figure so far off?</p>`,
+      options: [
+        "It came from a rough 1970s guess about gut volume",
+        "It counted viruses and fungi as if they were bacteria",
+        "It was measured only in people with serious gut infections",
+        "It was inflated on purpose to sell more probiotic yoghurt"
+      ],
+      answer: 0,
+      explain: `A <b>1972 back-of-the-envelope</b> estimate took a litre of gut, full of bacteria, and was then repeated for decades. Only the colon is really packed.`
+    },
+    {
+      tag: "Review: the coffee pot webcam",
+      link: "https://www.cl.cam.ac.uk/coffee/qsf/coffee.html",
+      prompt: `<p class="muted">Review from Curiosity 23</p><p>The famous coffee pot webcam was in a computer lab at which university?</p><p class="q-hint">Type one word.</p>`,
+      accept: ["cambridge", "university of cambridge", "cambridge university", "the university of cambridge"],
+      explain: `The <b>University of Cambridge</b> Computer Laboratory, by the Trojan Room: camera in 1991, on the web in 1993.`
+    }
+  ]
+});
+</script>
+</body>
+</html>

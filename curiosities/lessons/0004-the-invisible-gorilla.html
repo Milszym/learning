@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The invisible gorilla</title>
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="stylesheet" href="../assets/quiz.css">
+<link rel="stylesheet" href="../assets/curio.css">
+</head>
+<body>
+<main>
+  <p class="kicker">Curiosity 4 · Mind</p>
+  <h1>The invisible gorilla</h1>
+  <p class="subtitle">You see far less than you think, especially when you're busy counting.</p>
+
+  <div class="meta">
+    <span><b>Time</b> ~2 min</span>
+    <span><b>Win</b> a famous experiment you can explain in 30 seconds</span>
+    <span><b>Bonus</b> 1 C1 word</span>
+  </div>
+
+  <div id="guess"><p class="callout"><span class="label">Guess first</span>People counting basketball passes in a video. A person in a gorilla suit walks right through the game. How many viewers miss it? Decide before you scroll.</p></div>
+
+  <section data-after-guess>
+    <p class="reveal">In the 1999 study, <mark>about half the viewers never saw the gorilla</mark>.</p>
+
+    <div class="stats">
+      <div class="stat" style="--c: var(--accent)"><b>46%</b><span>of 192 viewers missed the surprise</span></div>
+      <div class="stat" style="--c: var(--sun)"><b>5 s</b><span>the gorilla was on screen</span></div>
+      <div class="stat" style="--c: var(--grape)"><b>50%</b><span>missed it even when it stopped and beat its chest</span></div>
+    </div>
+
+    <p><b>Why it feels wrong:</b> we believe we see everything in front of us, but attention works like a spotlight: what falls outside the task may never reach awareness. This is inattentional blindness.<sup class="cite"><a href="#s2">2</a></sup> Rates varied: some viewers got a woman with an umbrella instead, and harder counting meant more misses. In a small follow-up, a gorilla that stopped and beat its chest was still missed by half.<sup class="cite"><a href="#s1">1</a></sup></p>
+
+    <div class="retell">
+      <span class="label">Retell it · say it out loud once</span>
+      <ol>
+        <li><b>Hook:</b> "Would you notice a gorilla walking through a basketball game?"</li>
+        <li><b>Numbers:</b> "In 1999, Simons and Chabris asked people to count passes. About half missed a person in a gorilla suit, on screen for five seconds."</li>
+        <li><b>Kicker:</b> "You don't see with your eyes; you see with your attention."</li>
+      </ol>
+    </div>
+
+    <div class="words">
+      <div class="word" style="--c: var(--accent)">
+        <h3>oblivious<span class="pos">adjective</span></h3>
+        <p>Not aware of something, especially of what is happening around you.<sup class="cite"><a href="#s3">3</a></sup> <i>Busy counting passes, half the viewers were completely <b>oblivious</b> to the gorilla.</i></p>
+      </div>
+    </div>
+
+    <div id="quiz"><p class="callout"><span class="label">Quiz not loaded</span>If you can read this, the quiz script didn't run. Try opening the file in Chrome or Safari.</p></div>
+
+    <p class="muted"><b>Read more:</b> <a href="http://www.chabris.com/Simons1999.pdf" target="_blank" rel="noopener">Simons &amp; Chabris (1999), the original paper (PDF)</a>. All retells: <a href="../reference/curiosity-deck.html">the curiosity deck</a>. <b>Questions?</b> Ask Claude, e.g. "Does inattentional blindness matter for drivers?"</p>
+  </section>
+
+  <hr>
+  <ol class="sources">
+    <li id="s1">Simons, D. J. &amp; Chabris, C. F. (1999), <a href="http://www.chabris.com/Simons1999.pdf">Gorillas in our midst: sustained inattentional blindness for dynamic events</a>, <i>Perception</i> 28: 1059–1074 (192 observers; 54% noticed, 46% did not; event lasted 5 s of a 75 s video).</li>
+    <li id="s2">Wikipedia, <a href="https://en.wikipedia.org/wiki/Inattentional_blindness">Inattentional blindness</a> (the gorilla experiment and later work).</li>
+    <li id="s3">Cambridge Dictionary, <a href="https://dictionary.cambridge.org/dictionary/english/oblivious">oblivious</a>.</li>
+  </ol>
+
+  <nav class="nav">
+    <a href="0003-three-hearts-blue-blood.html">← Curiosity 3: Three hearts, blue blood</a>
+    <a href="0005-the-first-computer-bug.html">Curiosity 5: The first computer bug →</a>
+  </nav>
+</main>
+
+<script src="../assets/guess.js"></script>
+<script src="../assets/quiz.js"></script>
+<script>
+Guess.mount(document.getElementById("guess"), {
+  id: "0004",
+  prompt: "How many viewers miss the gorilla?",
+  options: ["About one in ten", "About one in two", "About nine in ten"],
+  answer: 1,
+  right: "Right! About half of them never saw it.",
+  wrong: "Not quite: about half of them never saw it."
+});
+
+const WP = "https://en.wikipedia.org/wiki/";
+Quiz.mount(document.getElementById("quiz"), {
+  id: "0004-the-invisible-gorilla",
+  questions: [
+    {
+      tag: "Gorilla: the number",
+      link: "http://www.chabris.com/Simons1999.pdf",
+      prompt: `<p>Across the whole 1999 study, what percentage of viewers failed to notice the unexpected event?</p><p class="q-hint">Type a number (a percentage).</p>`,
+      accept: ["46", "46%", "46 %", "46 percent", "46 per cent", "about 46", "about 46%", "forty-six", "forty six"],
+      explain: `<b>46%</b> of 192 viewers missed it (54% noticed). "About half" is the version to remember.`
+    },
+    {
+      tag: "Gorilla: why we miss it",
+      link: WP + "Inattentional_blindness",
+      prompt: `<p>Why did so many viewers miss the gorilla?</p>`,
+      options: [
+        "Their attention was on the task, so the rest went unseen",
+        "The gorilla was too small and too far from the camera",
+        "The video was shown too quickly for their eyes to follow",
+        "They saw it clearly but were too polite to mention it"
+      ],
+      answer: 0,
+      explain: `<b>Inattentional blindness</b>: with attention locked on counting, clearly visible things can fail to reach awareness at all.`
+    },
+    {
+      tag: "Review: Three hearts, blue blood",
+      link: WP + "Octopus",
+      prompt: `<p class="muted">Review from Curiosity 3</p><p>How many hearts does an octopus have?</p><p class="q-hint">Type a number.</p>`,
+      accept: ["3", "three", "3 hearts", "three hearts"],
+      explain: `<b>Three</b>: two push blood through the gills, one pumps it round the body (and stops while it swims).`
+    }
+  ]
+});
+</script>
+</body>
+</html>

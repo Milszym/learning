@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Glass is not a liquid</title>
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="stylesheet" href="../assets/quiz.css">
+<link rel="stylesheet" href="../assets/curio.css">
+</head>
+<body>
+<main>
+  <p class="kicker">Curiosity 20 · Science</p>
+  <h1>Glass is not a liquid</h1>
+  <p class="subtitle">Old church windows really are thicker at the bottom. Gravity didn't do it.</p>
+
+  <div class="meta">
+    <span><b>Time</b> ~2 min</span>
+    <span><b>Win</b> a classroom myth you can take apart</span>
+    <span><b>Bonus</b> 1 C1 word</span>
+  </div>
+
+  <div id="guess"><p class="callout"><span class="label">Guess first</span>Why are some medieval windows thicker at the bottom? Decide before you scroll.</p></div>
+
+  <section data-after-guess>
+    <p class="reveal">The panes <mark>were made uneven and usually fitted thick edge down</mark>; the glass has not flowed.</p>
+
+    <div class="stats">
+      <div class="stat" style="--c: var(--sky)"><b>1 nm</b><span>most that medieval glass can flow in a billion years</span></div>
+      <div class="stat" style="--c: var(--grape)"><b>13.8 bn</b><span>years: the age of the universe</span></div>
+      <div class="stat" style="--c: var(--accent)"><b>≈ 14 nm</b><span>total sag in all that time: invisible</span></div>
+    </div>
+
+    <p><b>Why it feels wrong:</b> Glass has a disordered, liquid-like structure, so "slow flow" sounds plausible. But medieval panes were spun from a blown disc (the crown process), which came out uneven, and glaziers tended to put the heavy edge at the bottom.<sup class="cite"><a href="#s3">3</a></sup> A 2017 study of Westminster Abbey glass from 1268 found it flows at most about 1 nanometre per billion years.<sup class="cite"><a href="#s1">1</a></sup><sup class="cite"><a href="#s2">2</a></sup></p>
+
+    <div class="retell">
+      <span class="label">Retell it · say it out loud once</span>
+      <ol>
+        <li><b>Hook:</b> "Why are old cathedral windows thicker at the bottom? Most people say glass is a slow liquid."</li>
+        <li><b>Numbers:</b> "Westminster Abbey glass from 1268 flows at most one nanometre per billion years. Over the whole age of the universe, about fourteen."</li>
+        <li><b>Kicker:</b> "The sag was there on day one: blame the glassmaker, not gravity."</li>
+      </ol>
+    </div>
+
+    <div class="words">
+      <div class="word" style="--c: var(--mint)">
+        <h3>debunk<span class="pos">verb</span></h3>
+        <p>To show that an idea or belief is not true.<sup class="cite"><a href="#s4">4</a></sup> <i>A 2017 study finally <b>debunked</b> the idea that medieval windows are slowly flowing.</i></p>
+      </div>
+    </div>
+
+    <div id="quiz"><p class="callout"><span class="label">Quiz not loaded</span>If you can read this, the quiz script didn't run. Try opening the file in Chrome or Safari.</p></div>
+
+    <p class="muted"><b>Read more:</b> <a href="https://www.sciencedaily.com/releases/2017/12/171218131215.htm" target="_blank" rel="noopener">ScienceDaily (Penn State): Westminster Abbey windows help shine light on glass myth</a>. All retells: <a href="../reference/curiosity-deck.html">the curiosity deck</a>. <b>Questions?</b> Ask Claude, e.g. "So is glass a solid, a liquid, or something else?"</p>
+  </section>
+
+  <hr>
+  <ol class="sources">
+    <li id="s1">Gulbiten, Mauro et al., <a href="https://doi.org/10.1111/jace.15092">Viscous flow of medieval cathedral glass</a>, Journal of the American Ceramic Society 101 (2018; online 2017).</li>
+    <li id="s2">ScienceDaily (Penn State), <a href="https://www.sciencedaily.com/releases/2017/12/171218131215.htm">Westminster Abbey windows help shine light on glass myth</a> (2017).</li>
+    <li id="s3">American Ceramic Society, <a href="https://ceramics.org/ceramic-tech-today/glass-viscosity-calculations-definitively-debunk-the-myth-of-observable-flow-in-medieval-windows/">Glass viscosity calculations definitively debunk the myth of observable flow in medieval windows</a>.</li>
+    <li id="s4">Cambridge Dictionary, <a href="https://dictionary.cambridge.org/dictionary/english/debunk">debunk</a>.</li>
+  </ol>
+
+  <nav class="nav">
+    <a href="0019-napoleon-was-not-short.html">← Curiosity 19: Napoleon was not short</a>
+    <a href="0021-crows-remember-faces.html">Curiosity 21: Crows remember faces →</a>
+  </nav>
+</main>
+
+<script src="../assets/guess.js"></script>
+<script src="../assets/quiz.js"></script>
+<script>
+Guess.mount(document.getElementById("guess"), {
+  id: "0020",
+  prompt: "Why are some medieval windows thicker at the bottom?",
+  options: ["The glass itself has slowly flowed down for centuries", "The panes were uneven and fitted thick edge down"],
+  answer: 1,
+  right: "Right! Most people believe the flowing-glass story.",
+  wrong: "You're in good company: it's a famous myth. The panes were uneven from the start."
+});
+
+Quiz.mount(document.getElementById("quiz"), {
+  id: "0020-glass-is-not-a-liquid",
+  questions: [
+    {
+      tag: "Glass: the flow rate",
+      link: "https://www.sciencedaily.com/releases/2017/12/171218131215.htm",
+      prompt: `<p>At most, how many nanometres can medieval Westminster Abbey glass flow in a billion years?</p><p class="q-hint">Type a number.</p>`,
+      accept: ["1", "one", "1 nm", "1 nanometre", "1 nanometer", "one nanometre", "one nanometer", "about 1", "~1"],
+      explain: `About <b>1 nanometre per billion years</b>, so even over the age of the universe the sag would be far too small to see.`
+    },
+    {
+      tag: "Glass: the real cause",
+      link: "https://en.wikipedia.org/wiki/Crown_glass_(window)",
+      prompt: `<p>So why are many old panes thicker at the bottom?</p>`,
+      options: [
+        "Uneven panes were usually fitted with the heavy edge down",
+        "Gravity has slowly pulled the glass down over the centuries",
+        "Rain and frost have worn away the tops over time",
+        "Builders always added extra glass at the base for strength"
+      ],
+      answer: 0,
+      explain: `Old methods like the <b>crown process</b> made panes of uneven thickness, and glaziers tended to set the <b>thick edge at the bottom</b>.`
+    },
+    {
+      tag: "Review: Napoleon's height",
+      link: "https://www.history.com/articles/napoleon-complex-short",
+      prompt: `<p class="muted">Review from Curiosity 19</p><p>Napoleon was recorded as "5 feet 2". Why doesn't that mean he was short?</p>`,
+      options: [
+        "The French inch was longer than the English one",
+        "The number was a deliberate lie by his doctors",
+        "People measured him while he sat on a horse",
+        "It was measured when he was only a teenager"
+      ],
+      answer: 0,
+      explain: `The French <i>pouce</i> was about <b>2.71 cm</b>, not 2.54 cm, so "5 feet 2" French is about <b>1.69 m</b> (5 ft 7 in): average for his time.`
+    }
+  ]
+});
+</script>
+</body>
+</html>

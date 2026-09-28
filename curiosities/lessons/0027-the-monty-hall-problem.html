@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Monty Hall problem</title>
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="stylesheet" href="../assets/quiz.css">
+<link rel="stylesheet" href="../assets/curio.css">
+</head>
+<body>
+<main>
+  <p class="kicker">Curiosity 27 · Maths</p>
+  <h1>The Monty Hall problem</h1>
+  <p class="subtitle">Three doors, one car, and a puzzle that fooled a thousand PhDs.</p>
+
+  <div class="meta">
+    <span><b>Time</b> ~2 min</span>
+    <span><b>Win</b> a puzzle to try on any friend</span>
+    <span><b>Bonus</b> 1 C1 word</span>
+  </div>
+
+  <div id="guess"><p class="callout"><span class="label">Guess first</span>A car is behind one of three doors, goats behind the others. You pick a door. The host, who knows where the car is, opens another door to show a goat. Should you switch? Decide before you scroll.</p></div>
+
+  <section data-after-guess>
+    <p class="reveal">Switching wins <mark>2 times out of 3</mark>; sticking wins only 1 in 3.</p>
+
+    <div class="stats">
+      <div class="stat" style="--c: var(--sky)"><b>1/3</b><span>chance if you stick</span></div>
+      <div class="stat vs">vs</div>
+      <div class="stat" style="--c: var(--mint)"><b>2/3</b><span>chance if you switch</span></div>
+      <div class="stat" style="--c: var(--accent)"><b>~10,000</b><span>readers wrote in to say "you're wrong"</span></div>
+    </div>
+
+    <p><b>Why it works:</b> Your first pick is right only 1 time in 3, and the host's reveal can't change that. Because he knows where the car is and always opens a goat door, the other closed door gets the remaining 2/3.<sup class="cite"><a href="#s2">2</a></sup> The catch: it holds only if he always reveals a goat and offers the switch.<sup class="cite"><a href="#s1">1</a></sup> When Marilyn vos Savant said this in <i>Parade</i> in 1990, nearly 1,000 PhDs were among those who wrote in to disagree.<sup class="cite"><a href="#s1">1</a></sup></p>
+
+    <div class="retell">
+      <span class="label">Retell it · say it out loud once</span>
+      <ol>
+        <li><b>Hook:</b> "Three doors, a car behind one. You pick, the host opens a goat door. Would you switch?"</li>
+        <li><b>Numbers:</b> "Stick wins 1 in 3, switch wins 2 in 3. About 10,000 letters told vos Savant she was wrong."</li>
+        <li><b>Kicker:</b> "Even the great mathematician Paul Erdős only believed it after seeing a computer simulation."</li>
+      </ol>
+    </div>
+
+    <div class="words">
+      <div class="word" style="--c: var(--grape)">
+        <h3>baffle<span class="pos">verb</span></h3>
+        <p>To make someone completely unable to understand or explain something.<sup class="cite"><a href="#s3">3</a></sup> <i>The Monty Hall problem <b>baffled</b> even professional mathematicians.</i></p>
+      </div>
+    </div>
+
+    <div id="quiz"><p class="callout"><span class="label">Quiz not loaded</span>If you can read this, the quiz script didn't run. Try opening the file in Chrome or Safari.</p></div>
+
+    <p class="muted"><b>Read more:</b> <a href="https://en.wikipedia.org/wiki/Monty_Hall_problem" target="_blank" rel="noopener">Wikipedia: Monty Hall problem</a>. All retells: <a href="../reference/curiosity-deck.html">the curiosity deck</a>. <b>Questions?</b> Ask Claude, e.g. "Explain Monty Hall with 100 doors instead of three."</p>
+  </section>
+
+  <hr>
+  <ol class="sources">
+    <li id="s1">Wikipedia, <a href="https://en.wikipedia.org/wiki/Monty_Hall_problem">Monty Hall problem</a> (Selvin 1975; vos Savant 1990; the standard assumptions; Erdős).</li>
+    <li id="s2">Herbranson &amp; Schroeder (2010), <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC3086893/">Are birds smarter than mathematicians? Pigeons perform optimally on a version of the Monty Hall dilemma</a>, <i>J. Comp. Psychol.</i></li>
+    <li id="s3">Cambridge Dictionary, <a href="https://dictionary.cambridge.org/dictionary/english/baffle">baffle</a>.</li>
+  </ol>
+
+  <nav class="nav">
+    <a href="0026-the-great-emu-war.html">← Curiosity 26: The Great Emu War</a>
+    <a href="0028-the-toughest-animal.html">Curiosity 28: The toughest animal →</a>
+  </nav>
+</main>
+
+<script src="../assets/guess.js"></script>
+<script src="../assets/quiz.js"></script>
+<script>
+Guess.mount(document.getElementById("guess"), {
+  id: "0027",
+  prompt: "The host has shown you a goat. Should you switch doors?",
+  options: ["No: stick or switch, it's fifty-fifty", "Yes: switching doubles your chances"],
+  answer: 1,
+  right: "Right! Switching wins two times out of three.",
+  wrong: "That's what almost everyone thinks. But switching wins two times in three."
+});
+
+const WP = "https://en.wikipedia.org/wiki/";
+Quiz.mount(document.getElementById("quiz"), {
+  id: "0027-the-monty-hall-problem",
+  questions: [
+    {
+      tag: "Monty Hall: sticking",
+      link: WP + "Monty_Hall_problem",
+      prompt: `<p>If you stick with your first door, what is your chance of winning the car?</p><p class="q-hint">Type a fraction, e.g. 1/2.</p>`,
+      accept: ["1/3", "one third", "one-third", "a third", "1 in 3", "one in three", "1 out of 3", "one out of three", "33%", "33.3%"],
+      explain: `<b>1/3</b>. Your first pick has a one-in-three chance, and the host's reveal doesn't change it. Switching wins 2/3.`
+    },
+    {
+      tag: "Monty Hall: why switching works",
+      link: WP + "Monty_Hall_problem",
+      prompt: `<p>What makes switching the better move?</p>`,
+      options: [
+        "The host knows and always avoids the car",
+        "The car is moved after the host's reveal",
+        "Two closed doors always make the odds even",
+        "Switching resets the game to a fresh draw"
+      ],
+      answer: 0,
+      explain: `The host <b>knows where the car is and never reveals it</b>, so his choice carries information. If he opened a door at random and happened to show a goat, it really would be 50–50.`
+    },
+    {
+      tag: "Review: blue sunsets on Mars",
+      link: "https://science.nasa.gov/resource/sunset-in-mars-gale-crater/",
+      prompt: `<p class="muted">Review from Curiosity 17</p><p>Why does the sky around the setting Sun look blue on Mars?</p>`,
+      options: [
+        "Fine dust scatters blue light close to the Sun",
+        "Thin carbon dioxide air absorbs all the red light",
+        "Blue light reflects off ice caps at the horizon",
+        "Mars is farther away, so the sunlight turns bluer"
+      ],
+      answer: 0,
+      explain: `Martian dust is <b>just the right size to scatter blue light forward</b>, keeping it near the Sun's direction, while red and yellow spread across the sky.`
+    }
+  ]
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A day longer than a year</title>
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="stylesheet" href="../assets/quiz.css">
+<link rel="stylesheet" href="../assets/curio.css">
+</head>
+<body>
+<main>
+  <p class="kicker">Curiosity 2 · Space</p>
+  <h1>A day longer than a year</h1>
+  <p class="subtitle">On Venus, you'd have a birthday before the planet finished one turn.</p>
+
+  <div class="meta">
+    <span><b>Time</b> ~2 min</span>
+    <span><b>Win</b> a planet fact that sounds impossible</span>
+    <span><b>Bonus</b> 1 C1 word</span>
+  </div>
+
+  <div id="guess"><p class="callout"><span class="label">Guess first</span>Which takes longer on Venus: one spin on its axis, or one trip around the Sun? Decide before you scroll.</p></div>
+
+  <section data-after-guess>
+    <p class="reveal">Venus takes <mark>longer to spin once than to orbit the Sun</mark>, and it spins backwards.</p>
+
+    <div class="stats">
+      <div class="stat" style="--c: var(--sky)"><b>243</b><span>Earth days: one spin</span></div>
+      <div class="stat vs">vs</div>
+      <div class="stat" style="--c: var(--sun)"><b>225</b><span>Earth days: one orbit</span></div>
+    </div>
+
+    <p><b>Why it feels wrong:</b> we assume every planet spins fast, like Earth. Venus turns once every 243 Earth days but circles the Sun in about 225.<sup class="cite"><a href="#s1">1</a></sup> It also spins the "wrong" way, so the Sun rises in the west. One caveat: because of that backwards spin, sunrise to sunrise takes only about 117 Earth days,<sup class="cite"><a href="#s2">2</a></sup> so "day" here means one full spin.</p>
+
+    <div class="retell">
+      <span class="label">Retell it · say it out loud once</span>
+      <ol>
+        <li><b>Hook:</b> "On which planet is a day longer than a year?"</li>
+        <li><b>Numbers:</b> "Venus takes 243 Earth days to spin once, but only 225 to go round the Sun. And it spins backwards."</li>
+        <li><b>Kicker:</b> "On Venus, the Sun rises in the west, and your birthday comes before the planet completes one turn."</li>
+      </ol>
+    </div>
+
+    <div class="words">
+      <div class="word" style="--c: var(--sky)">
+        <h3>sluggish<span class="pos">adjective</span></h3>
+        <p>Moving or working more slowly than usual, with less energy or power.<sup class="cite"><a href="#s3">3</a></sup> <i>Venus has the most <b>sluggish</b> spin of any planet in the solar system.</i></p>
+      </div>
+    </div>
+
+    <div id="quiz"><p class="callout"><span class="label">Quiz not loaded</span>If you can read this, the quiz script didn't run. Try opening the file in Chrome or Safari.</p></div>
+
+    <p class="muted"><b>Read more:</b> <a href="https://science.nasa.gov/venus/venus-facts/" target="_blank" rel="noopener">NASA: Venus facts</a>. All retells: <a href="../reference/curiosity-deck.html">the curiosity deck</a>. <b>Questions?</b> Ask Claude, e.g. "Why does Venus spin backwards?"</p>
+  </section>
+
+  <hr>
+  <ol class="sources">
+    <li id="s1">NASA Science, <a href="https://science.nasa.gov/venus/venus-facts/">Venus: Facts</a> (243-day spin, 225-day year, Sun rises in the west).</li>
+    <li id="s2">Wikipedia, <a href="https://en.wikipedia.org/wiki/Venus">Venus</a> (sidereal rotation 243.02 days, retrograde; solar day 116.75 days; orbit 224.7 days).</li>
+    <li id="s3">Cambridge Dictionary, <a href="https://dictionary.cambridge.org/dictionary/english/sluggish">sluggish</a>.</li>
+  </ol>
+
+  <nav class="nav">
+    <a href="0001-cleopatra-and-the-moon.html">← Curiosity 1: Cleopatra and the Moon</a>
+    <a href="0003-three-hearts-blue-blood.html">Curiosity 3: Three hearts, blue blood →</a>
+  </nav>
+</main>
+
+<script src="../assets/guess.js"></script>
+<script src="../assets/quiz.js"></script>
+<script>
+Guess.mount(document.getElementById("guess"), {
+  id: "0002",
+  prompt: "Which takes longer on Venus?",
+  options: ["One full spin on its axis", "One full trip around the Sun"],
+  answer: 0,
+  right: "Right! Venus spins so slowly that its year finishes first.",
+  wrong: "Most people guess that. In fact, one spin takes longer than a year."
+});
+
+const WP = "https://en.wikipedia.org/wiki/";
+Quiz.mount(document.getElementById("quiz"), {
+  id: "0002-a-day-longer-than-a-year",
+  questions: [
+    {
+      tag: "Venus: the spin",
+      link: "https://science.nasa.gov/venus/venus-facts/",
+      prompt: `<p>About how many Earth days does Venus take to spin once on its axis?</p><p class="q-hint">Type a number.</p>`,
+      accept: ["243", "243 days", "243 earth days", "about 243", "two hundred and forty-three", "two hundred forty-three"],
+      explain: `One spin takes <b>about 243 Earth days</b>; one orbit of the Sun takes about 225.`
+    },
+    {
+      tag: "Venus: which kind of day",
+      link: WP + "Venus",
+      prompt: `<p>Sunrise to sunrise on Venus takes only about 117 Earth days. Why doesn't that break the fact?</p>`,
+      options: [
+        "The fact counts one full spin, not sunrise to sunrise",
+        "The fact counts the Earth calendar, not the Venus calendar",
+        "The fact counts only daylight hours, not the whole night",
+        "The fact counts Venus's moon, not the planet's own spin"
+      ],
+      answer: 0,
+      explain: `The fact is about <b>one full rotation</b> (243 days). Because Venus spins backwards while orbiting, the Sun comes back round sooner, every ~117 days.`
+    },
+    {
+      tag: "Review: Cleopatra and the Moon",
+      link: WP + "Ancient_Egypt",
+      prompt: `<p class="muted">Review from Curiosity 1</p><p>To the nearest thousand, for how many years did ancient Egypt last?</p><p class="q-hint">Type a number.</p>`,
+      accept: ["3000", "3,000", "3000 years", "3,000 years", "over 3000", "over 3,000", "three thousand"],
+      explain: `From about 3150 BC to 30 BC: <b>over 3,000 years</b>. That's why the pyramids were already ancient to Cleopatra.`
+    }
+  ]
+});
+</script>
+</body>
+</html>

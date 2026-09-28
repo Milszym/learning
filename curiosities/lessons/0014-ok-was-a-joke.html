@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OK was a joke</title>
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="stylesheet" href="../assets/quiz.css">
+<link rel="stylesheet" href="../assets/curio.css">
+</head>
+<body>
+<main>
+  <p class="kicker">Curiosity 14 · Language</p>
+  <h1>OK was a joke</h1>
+  <p class="subtitle">The world's handiest word started as a deliberate misspelling.</p>
+
+  <div class="meta">
+    <span><b>Time</b> ~2 min</span>
+    <span><b>Win</b> the real origin story of "OK"</span>
+    <span><b>Bonus</b> 1 C1 word</span>
+  </div>
+
+  <div id="guess"><p class="callout"><span class="label">Guess first</span>Where does the word "OK" come from: a Choctaw word, a Civil War code, or a joke in a Boston newspaper? Decide before you scroll.</p></div>
+
+  <section data-after-guess>
+    <p class="reveal">"OK" first appeared in a Boston newspaper in 1839 as a joke: <mark>"o.k." for "oll korrect", a misspelling of "all correct"</mark>.</p>
+
+    <div id="tl"></div>
+
+    <p><b>Why it works:</b> In the late 1830s, Boston papers had a craze for jokey abbreviations of misspelt phrases, such as OW ("oll wright") and GT ("gone to Texas").<sup class="cite"><a href="#s1">1</a></sup> Most died out. OK survived because in 1840 Martin Van Buren's supporters reused it for his nickname, "Old Kinderhook".<sup class="cite"><a href="#s2">2</a></sup> The linguist Allen Walker Read dug up the evidence in 1963–64; rival stories (a Choctaw word, for example) have no such paper trail.<sup class="cite"><a href="#s4">4</a></sup></p>
+
+    <div class="retell">
+      <span class="label">Retell it · say it out loud once</span>
+      <ol>
+        <li><b>Hook:</b> "Where do you think 'OK' comes from: a Native American word, a war code, or a bad joke?"</li>
+        <li><b>Numbers:</b> "23 March 1839, the <i>Boston Morning Post</i>: 'o.k.' for 'oll korrect'.<sup class="cite"><a href="#s3">3</a></sup> In 1840 a presidential campaign made it famous."</li>
+        <li><b>Kicker:</b> "The word we use to mean 'correct' is itself spelt wrong, twice."</li>
+      </ol>
+    </div>
+
+    <div class="words">
+      <div class="word" style="--c: var(--grape)">
+        <h3>ubiquitous<span class="pos">adjective</span></h3>
+        <p>Seeming to be everywhere; found or existing everywhere.<sup class="cite"><a href="#s5">5</a></sup> <i>"OK" is now so <b>ubiquitous</b> that you hear it in Polish, Japanese and almost every language in between.</i></p>
+      </div>
+    </div>
+
+    <div id="quiz"><p class="callout"><span class="label">Quiz not loaded</span>If you can read this, the quiz script didn't run. Try opening the file in Chrome or Safari.</p></div>
+
+    <p class="muted"><b>Read more:</b> <a href="https://www.smithsonianmag.com/smart-news/how-one-man-discovered-the-obscure-origins-of-the-word-ok-180953258/" target="_blank" rel="noopener">Smithsonian: How one man discovered the origins of "OK"</a>. All retells: <a href="../reference/curiosity-deck.html">the curiosity deck</a>. <b>Questions?</b> Ask Claude, e.g. "Why did OK survive when OW and GT didn't?"</p>
+  </section>
+
+  <hr>
+  <ol class="sources">
+    <li id="s1">Wikipedia, <a href="https://en.wikipedia.org/wiki/OK">OK</a> (origin, the 1830s abbreviation fad and rival theories).</li>
+    <li id="s2">Etymonline, <a href="https://www.etymonline.com/word/OK">OK</a>.</li>
+    <li id="s3">Smithsonian Magazine, <a href="https://www.smithsonianmag.com/smart-news/how-one-man-discovered-the-obscure-origins-of-the-word-ok-180953258/">How One Man Discovered the Obscure Origins of the Word "OK"</a>.</li>
+    <li id="s4">Read, A. W. (1963), <a href="https://doi.org/10.2307/453580">The first stage in the history of "O.K."</a>, <i>American Speech</i> 38(1): 5–27.</li>
+    <li id="s5">Cambridge Dictionary, <a href="https://dictionary.cambridge.org/dictionary/english/ubiquitous">ubiquitous</a>.</li>
+  </ol>
+
+  <nav class="nav">
+    <a href="0013-taller-in-the-morning.html">← Curiosity 13: Taller in the morning</a>
+    <a href="0015-gps-needs-einstein.html">Curiosity 15: GPS needs Einstein →</a>
+  </nav>
+</main>
+
+<script src="../assets/guess.js"></script>
+<script src="../assets/timeline.js"></script>
+<script src="../assets/quiz.js"></script>
+<script>
+Guess.mount(document.getElementById("guess"), {
+  id: "0014",
+  prompt: "Where does the word \"OK\" come from?",
+  options: ["A misspelt joke in a Boston newspaper", "A Choctaw word meaning 'it is so'", "A Civil War code meaning 'zero killed'"],
+  answer: 0,
+  right: "Right! It really was a newspaper joke.",
+  wrong: "A popular story, but there's no evidence for it. It was a joke."
+});
+
+Timeline.mount(document.getElementById("tl"), {
+  from: 1830, to: 1975,
+  points: [
+    { year: 1839, label: "\"o.k.\" in the Boston Morning Post", color: "var(--accent)", side: "up" },
+    { year: 1963, label: "Allen Walker Read publishes the proof", color: "var(--grape)", side: "up" }
+  ],
+  spans: [
+    { from: 1839, to: 1963, label: "124 years of guessing", color: "var(--sun)" }
+  ],
+  caption: "Drawn to scale. The word was everywhere long before anyone knew where it came from."
+});
+
+const WP = "https://en.wikipedia.org/wiki/";
+Quiz.mount(document.getElementById("quiz"), {
+  id: "0014-ok-was-a-joke",
+  questions: [
+    {
+      tag: "OK: the joke",
+      link: WP + "OK",
+      prompt: `<p>"O.K." was a joke abbreviation. What misspelt phrase did it stand for?</p><p class="q-hint">Type the two-word phrase, spelt as the joke spelt it.</p>`,
+      accept: ["oll korrect", "orl korrect", "ol korrect", "oll korect", "all korrect", "oll correct", "all correct"],
+      explain: `<b>"Oll korrect"</b>, a jokey spelling of "all correct", printed in the <i>Boston Morning Post</i> on 23 March 1839.`
+    },
+    {
+      tag: "OK: why it survived",
+      link: "https://www.etymonline.com/word/OK",
+      prompt: `<p>Boston's other joke abbreviations (OW, GT…) died out. Why did OK spread instead?</p>`,
+      options: [
+        "Van Buren's campaign reused it for 'Old Kinderhook'",
+        "Telegraph operators adopted it as their standard reply",
+        "Choctaw traders taught it to New England merchants",
+        "Boston printers stamped it on every approved page"
+      ],
+      answer: 0,
+      explain: `In the 1840 election, Van Buren's supporters formed <b>"O.K. Clubs"</b> after his nickname "Old Kinderhook", which gave the joke national fame. The telegraph came later (1844).`
+    },
+    {
+      tag: "Review: bananas are berries",
+      link: WP + "Strawberry",
+      prompt: `<p class="muted">Review from Curiosity 8</p><p>Botanically, what are the tiny "seeds" on the outside of a strawberry?</p><p class="q-hint">Type one or two words.</p>`,
+      accept: ["fruits", "the fruits", "tiny fruits", "actual fruits", "the actual fruits", "fruit", "achenes", "achene", "the real fruits", "real fruits"],
+      explain: `Each "seed" is an <b>achene</b>: a tiny dry fruit with a seed inside. The red flesh is a swollen flower part, which is why a strawberry isn't a true berry.`
+    }
+  ]
+});
+</script>
+</body>
+</html>

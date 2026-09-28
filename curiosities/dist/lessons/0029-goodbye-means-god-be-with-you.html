@@ -1,0 +1,784 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Goodbye means "God be with you"</title>
+<style>
+/* Curiosities stylesheet: cool "night-sky museum" palette (teal, amber, cobalt, lime, plum),
+   deliberately different from english_c1's warm candy palette. Print-friendly, light/dark. */
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,500..700,100&family=Nunito:ital,wght@0,400;0,600;0,700;0,800;1,400&display=swap");
+
+:root {
+  --bg: #edf3f8;          /* cool blue-grey paper */
+  --fg: #13233a;          /* deep navy ink */
+  --muted: #5b6f86;
+  --rule: #d2dfea;
+  --panel: #ffffff;
+  --accent: #0b8577;      /* teal */
+  --sun: #e8980c;         /* amber */
+  --sky: #2f63d8;         /* cobalt */
+  --mint: #6ea614;        /* lime */
+  --grape: #a23b72;       /* plum */
+  --good: #10a37f;
+  --good-bg: #dcfbef;
+  --bad: #e5484d;
+  --bad-bg: #ffe4e6;
+  --shadow: 0 6px 0 rgba(19, 35, 58, .08), 0 12px 28px rgba(19, 35, 58, .09);
+  --radius: 18px;
+  --blob: 22%;
+  --measure: 40rem;
+  --font-body: "Nunito", "Segoe UI Rounded", "SF Pro Rounded", system-ui, sans-serif;
+  --font-display: "Fraunces", Georgia, serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0e1a2b; --fg: #e8f1fa; --muted: #9db2c7; --rule: #233a55; --panel: #152840;
+    --accent: #2cc4b0; --sun: #f7b733; --sky: #6b95f2; --mint: #9bd13a; --grape: #d46a9f;
+    --good: #4ee3b0; --good-bg: #133a35; --bad: #ff8a8f; --bad-bg: #40202b;
+    --shadow: 0 6px 0 rgba(0, 0, 0, .28), 0 12px 28px rgba(0, 0, 0, .32);
+    --blob: 12%;
+  }
+}
+:root[data-theme="dark"] {
+    --bg: #0e1a2b; --fg: #e8f1fa; --muted: #9db2c7; --rule: #233a55; --panel: #152840;
+    --accent: #2cc4b0; --sun: #f7b733; --sky: #6b95f2; --mint: #9bd13a; --grape: #d46a9f;
+    --good: #4ee3b0; --good-bg: #133a35; --bad: #ff8a8f; --bad-bg: #40202b;
+    --shadow: 0 6px 0 rgba(0, 0, 0, .28), 0 12px 28px rgba(0, 0, 0, .32);
+    --blob: 12%;
+}
+
+* { box-sizing: border-box; }
+html { font-size: 18px; }
+body {
+  margin: 0; padding: 3rem 16px 5rem;
+  background:
+    radial-gradient(circle at 8% 4%, color-mix(in srgb, var(--sun) var(--blob), transparent) 0 14rem, transparent 14rem),
+    radial-gradient(circle at 96% 18%, color-mix(in srgb, var(--sky) var(--blob), transparent) 0 11rem, transparent 11rem),
+    var(--bg);
+  background-attachment: fixed;
+  color: var(--fg);
+  font-family: var(--font-body); line-height: 1.6;
+}
+main { max-width: var(--measure); margin: 0 auto; }
+
+/* Header */
+.kicker {
+  display: inline-block; font: 800 .72rem/1 var(--font-body); letter-spacing: .1em; text-transform: uppercase;
+  color: #fff; background: var(--accent); padding: .45rem .75rem; border-radius: 999px; margin: 0 0 1rem;
+}
+h1 { font-family: var(--font-display); font-variation-settings: "SOFT" 100; font-weight: 700; font-size: 2.6rem; line-height: 1.1; margin: 0 0 .5rem; }
+.subtitle { color: var(--muted); font-size: 1.15rem; margin: 0 0 1.8rem; }
+h2 { font-family: var(--font-display); font-variation-settings: "SOFT" 100; font-weight: 600; font-size: 1.6rem; margin: 2.6rem 0 .7rem; }
+h3 { font-weight: 800; font-size: 1.1rem; margin: 1.6rem 0 .3rem; }
+a { color: inherit; text-decoration: underline 2px var(--accent); text-underline-offset: 3px; }
+a:hover { color: var(--accent); }
+hr { border: 0; border-top: 2px dashed var(--rule); margin: 2.5rem 0; }
+code, kbd { font-family: ui-monospace, Menlo, monospace; font-size: .85em; }
+small, .muted { color: var(--muted); }
+
+/* Meta chips: time, goal */
+.meta { display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: 2rem; }
+.meta span { font-size: .85rem; background: var(--panel); border: 2px solid var(--rule); border-radius: 999px; padding: .35rem .8rem; }
+.meta span:nth-child(1) { border-color: var(--sun); }
+.meta span:nth-child(2) { border-color: var(--mint); }
+.meta span:nth-child(3) { border-color: var(--sky); }
+.meta b { font-weight: 800; }
+
+/* Callouts */
+.callout { background: var(--panel); border-radius: var(--radius); box-shadow: var(--shadow); border-top: 6px solid var(--grape); padding: 1rem 1.2rem; margin: 1.4rem 0; }
+.callout:nth-of-type(3n+2) { border-top-color: var(--sky); }
+.callout:nth-of-type(3n) { border-top-color: var(--mint); }
+.callout > :first-child { margin-top: 0; } .callout > :last-child { margin-bottom: 0; }
+.callout .label { font: 800 .72rem var(--font-body); letter-spacing: .1em; text-transform: uppercase; color: var(--grape); display: block; margin-bottom: .3rem; }
+
+/* Dialogue lines, as heard on screen */
+.line { font-style: italic; font-size: 1.08rem; padding: .1rem 0 .1rem .9rem; border-left: 4px solid var(--sun); margin: .5rem 0; }
+
+/* Citations */
+sup.cite a { text-decoration: none; color: #fff; background: var(--sky); border-radius: 999px; padding: 0 .35em; font: 800 .62rem var(--font-body); }
+ol.sources { font-size: .85rem; color: var(--muted); padding-left: 1.2rem; }
+
+/* Tables (reference sheets) */
+table { width: 100%; border-collapse: separate; border-spacing: 0; font-size: .92rem; margin: 1rem 0; background: var(--panel); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); }
+th { text-align: left; font: 800 .7rem var(--font-body); letter-spacing: .08em; text-transform: uppercase; color: #fff; background: var(--grape); padding: .6rem .8rem; }
+td { border-top: 1px solid var(--rule); padding: .65rem .8rem; vertical-align: top; }
+td em { color: var(--accent); font-style: normal; font-weight: 800; }
+.table-wrap { overflow-x: auto; }
+
+/* Rule cards (knowledge sections) */
+.rules { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: .9rem; margin: 1.2rem 0; }
+.rule { background: var(--panel); border-radius: var(--radius); box-shadow: var(--shadow); padding: 1rem 1.1rem; border-top: 6px solid var(--c, var(--grape)); }
+.rule h3 { margin: 0 0 .3rem; font-size: 1rem; }
+.rule .pattern { font-weight: 800; color: var(--c, var(--grape)); font-size: .92rem; margin: 0 0 .4rem; }
+.rule p { margin: .3rem 0; font-size: .95rem; }
+
+/* Footer nav */
+.nav { display: flex; justify-content: space-between; gap: 1rem; font-weight: 700; font-size: .9rem; margin-top: 3rem; padding-top: 1rem; border-top: 2px dashed var(--rule); }
+
+@media (max-width: 600px) {
+  html { font-size: 17px; }
+  body { padding-top: 1.5rem; }
+  h1 { font-size: 2rem; }
+}
+@media print {
+  :root { --bg: #fff; --fg: #000; --shadow: none; }
+  body { padding: 0; font-size: 11pt; background: #fff; }
+  .no-print, .nav { display: none !important; }
+  a { text-decoration: none; }
+  table, .callout, .q { break-inside: avoid; }
+  table, .callout { border: 1px solid #ccc; }
+}
+</style>
+<style>
+/* Styles for assets/quiz.js. Relies on tokens from style.css. */
+
+/* Sticky progress bar */
+.quiz-bar { position: sticky; top: 0; z-index: 5; background: var(--bg); padding: .7rem 0 .6rem; margin-bottom: 1.2rem; }
+.quiz-bar-track { height: 14px; background: var(--rule); border-radius: 999px; overflow: hidden; }
+.quiz-bar-fill {
+  height: 100%; width: 0; border-radius: 999px;
+  background: linear-gradient(90deg, var(--accent), var(--sun), var(--mint), var(--sky), var(--grape));
+  background-size: 40rem 100%;
+  transition: width .5s cubic-bezier(.34, 1.56, .64, 1);
+}
+.quiz-bar-stats { display: flex; justify-content: space-between; font-weight: 700; font-size: .85rem; color: var(--muted); margin-top: .35rem; }
+.quiz-streak { color: var(--accent); }
+.quiz-streak.is-hot { animation: q-pop .35s ease; }
+
+/* Question card */
+.q {
+  --q-color: var(--grape);
+  background: var(--panel); border-radius: var(--radius); box-shadow: var(--shadow);
+  border-top: 8px solid var(--q-color);
+  padding: 1.2rem 1.3rem 1.3rem; margin-bottom: 1.3rem;
+  transition: transform .2s;
+}
+.q.is-correct { animation: q-pop .4s ease; }
+.q.is-incorrect { animation: q-shake .4s ease; }
+.q-num {
+  display: inline-block; font-weight: 800; font-size: .72rem; letter-spacing: .1em; text-transform: uppercase;
+  color: #fff; background: var(--q-color); border-radius: 999px; padding: .25rem .65rem; margin-bottom: .6rem;
+}
+.q-prompt { margin-bottom: .9rem; }
+.q-prompt .line { border-left-color: var(--q-color); }
+.q-prompt .gap { display: inline-block; min-width: 4.5em; border-bottom: 3px dotted var(--q-color); }
+
+/* Options */
+.q-opts { display: grid; grid-template-columns: 1fr 1fr; gap: .6rem; }
+@media (max-width: 600px) { .q-opts { grid-template-columns: 1fr; } }
+.q-opt {
+  display: flex; align-items: center; gap: .7rem;
+  font: 700 .98rem var(--font-body); text-align: left; color: var(--fg);
+  background: var(--bg); border: 2px solid var(--rule); border-radius: 14px;
+  padding: .65rem .8rem; cursor: pointer;
+  box-shadow: 0 4px 0 var(--rule);
+  transition: transform .12s, box-shadow .12s, border-color .12s;
+}
+.q-opt:hover:not(:disabled) { border-color: var(--q-color); transform: translateY(-2px); box-shadow: 0 6px 0 var(--q-color); }
+.q-opt:active:not(:disabled) { transform: translateY(3px); box-shadow: 0 1px 0 var(--q-color); }
+.q-opt:focus-visible { outline: 3px solid var(--q-color); outline-offset: 2px; }
+.q-opt:disabled { cursor: default; opacity: .5; }
+.q-letter {
+  flex: none; display: grid; place-items: center; width: 1.8rem; height: 1.8rem; border-radius: 50%;
+  font-size: .8rem; font-weight: 800; color: #fff; background: var(--q-color);
+}
+.q-opt.is-right { background: var(--good-bg); border-color: var(--good); color: var(--good); box-shadow: 0 4px 0 var(--good); opacity: 1; }
+.q-opt.is-right .q-letter { background: var(--good); }
+.q-opt.is-wrong { background: var(--bad-bg); border-color: var(--bad); color: var(--bad); box-shadow: 0 4px 0 var(--bad); opacity: 1; }
+.q-opt.is-wrong .q-letter { background: var(--bad); }
+
+/* Feedback */
+.q-feedback { font-size: .95rem; margin-top: 1rem; padding: .8rem 1rem; border-radius: 14px; animation: q-rise .3s ease; }
+.q-feedback:empty { display: none; }
+.q-feedback.good { background: var(--good-bg); }
+.q-feedback.bad { background: var(--bad-bg); }
+.q-feedback.good b { color: var(--good); }
+.q-feedback.bad b { color: var(--bad); }
+
+/* Summary */
+.quiz-summary {
+  text-align: center; background: var(--panel); border-radius: var(--radius); box-shadow: var(--shadow);
+  border: 3px solid transparent;
+  background-image: linear-gradient(var(--panel), var(--panel)), linear-gradient(90deg, var(--accent), var(--sun), var(--mint), var(--sky), var(--grape));
+  background-origin: border-box; background-clip: padding-box, border-box;
+  padding: 1.6rem 1.4rem; margin-top: 2rem; animation: q-rise .5s ease;
+}
+.quiz-trophy { font-size: 3.4rem; line-height: 1; animation: q-pop .6s ease; }
+.quiz-summary h3 { font-family: var(--font-display); font-size: 1.6rem; margin: .6rem 0 .2rem; }
+.quiz-missed { display: inline-block; text-align: left; margin: 0 auto 1rem; }
+.quiz-report { text-align: left; background: var(--bg); padding: .7rem .9rem; border: 2px dashed var(--rule); border-radius: 12px; white-space: pre-wrap; font-size: .8rem; }
+.q-copy {
+  font: 800 .9rem var(--font-body); background: var(--accent); color: #fff; border: 0; border-radius: 999px;
+  padding: .7rem 1.3rem; cursor: pointer; box-shadow: 0 4px 0 color-mix(in srgb, var(--accent) 60%, #000);
+  transition: transform .12s;
+}
+.q-copy:hover { transform: translateY(-2px); }
+
+/* Confetti pieces (positioned in the viewport) */
+.q-confetti {
+  position: fixed; z-index: 50; width: 9px; height: 13px; border-radius: 2px; pointer-events: none;
+  animation: q-fly 1s cubic-bezier(.2, .7, .4, 1) forwards;
+}
+
+@keyframes q-pop { 0% { transform: scale(1); } 40% { transform: scale(1.04); } 100% { transform: scale(1); } }
+@keyframes q-shake { 0%, 100% { transform: translateX(0); } 25% { transform: translateX(-6px); } 50% { transform: translateX(5px); } 75% { transform: translateX(-3px); } }
+@keyframes q-rise { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+@keyframes q-fly {
+  from { transform: translate(0, 0) rotate(0); opacity: 1; }
+  to { transform: translate(var(--dx), calc(var(--dy) + 80px)) rotate(var(--rot)); opacity: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .q, .q-feedback, .quiz-summary, .quiz-trophy, .quiz-streak, .q-opt { animation: none !important; transition: none !important; }
+}
+@media print {
+  .q-opt { background: none; box-shadow: none; }
+  .quiz-bar { position: static; }
+  .q { box-shadow: none; border: 1px solid #ccc; }
+}
+
+/* Typed-recall questions */
+.q-type { display: flex; gap: .6rem; flex-wrap: wrap; }
+.q-type input {
+  flex: 1 1 14rem; font: 700 1.05rem var(--font-body); color: var(--fg);
+  background: var(--bg); border: 2px solid var(--rule); border-radius: 14px; padding: .65rem .9rem;
+  box-shadow: 0 4px 0 var(--rule); outline: none; transition: border-color .12s;
+}
+.q-type input:focus { border-color: var(--q-color); box-shadow: 0 4px 0 var(--q-color); }
+.q-type input.is-right { background: var(--good-bg); border-color: var(--good); color: var(--good); box-shadow: 0 4px 0 var(--good); }
+.q-type input.is-wrong { background: var(--bad-bg); border-color: var(--bad); color: var(--bad); box-shadow: 0 4px 0 var(--bad); text-decoration: line-through; }
+.q-check {
+  font: 800 .95rem var(--font-body); color: #fff; background: var(--q-color); border: 0; border-radius: 14px;
+  padding: .65rem 1.2rem; cursor: pointer; box-shadow: 0 4px 0 color-mix(in srgb, var(--q-color) 60%, #000);
+  transition: transform .12s;
+}
+.q-check:hover:not(:disabled) { transform: translateY(-2px); }
+.q-check:disabled { opacity: .5; cursor: default; }
+.q-answer { color: var(--good); }
+.q-hint { font-size: .85rem; color: var(--muted); margin: -.4rem 0 .7rem; }
+</style>
+<style>
+/* Curiosity-lesson components: guess card, reveal, timeline, retell card, word cards.
+   Relies on tokens from style.css. */
+
+/* Guess first (assets/guess.js) */
+.guess { background: var(--panel); border-radius: var(--radius); box-shadow: var(--shadow); border-top: 8px solid var(--sun); padding: 1.2rem 1.3rem 1.3rem; margin: 1.4rem 0; }
+.guess .label { font: 800 .72rem var(--font-body); letter-spacing: .1em; text-transform: uppercase; color: var(--muted); display: block; margin-bottom: .4rem; }
+.guess-prompt { font-family: var(--font-display); font-variation-settings: "SOFT" 100; font-weight: 600; font-size: 1.35rem; line-height: 1.3; margin: 0 0 1rem; }
+.guess .q-opts { --q-color: var(--sun); }
+.guess-verdict { margin: 1rem 0 0; font-weight: 700; animation: q-rise .3s ease; }
+.guess-verdict:empty { display: none; }
+[data-after-guess][hidden] { display: none !important; }
+
+/* The reveal: one big sentence */
+.reveal { font-family: var(--font-display); font-variation-settings: "SOFT" 100; font-weight: 700; font-size: 1.7rem; line-height: 1.25; margin: 1.6rem 0 1rem; }
+.reveal mark { background: linear-gradient(transparent 60%, color-mix(in srgb, var(--sun) 70%, transparent) 60%); color: inherit; }
+
+/* Proportional timeline (assets/timeline.js) */
+.tl { position: relative; margin: 1.6rem 0 1.4rem; padding: 4.6rem 0 2.4rem; }
+.tl-track { position: relative; height: 6px; border-radius: 999px; background: var(--rule); }
+.tl-span { position: absolute; top: -3px; height: 12px; border-radius: 999px; background: color-mix(in srgb, var(--c) 45%, transparent); }
+.tl-span-label { position: absolute; top: 1.1rem; transform: translateX(-50%); white-space: nowrap; font-weight: 800; font-size: .85rem; color: var(--c); }
+.tl-pt { position: absolute; top: 50%; width: 18px; height: 18px; margin: -9px 0 0 -9px; border-radius: 50%; background: var(--c); border: 3px solid var(--panel); box-shadow: 0 0 0 2px var(--c); }
+.tl-lab { position: absolute; width: 9rem; font-size: .82rem; line-height: 1.25; transform: translateX(-50%); text-align: center; }
+.tl-lab b { display: block; color: var(--c); font-size: .95rem; }
+.tl-lab.up { bottom: 1.6rem; }
+.tl-lab.down { top: 1.6rem; }
+.tl-lab.start { transform: none; text-align: left; margin-left: -9px; }
+.tl-lab.end { transform: translateX(-100%); text-align: right; margin-left: 9px; }
+.tl-caption { font-size: .85rem; color: var(--muted); text-align: center; margin-top: -1rem; }
+
+/* Big-number comparison: <div class="stats"><div class="stat" style="--c: var(--sky)"><b>243</b><span>Earth days: one Venus day</span></div>…</div> */
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr)); gap: .9rem; margin: 1.4rem 0; }
+.stat { background: var(--panel); border-radius: var(--radius); box-shadow: var(--shadow); border-top: 6px solid var(--c, var(--grape)); padding: 1rem 1.1rem; text-align: center; }
+.stat b { display: block; font-family: var(--font-display); font-variation-settings: "SOFT" 100; font-weight: 700; font-size: 2.3rem; line-height: 1.1; color: var(--c, var(--grape)); }
+.stat span { display: block; font-size: .88rem; color: var(--muted); margin-top: .3rem; }
+.stats:has(> .vs) { grid-template-columns: 1fr auto 1fr; }
+.stats:has(> .vs):has(> .stat:nth-child(4)) { grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr)); }
+.stat.vs { align-self: center; background: none; box-shadow: none; border: 0; padding: 0; font-weight: 800; color: var(--muted); }
+
+/* Retell card: the conversation-ready version */
+.retell { position: relative; background: var(--panel); border-radius: var(--radius); box-shadow: var(--shadow); border: 3px solid var(--mint); padding: 1.1rem 1.3rem; margin: 1.4rem 0; }
+.retell .label { font: 800 .72rem var(--font-body); letter-spacing: .1em; text-transform: uppercase; color: var(--mint); display: block; margin-bottom: .4rem; }
+.retell ol { margin: .3rem 0 0; padding-left: 1.3rem; }
+.retell li { margin: .35rem 0; }
+.retell li::marker { font-weight: 800; color: var(--mint); }
+
+/* Words to steal (English C1 bonus) */
+.words { display: grid; grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); gap: .9rem; margin: 1.2rem 0; }
+.word { background: var(--panel); border-radius: var(--radius); box-shadow: var(--shadow); padding: .9rem 1.1rem; border-left: 6px solid var(--c, var(--grape)); }
+.word h3 { margin: 0; font-family: var(--font-display); font-weight: 600; font-size: 1.25rem; }
+.word .pos { font-size: .8rem; color: var(--muted); font-weight: 700; margin-left: .3rem; }
+.word p { margin: .3rem 0; font-size: .95rem; }
+
+@media print {
+  [data-after-guess][hidden] { display: block !important; }
+  .guess, .retell, .word { box-shadow: none; border: 1px solid #ccc; }
+}
+@media (max-width: 600px) {
+  .reveal { font-size: 1.4rem; }
+  .tl-lab { width: 6.5rem; font-size: .75rem; }
+}
+</style>
+</head>
+<body>
+<main>
+  <p class="kicker">Curiosity 29 · Language</p>
+  <h1>Goodbye means "God be with you"</h1>
+  <p class="subtitle">You say a blessing every day. It's just been worn down.</p>
+
+  <div class="meta">
+    <span><b>Time</b> ~2 min</span>
+    <span><b>Win</b> the story hidden in an everyday word</span>
+    <span><b>Bonus</b> 1 C1 word</span>
+  </div>
+
+  <div id="guess"><p class="callout"><span class="label">Guess first</span>"Goodbye" started life as a longer phrase that got squashed. Which one? Decide before you scroll.</p></div>
+
+  <section data-after-guess>
+    <p class="reveal">"Goodbye" is a squashed <mark>"God be with ye"</mark>.</p>
+
+    <div id="tl"></div>
+
+    <p><b>Why it works:</b> Phrases we say constantly wear down. "God be with ye" (late 1300s) shrank through forms like "God be wy you" and "God b'uy" to "godbwye" in the 1570s.<sup class="cite"><a href="#s1">1</a></sup> Then "God" became "good", because people matched it to other farewells like "good day" and "good night".<sup class="cite"><a href="#s1">1</a></sup><sup class="cite"><a href="#s2">2</a></sup> By the 1590s it was "good-bye", and speakers no longer heard the blessing inside.</p>
+
+    <div class="retell">
+      <span class="label">Retell it · say it out loud once</span>
+      <ol>
+        <li><b>Hook:</b> "Which word do you say every day that is secretly a blessing?"</li>
+        <li><b>Detail:</b> "'God be with ye' was squeezed into 'godbwye' by the 1570s, then 'God' turned into 'good', like 'good day'."</li>
+        <li><b>Kicker:</b> "Every goodbye is a little prayer with the God worn off."</li>
+      </ol>
+    </div>
+
+    <div class="words">
+      <div class="word" style="--c: var(--sky)">
+        <h3>contraction<span class="pos">noun</span></h3>
+        <p>A short form of a word or combination of words, often used instead of the full form in spoken English.<sup class="cite"><a href="#s3">3</a></sup> <i>"Goodbye" began as a <b>contraction</b> of "God be with ye", just as "don't" is one of "do not".</i></p>
+      </div>
+    </div>
+
+    <div id="quiz"><p class="callout"><span class="label">Quiz not loaded</span>If you can read this, the quiz script didn't run. Try opening the file in Chrome or Safari.</p></div>
+
+    <p class="muted"><b>Read more:</b> <a href="https://www.etymonline.com/word/good-bye" target="_blank" rel="noopener">Etymonline: good-bye</a>. All retells: <a href="../reference/curiosity-deck.html">the curiosity deck</a>. <b>Questions?</b> Ask Claude, e.g. "Do other languages hide God in their farewells, like 'adieu'?"</p>
+  </section>
+
+  <hr>
+  <ol class="sources">
+    <li id="s1">Online Etymology Dictionary, <a href="https://www.etymonline.com/word/good-bye">good-bye</a> (1590s, from "godbwye", 1570s, from "God be with ye", late 14c.).</li>
+    <li id="s2">Wiktionary, <a href="https://en.wiktionary.org/wiki/goodbye">goodbye</a> (etymology: the chain of shorter forms; "God" to "good" by analogy with "good morning", "good night").</li>
+    <li id="s3">Cambridge Dictionary, <a href="https://dictionary.cambridge.org/dictionary/english/contraction">contraction</a>.</li>
+  </ol>
+
+  <nav class="nav">
+    <a href="0028-the-toughest-animal.html">← Curiosity 28: The toughest animal</a>
+    <a href="0030-a-light-day-away.html">Curiosity 30: A light-day away →</a>
+  </nav>
+</main>
+
+<script>
+/*
+ * "Guess first": the learner commits to a prediction before the answer is shown.
+ * Guessing before learning (even wrongly) makes the answer stick better.
+ * Everything marked data-after-guess stays hidden until a guess is made.
+ * Without JS, everything is simply visible.
+ *
+ * Usage:
+ *   <link rel="stylesheet" href="../assets/curio.css">
+ *   <div id="guess"></div>
+ *   <section data-after-guess>…the reveal…</section>
+ *   <script src="../assets/guess.js"><\/script>
+ *   <script>
+ *     Guess.mount(document.getElementById("guess"), {
+ *       id: "0001",                      // remembers the guess on revisit
+ *       prompt: "HTML",
+ *       options: ["a", "b"],             // keep equal length: no formatting clues
+ *       answer: 1,
+ *       right: "HTML shown if right",
+ *       wrong: "HTML shown if wrong"
+ *     });
+ *   <\/script>
+ */
+(function () {
+  const LETTERS = ["A", "B", "C", "D"];
+  const store = {
+    get(k) { try { return localStorage.getItem(k); } catch (_) { return null; } },
+    set(k, v) { try { localStorage.setItem(k, v); } catch (_) {} }
+  };
+
+  function mount(root, cfg) {
+    const after = document.querySelectorAll("[data-after-guess]");
+    const key = "curio-guess-" + cfg.id;
+    root.className = "guess";
+    root.innerHTML =
+      `<span class="label">Guess first · no peeking</span>` +
+      `<p class="guess-prompt">${cfg.prompt}</p>` +
+      `<div class="q-opts"></div><p class="guess-verdict"></p>`;
+    const opts = root.querySelector(".q-opts");
+    const verdict = root.querySelector(".guess-verdict");
+
+    const choose = (i, animate) => {
+      opts.querySelectorAll("button").forEach(b => {
+        b.disabled = true;
+        if (+b.dataset.i === cfg.answer) b.classList.add("is-right");
+        else if (+b.dataset.i === i) b.classList.add("is-wrong");
+      });
+      verdict.innerHTML = i === cfg.answer ? "🎯 " + cfg.right : "🤯 " + cfg.wrong;
+      after.forEach(s => (s.hidden = false));
+      store.set(key, String(i));
+      if (animate && after[0]) after[0].scrollIntoView({ behavior: "smooth", block: "start" });
+    };
+
+    cfg.options.forEach((text, i) => {
+      const b = document.createElement("button");
+      b.type = "button";
+      b.className = "q-opt";
+      b.dataset.i = i;
+      b.innerHTML = `<span class="q-letter">${LETTERS[i]}</span><span>${text}</span>`;
+      b.addEventListener("click", () => choose(i, true));
+      opts.appendChild(b);
+    });
+
+    const saved = store.get(key);
+    if (saved !== null && cfg.options[+saved] !== undefined) choose(+saved, false);
+    else after.forEach(s => (s.hidden = true));
+  }
+
+  window.Guess = { mount };
+})();
+</script>
+<script>
+/*
+ * To-scale timeline: points and spans placed proportionally, so the
+ * distances you see are the distances in time.
+ *
+ * Usage:
+ *   <link rel="stylesheet" href="../assets/curio.css">
+ *   <div id="tl"></div>
+ *   <script src="../assets/timeline.js"><\/script>
+ *   <script>
+ *     Timeline.mount(document.getElementById("tl"), {
+ *       from: -2700, to: 2100,             // negative = BC (there is no year 0)
+ *       points: [{ year: -2560, label: "Great Pyramid", color: "var(--sun)", side: "up" }],
+ *       spans:  [{ from: -2560, to: -30, label: "2,530 years", color: "var(--accent)" }],
+ *       caption: "Drawn to scale."
+ *     });
+ *   <\/script>
+ */
+(function () {
+  const fmt = y => (y < 0 ? `${-y} BC` : `AD ${y}`);
+
+  function mount(root, cfg) {
+    const pct = y => ((y - cfg.from) / (cfg.to - cfg.from)) * 100;
+    root.className = "tl";
+    root.setAttribute("role", "img");
+    root.setAttribute("aria-label", "Timeline: " + cfg.points.map(p => `${p.label}, ${fmt(p.year)}`).join("; "));
+    const track = document.createElement("div");
+    track.className = "tl-track";
+
+    (cfg.spans || []).forEach(s => {
+      const bar = document.createElement("div");
+      bar.className = "tl-span";
+      bar.style.cssText = `left:${pct(s.from)}%;width:${pct(s.to) - pct(s.from)}%;--c:${s.color}`;
+      const lab = document.createElement("div");
+      lab.className = "tl-span-label";
+      lab.style.cssText = `left:${(pct(s.from) + pct(s.to)) / 2}%;--c:${s.color}`;
+      lab.textContent = s.label;
+      track.append(bar, lab);
+    });
+
+    cfg.points.forEach((p, i) => {
+      const x = pct(p.year);
+      const dot = document.createElement("div");
+      dot.className = "tl-pt";
+      dot.style.cssText = `left:${x}%;--c:${p.color}`;
+      const lab = document.createElement("div");
+      const edge = x < 12 ? " start" : x > 88 ? " end" : "";
+      lab.className = "tl-lab " + (p.side || (i % 2 ? "down" : "up")) + edge;
+      lab.style.cssText = `left:${x}%;--c:${p.color}`;
+      lab.innerHTML = `<b>${fmt(p.year)}</b>${p.label}`;
+      track.append(dot, lab);
+    });
+
+    root.innerHTML = "";
+    root.appendChild(track);
+    if (cfg.caption) {
+      const cap = document.createElement("p");
+      cap.className = "tl-caption";
+      cap.textContent = cfg.caption;
+      root.after(cap);
+    }
+  }
+
+  window.Timeline = { mount };
+})();
+</script>
+<script>
+/*
+ * Reusable multiple-choice quiz with instant feedback, progress bar,
+ * streak counter and a small celebration at the end.
+ *
+ * Usage:
+ *   <link rel="stylesheet" href="../assets/quiz.css">
+ *   <div id="quiz">fallback text shown if JS doesn't run</div>
+ *   <script src="../assets/quiz.js"><\/script>
+ *   <script>
+ *     Quiz.mount(document.getElementById("quiz"), {
+ *       id: "0001-diagnostic",            // used for the results summary
+ *       questions: [{
+ *         prompt: "HTML",                 // the question
+ *         options: ["a", "b", "c", "d"],  // keep equal length: no formatting clues
+ *         answer: 0,                      // index of the correct option (options are shuffled)
+ *         // …or, for typed recall instead of options:
+ *         // accept: ["went"],            // all acceptable answers; the first is the model answer
+ *         explain: "HTML",                // shown after answering
+ *         tag: "Modals: probability",     // skill area, used in the summary
+ *         link: "https://..."             // optional further reading for this tag
+ *       }]
+ *     });
+ *   <\/script>
+ */
+(function () {
+  const LETTERS = ["A", "B", "C", "D", "E", "F"];
+  const PRAISE = ["Nice!", "Spot on!", "Brilliant!", "Nailed it!", "Lovely!", "Exactly!"];
+  const COMFORT = ["Not quite.", "Close one.", "Good to know!", "Tricky one."];
+  const CONFETTI = ["#0b8577", "#e8980c", "#2f63d8", "#6ea614", "#a23b72"];
+  const reducedMotion = () => window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const pick = arr => arr[Math.floor(Math.random() * arr.length)];
+
+  function shuffle(arr) {
+    const a = arr.slice();
+    for (let i = a.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [a[i], a[j]] = [a[j], a[i]];
+    }
+    return a;
+  }
+
+  // Lenient comparison for typed answers: case, spacing, curly apostrophes, final full stop.
+  function normalize(t) {
+    return String(t).toLowerCase().replace(/[’‘`]/g, "'").replace(/\s+/g, " ").replace(/[.!]$/, "").trim();
+  }
+
+  function el(tag, cls, html) {
+    const e = document.createElement(tag);
+    if (cls) e.className = cls;
+    if (html != null) e.innerHTML = html;
+    return e;
+  }
+
+  // Small burst of confetti from an element (or the viewport centre).
+  function burst(anchor, count) {
+    if (reducedMotion()) return;
+    const r = anchor ? anchor.getBoundingClientRect() : { left: innerWidth / 2, top: innerHeight / 3, width: 0, height: 0 };
+    const x = r.left + r.width / 2, y = r.top + r.height / 2;
+    for (let i = 0; i < count; i++) {
+      const p = el("span", "q-confetti");
+      const angle = Math.random() * Math.PI * 2, dist = 60 + Math.random() * (count > 20 ? 260 : 90);
+      p.style.left = x + "px";
+      p.style.top = y + "px";
+      p.style.background = pick(CONFETTI);
+      p.style.setProperty("--dx", Math.cos(angle) * dist + "px");
+      p.style.setProperty("--dy", Math.sin(angle) * dist + "px");
+      p.style.setProperty("--rot", Math.random() * 720 - 360 + "deg");
+      document.body.appendChild(p);
+      setTimeout(() => p.remove(), 1100);
+    }
+  }
+
+  function mount(root, cfg) {
+    root.innerHTML = ""; // clear the no-JS fallback message
+    const results = []; // { tag, link, correct }
+    const total = cfg.questions.length;
+    let streak = 0, best = 0;
+
+    const bar = el("div", "quiz-bar");
+    bar.innerHTML =
+      `<div class="quiz-bar-track"><div class="quiz-bar-fill"></div></div>` +
+      `<div class="quiz-bar-stats"><span class="quiz-count"></span><span class="quiz-streak"></span></div>`;
+    root.appendChild(bar);
+    const fill = bar.querySelector(".quiz-bar-fill");
+    const count = bar.querySelector(".quiz-count");
+    const streakEl = bar.querySelector(".quiz-streak");
+    const update = () => {
+      const done = results.filter(Boolean).length;
+      const right = results.filter(r => r && r.correct).length;
+      fill.style.width = (done / total) * 100 + "%";
+      count.textContent = `${done} / ${total} answered · ⭐ ${right}`;
+      streakEl.textContent = streak >= 2 ? `🔥 ${streak} in a row` : "";
+      streakEl.classList.toggle("is-hot", streak >= 2);
+    };
+    update();
+
+    cfg.questions.forEach((q, qi) => {
+      const box = el("section", "q");
+      box.style.setProperty("--q-color", CONFETTI[qi % CONFETTI.length]);
+      box.appendChild(el("div", "q-num", `Question ${qi + 1}`));
+      box.appendChild(el("div", "q-prompt", q.prompt));
+      const feedback = el("div", "q-feedback");
+
+      // Shared by both question types: lock the card, score it, explain.
+      const finish = (correct, anchor, reveal) => {
+        box.dataset.done = "1";
+        box.classList.add(correct ? "is-correct" : "is-incorrect");
+        streak = correct ? streak + 1 : 0;
+        best = Math.max(best, streak);
+        if (correct) burst(anchor, 14);
+        feedback.className = "q-feedback " + (correct ? "good" : "bad");
+        feedback.innerHTML =
+          `<b>${correct ? "🎉 " + pick(PRAISE) : "💡 " + pick(COMFORT)}</b> ` +
+          (reveal ? `Answer: <b class="q-answer">${reveal}</b>. ` : "") + q.explain +
+          (q.link ? ` <a href="${q.link}" target="_blank" rel="noopener">Read more →</a>` : "");
+        results[qi] = { tag: q.tag, link: q.link, correct };
+        update();
+        if (results.filter(Boolean).length === total) showSummary();
+      };
+
+      let opts;
+      if (q.accept) {
+        // Typed recall: q.accept lists every acceptable answer; the first is shown as the model answer.
+        opts = el("form", "q-type");
+        opts.innerHTML =
+          `<input type="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Type your answer…" aria-label="Your answer">` +
+          `<button type="submit" class="q-check">Check</button>`;
+        const input = opts.querySelector("input");
+        opts.addEventListener("submit", e => {
+          e.preventDefault();
+          if (box.dataset.done || !input.value.trim()) return;
+          const correct = q.accept.map(normalize).includes(normalize(input.value));
+          input.disabled = true;
+          opts.querySelector("button").disabled = true;
+          input.classList.add(correct ? "is-right" : "is-wrong");
+          finish(correct, input, correct ? null : q.accept[0]);
+        });
+      } else {
+        opts = el("div", "q-opts");
+        const order = shuffle(q.options.map((text, i) => ({ text, i })));
+        order.forEach((o, oi) => {
+          const b = el("button", "q-opt", `<span class="q-letter">${LETTERS[oi]}</span><span>${o.text}</span>`);
+          b.type = "button";
+          b.dataset.i = o.i;
+          b.addEventListener("click", () => {
+            if (box.dataset.done) return;
+            const correct = o.i === q.answer;
+            opts.querySelectorAll("button").forEach(btn => {
+              btn.disabled = true;
+              if (btn.dataset.i == q.answer) btn.classList.add("is-right");
+            });
+            if (!correct) b.classList.add("is-wrong");
+            finish(correct, b);
+          });
+          opts.appendChild(b);
+        });
+      }
+
+      box.appendChild(opts);
+      box.appendChild(feedback);
+      root.appendChild(box);
+    });
+
+    const summary = el("section", "quiz-summary");
+    summary.hidden = true;
+    root.appendChild(summary);
+
+    function showSummary() {
+      const right = results.filter(r => r.correct).length;
+      const missed = results.filter(r => !r.correct);
+      const ratio = right / total;
+      const [emoji, verdict] =
+        ratio === 1 ? ["🏆", "Perfect score!"] :
+        ratio >= .8 ? ["🌟", "Excellent work!"] :
+        ratio >= .5 ? ["💪", "Solid foundation."] :
+                      ["🌱", "Lots of room to grow, and that's why we're here."];
+      const lines = [
+        `Quiz ${cfg.id}: ${right}/${total}`,
+        missed.length ? "Missed: " + missed.map(m => m.tag).join("; ") : "Missed: none"
+      ];
+      summary.innerHTML =
+        `<div class="quiz-trophy">${emoji}</div>` +
+        `<h3>${right} / ${total}: ${verdict}</h3>` +
+        `<p class="muted">Best streak: 🔥 ${best}</p>` +
+        (missed.length
+          ? `<p>Areas to work on:</p><ul class="quiz-missed">${missed.map(m =>
+              `<li>${m.link ? `<a href="${m.link}" target="_blank" rel="noopener">${m.tag}</a>` : m.tag}</li>`).join("")}</ul>`
+          : `<p>Clean sweep. Nothing missed.</p>`) +
+        `<p>Paste this into your chat with Claude so the next lesson targets your gaps:</p>` +
+        `<pre class="quiz-report">${lines.join("\n")}</pre>` +
+        `<button type="button" class="q-copy no-print">📋 Copy result</button>`;
+      summary.hidden = false;
+      summary.querySelector(".q-copy").addEventListener("click", e => {
+        try {
+          navigator.clipboard.writeText(lines.join("\n"));
+          e.target.textContent = "✅ Copied";
+        } catch (_) {
+          e.target.textContent = "Select the text above to copy";
+        }
+      });
+      summary.scrollIntoView({ behavior: reducedMotion() ? "auto" : "smooth", block: "start" });
+      setTimeout(() => burst(null, ratio >= .5 ? 60 : 24), 350);
+    }
+  }
+
+  window.Quiz = { mount };
+})();
+</script>
+<script>
+Guess.mount(document.getElementById("guess"), {
+  id: "0029",
+  prompt: "Which phrase was squashed into \"goodbye\"?",
+  options: ["\"Good day to ye\"", "\"God be with ye\""],
+  answer: 1,
+  right: "Right! It's a blessing that lost its shape.",
+  wrong: "A clever guess, since \"good day\" did play a part. But the source is \"God be with ye\"."
+});
+
+Timeline.mount(document.getElementById("tl"), {
+  from: 1350, to: 2030,
+  points: [
+    { year: 1390, label: "\"God be with ye\"", color: "var(--grape)", side: "up" },
+    { year: 1575, label: "\"godbwye\"", color: "var(--sky)", side: "down" },
+    { year: 1595, label: "\"good-bye\"", color: "var(--mint)", side: "up" },
+    { year: 2026, label: "Your goodbye today", color: "var(--sun)", side: "down" }
+  ],
+  spans: [
+    { from: 1390, to: 1575, label: "≈ 2 centuries of squeezing", color: "var(--grape)" }
+  ],
+  caption: "To scale, with approximate dates: late 1300s, 1570s, 1590s."
+});
+
+const WP = "https://en.wikipedia.org/wiki/";
+Quiz.mount(document.getElementById("quiz"), {
+  id: "0029-goodbye-means-god-be-with-you",
+  questions: [
+    {
+      tag: "Goodbye: the full phrase",
+      link: "https://www.etymonline.com/word/good-bye",
+      prompt: `<p class="line">"Goodbye" is a contraction of "<span class="gap"></span>".</p><p class="q-hint">Type the four-word phrase.</p>`,
+      accept: ["God be with ye", "God be with you", "God be wi' ye", "God be wi' you", "God be with thee"],
+      explain: `<b>God be with ye</b> (late 1300s), squeezed to "godbwye" by the 1570s.`
+    },
+    {
+      tag: "Goodbye: why God became good",
+      link: "https://en.wiktionary.org/wiki/goodbye",
+      prompt: `<p>Why did "God" turn into "good" in the word?</p>`,
+      options: [
+        "People copied other farewells like good day",
+        "Church leaders banned God in casual speech",
+        "Printers kept misspelling the word as good",
+        "Kings ordered a friendlier, less holy farewell"
+      ],
+      answer: 0,
+      explain: `By <b>analogy with "good day", "good night"</b> and similar farewells. Language change like this is gradual and unplanned.`
+    },
+    {
+      tag: "Review: the Great Emu War",
+      link: WP + "Emu_War",
+      prompt: `<p class="muted">Review from Curiosity 26</p><p>Roughly how many emus did the soldiers face in 1932?</p><p class="q-hint">Type a number.</p>`,
+      accept: ["20000", "20,000", "20 000", "twenty thousand", "about 20,000", "about 20000", "around 20,000"],
+      explain: `About <b>20,000</b> emus, against three soldiers with two Lewis guns. The emus won.`
+    }
+  ]
+});
+</script>
+</body>
+</html>

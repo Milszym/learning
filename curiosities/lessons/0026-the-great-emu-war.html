@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Great Emu War</title>
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="stylesheet" href="../assets/quiz.css">
+<link rel="stylesheet" href="../assets/curio.css">
+</head>
+<body>
+<main>
+  <p class="kicker">Curiosity 26 · History</p>
+  <h1>The Great Emu War</h1>
+  <p class="subtitle">In 1932 an army went to war against birds. The birds won.</p>
+
+  <div class="meta">
+    <span><b>Time</b> ~2 min</span>
+    <span><b>Win</b> the best "the army lost to whom?" story</span>
+    <span><b>Bonus</b> 1 C1 word</span>
+  </div>
+
+  <div id="guess"><p class="callout"><span class="label">Guess first</span>In 1932 Australia sent soldiers with machine guns against wild emus eating farmers' wheat. How did it go? Decide before you scroll.</p></div>
+
+  <section data-after-guess>
+    <p class="reveal">The army <mark>pulled out twice, and the emus kept eating the wheat</mark>.</p>
+
+    <div class="stats">
+      <div class="stat" style="--c: var(--sun)"><b>~20,000</b><span>emus in the Western Australian wheatbelt</span></div>
+      <div class="stat vs">vs</div>
+      <div class="stat" style="--c: var(--sky)"><b>3</b><span>soldiers with two Lewis machine guns</span></div>
+      <div class="stat" style="--c: var(--accent)"><b>~10</b><span>bullets per claimed kill</span></div>
+    </div>
+
+    <p><b>Why it feels wrong:</b> Machine guns should beat birds. But the emus split into small groups, ran fast and soaked up bullets.<sup class="cite"><a href="#s1">1</a></sup> Major Meredith and two gunners gave up after a week in November 1932, came back, and quit in December.<sup class="cite"><a href="#s2">2</a></sup> He claimed 986 kills for 9,860 rounds, a figure historians suspect was inflated.<sup class="cite"><a href="#s1">1</a></sup> Bounties and fences later did far more.</p>
+
+    <div class="retell">
+      <span class="label">Retell it · say it out loud once</span>
+      <ol>
+        <li><b>Hook:</b> "Did you know Australia once sent the army to fight emus, and lost?"</li>
+        <li><b>Numbers:</b> "1932: three soldiers, two machine guns, about 20,000 emus. Roughly ten bullets for every bird they claimed."</li>
+        <li><b>Kicker:</b> "One MP said any medals should go to the emus: they had 'won every round so far'."<sup class="cite"><a href="#s2">2</a></sup></li>
+      </ol>
+    </div>
+
+    <div class="words">
+      <div class="word" style="--c: var(--sun)">
+        <h3>fiasco<span class="pos">noun</span></h3>
+        <p>Something planned that goes wrong and is a complete failure, usually in an embarrassing way.<sup class="cite"><a href="#s3">3</a></sup> <i>The Emu War was a national <b>fiasco</b>: the birds simply outran the bullets.</i></p>
+      </div>
+    </div>
+
+    <div id="quiz"><p class="callout"><span class="label">Quiz not loaded</span>If you can read this, the quiz script didn't run. Try opening the file in Chrome or Safari.</p></div>
+
+    <p class="muted"><b>Read more:</b> <a href="https://www.australiangeographic.com.au/nature-wildlife/2016/10/australias-emu-wars/" target="_blank" rel="noopener">Australian Geographic: Australia's Emu Wars</a>. All retells: <a href="../reference/curiosity-deck.html">the curiosity deck</a>. <b>Questions?</b> Ask Claude, e.g. "Why were so many emus on the farms in 1932?"</p>
+  </section>
+
+  <hr>
+  <ol class="sources">
+    <li id="s1">Wikipedia, <a href="https://en.wikipedia.org/wiki/Emu_War">Emu War</a> (dates, rounds fired, Meredith's disputed kill claim).</li>
+    <li id="s2">Australian Geographic, <a href="https://www.australiangeographic.com.au/nature-wildlife/2016/10/australias-emu-wars/">Looking back: Australia's Emu Wars</a>.</li>
+    <li id="s3">Cambridge Dictionary, <a href="https://dictionary.cambridge.org/dictionary/english/fiasco">fiasco</a>.</li>
+  </ol>
+
+  <nav class="nav">
+    <a href="0025-the-tallest-volcano.html">← Curiosity 25: The tallest volcano</a>
+    <a href="0027-the-monty-hall-problem.html">Curiosity 27: The Monty Hall problem →</a>
+  </nav>
+</main>
+
+<script src="../assets/guess.js"></script>
+<script src="../assets/quiz.js"></script>
+<script>
+Guess.mount(document.getElementById("guess"), {
+  id: "0026",
+  prompt: "Soldiers with machine guns vs 20,000 wild emus. What happened?",
+  options: ["The soldiers wiped out the emu flock", "The soldiers gave up; the emus stayed"],
+  answer: 1,
+  right: "Right! The emus scattered, ran and outlasted the army.",
+  wrong: "Most people expect that. In fact the army gave up and the emus stayed."
+});
+
+const WP = "https://en.wikipedia.org/wiki/";
+Quiz.mount(document.getElementById("quiz"), {
+  id: "0026-the-great-emu-war",
+  questions: [
+    {
+      tag: "Emu War: the year",
+      link: WP + "Emu_War",
+      prompt: `<p>In what year did the Australian army fight the Emu War?</p><p class="q-hint">Type a year.</p>`,
+      accept: ["1932", "in 1932", "nineteen thirty-two", "nineteen thirty two"],
+      explain: `<b>1932</b>, in Western Australia's wheatbelt, from November to December.`
+    },
+    {
+      tag: "Emu War: why the guns failed",
+      link: "https://www.australiangeographic.com.au/nature-wildlife/2016/10/australias-emu-wars/",
+      prompt: `<p>Why did the machine guns achieve so little?</p>`,
+      options: [
+        "The emus scattered into small groups and ran",
+        "The soldiers ran out of all their ammunition",
+        "The farmers refused to let soldiers onto land",
+        "The law already protected the emus from shooting"
+      ],
+      answer: 0,
+      explain: `The emus <b>split into small groups and ran</b>, so they were hard to hit. Ammunition wasn't the problem: thousands of rounds were fired.`
+    },
+    {
+      tag: "Review: glass is not a liquid",
+      link: WP + "Glass#Behavior_of_antique_glass",
+      prompt: `<p class="muted">Review from Curiosity 20</p><p>Why are some old cathedral panes thicker at the bottom?</p>`,
+      options: [
+        "Glaziers often fitted the thicker edge at the bottom",
+        "The glass slowly sinks downwards over a few centuries",
+        "Rainwater slowly wears away the top of each pane",
+        "Heat from candles softened the lower part of panes"
+      ],
+      answer: 0,
+      explain: `Old glass was uneven, and glaziers usually <b>set the thick edge at the bottom</b>. At room temperature, visible flow would take far longer than the age of the universe.`
+    }
+  ]
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cleopatra and the Moon</title>
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="stylesheet" href="../assets/quiz.css">
+<link rel="stylesheet" href="../assets/curio.css">
+</head>
+<body>
+<main>
+  <p class="kicker">Curiosity 1 · History</p>
+  <h1>Cleopatra and the Moon</h1>
+  <p class="subtitle">"Ancient Egypt" feels like one moment. It lasted three thousand years.</p>
+
+  <div class="meta"><span><b>Time</b> 2 min</span></div>
+
+  <div id="guess"><p class="callout"><span class="label">Guess first</span>Closer to Cleopatra: the Great Pyramid or the Moon landing?</p></div>
+
+  <section data-after-guess>
+    <p class="reveal">Cleopatra lived <mark>closer in time to the Moon landing</mark> than to the building of the Great Pyramid.</p>
+
+    <div id="tl"></div>
+
+    <p><b>Why it feels wrong:</b> "Ancient Egypt" lasted 3,000 years.<sup class="cite"><a href="#s4">4</a></sup> The pyramid is near the start (c. 2560 BC)<sup class="cite"><a href="#s1">1</a></sup>; Cleopatra is at the very end (d. 30 BC).<sup class="cite"><a href="#s2">2</a></sup></p>
+
+    <div class="retell">
+      <span class="label">Retell it · out loud, once</span>
+      <p>"Cleopatra is closer to the Moon landing than to the pyramids: 2,500 years back, 2,000 forward.<sup class="cite"><a href="#s3">3</a></sup> The pyramids were older to her than she is to us."</p>
+    </div>
+
+    <div class="words">
+      <div class="word" style="--c: var(--mint)">
+        <h3>contemporary<span class="pos">noun</span></h3>
+        <p>Someone living at the same time as someone else.<sup class="cite"><a href="#s5">5</a></sup> <i>Cleopatra and Caesar were <b>contemporaries</b>.</i></p>
+      </div>
+    </div>
+
+    <div id="quiz"><p class="callout"><span class="label">Quiz not loaded</span>If you can read this, the quiz script didn't run. Try opening the file in Chrome or Safari.</p></div>
+
+    <p class="muted"><b>Read more:</b> <a href="https://www.worldhistory.org/Cleopatra_VII/" target="_blank" rel="noopener">World History Encyclopedia: Cleopatra VII</a>.</p>
+  </section>
+
+  <hr>
+  <ol class="sources">
+    <li id="s1">Wikipedia, <a href="https://en.wikipedia.org/wiki/Great_Pyramid_of_Giza">Great Pyramid of Giza</a> (dating: most estimates 2700–2500 BC).</li>
+    <li id="s2">World History Encyclopedia, <a href="https://www.worldhistory.org/Cleopatra_VII/">Cleopatra VII</a>.</li>
+    <li id="s3">NASA, <a href="https://www.nasa.gov/mission/apollo-11/">Apollo 11</a>.</li>
+    <li id="s4">Wikipedia, <a href="https://en.wikipedia.org/wiki/Ancient_Egypt">Ancient Egypt</a>.</li>
+    <li id="s5">Cambridge Dictionary, <a href="https://dictionary.cambridge.org/dictionary/english/contemporary">contemporary</a>.</li>
+  </ol>
+
+  <nav class="nav">
+    <a href="../reference/curiosity-deck.html">← Curiosity deck</a>
+    <a href="0002-a-day-longer-than-a-year.html">Curiosity 2: A day longer than a year →</a>
+  </nav>
+</main>
+
+<script src="../assets/guess.js"></script>
+<script src="../assets/timeline.js"></script>
+<script src="../assets/quiz.js"></script>
+<script>
+Guess.mount(document.getElementById("guess"), {
+  id: "0001",
+  prompt: "Which is closer in time to Cleopatra?",
+  options: ["Building the Great Pyramid of Giza", "Landing the first humans on the Moon"],
+  answer: 1,
+  right: "Right! Most people guess the pyramids. Here's why you're correct.",
+  wrong: "You're in good company: most people guess that. It's the Moon landing."
+});
+
+Timeline.mount(document.getElementById("tl"), {
+  from: -2700, to: 2100,
+  points: [
+    { year: -2560, label: "Great Pyramid", color: "var(--sun)", side: "up" },
+    { year: -30, label: "Cleopatra dies", color: "var(--accent)", side: "up" },
+    { year: 1969, label: "Moon landing", color: "var(--sky)", side: "up" }
+  ],
+  spans: [
+    { from: -2560, to: -30, label: "≈ 2,530 years", color: "var(--sun)" },
+    { from: -30, to: 1969, label: "1,998 years", color: "var(--sky)" }
+  ],
+  caption: "Drawn to scale."
+});
+
+const WP = "https://en.wikipedia.org/wiki/";
+Quiz.mount(document.getElementById("quiz"), {
+  id: "0001-cleopatra-and-the-moon",
+  questions: [
+    {
+      tag: "Cleopatra: the gap to the Moon",
+      link: WP + "Cleopatra",
+      prompt: `<p>To the nearest thousand, how many years separate Cleopatra's death from the Moon landing?</p><p class="q-hint">Type a number.</p>`,
+      accept: ["2000", "2,000", "two thousand"],
+      explain: `30 BC to AD 1969 is <b>1,998 years</b> The pyramid gap is about 2,530.`
+    },
+    {
+      tag: "Words: contemporary",
+      link: "https://dictionary.cambridge.org/dictionary/english/contemporary",
+      prompt: `<p class="line">"Cleopatra and Julius Caesar were <span class="gap"></span>: they lived at the same time."</p><p class="q-hint">Type one word, a plural noun.</p>`,
+      accept: ["contemporaries"],
+      explain: `<b>contemporary</b>: someone living at the same time as someone else.`
+    }
+  ]
+});
+</script>
+</body>
+</html>

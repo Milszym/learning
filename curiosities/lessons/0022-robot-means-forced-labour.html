@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Robot means forced labour</title>
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="stylesheet" href="../assets/quiz.css">
+<link rel="stylesheet" href="../assets/curio.css">
+</head>
+<body>
+<main>
+  <p class="kicker">Curiosity 22 · Language</p>
+  <h1>Robot means forced labour</h1>
+  <p class="subtitle">A Czech play gave the world its word for machines. Polish speakers already know the root.</p>
+
+  <div class="meta">
+    <span><b>Time</b> ~2 min</span>
+    <span><b>Win</b> a word story with a Polish twist</span>
+    <span><b>Bonus</b> 1 C1 word</span>
+  </div>
+
+  <div id="guess"><p class="callout"><span class="label">Guess first</span>The word "robot" comes from a Czech play of 1920. What did its Czech root originally mean? Decide before you scroll.</p></div>
+
+  <section data-after-guess>
+    <p class="reveal">"Robot" comes from Czech <i>robota</i>, <mark>the forced labour serfs owed their lords</mark>, and it was Karel Čapek's brother Josef who suggested it.</p>
+
+    <div id="tl"></div>
+
+    <p><b>Why it works:</b> Čapek first wanted to call the artificial workers in his play <i>R.U.R.</i> "labori", from Latin <i>labor</i>; his brother Josef, a painter, suggested "roboti".<sup class="cite"><a href="#s1">1</a></sup> In Czech, <i>robota</i> meant corvée, the unpaid work serfs owed a landlord (abolished in 1848), and so drudgery.<sup class="cite"><a href="#s2">2</a></sup> Polish <i>robota</i>, from the same Slavic root, simply means "work".<sup class="cite"><a href="#s3">3</a></sup> Twist: Čapek's robots were made of synthetic flesh, not metal.<sup class="cite"><a href="#s1">1</a></sup></p>
+
+    <div class="retell">
+      <span class="label">Retell it · say it out loud once</span>
+      <ol>
+        <li><b>Hook:</b> "Do you know which language gave English the word 'robot'?"</li>
+        <li><b>Detail:</b> "Karel Čapek's 1920 play <i>R.U.R.</i> His brother Josef suggested 'roboti', from <i>robota</i>: the forced labour of serfs."</li>
+        <li><b>Kicker:</b> "A Pole hears <i>robota</i> and thinks 'work'. A Czech in 1920 heard 'serfdom'."</li>
+      </ol>
+    </div>
+
+    <div class="words">
+      <div class="word" style="--c: var(--mint)">
+        <h3>drudgery<span class="pos">noun</span></h3>
+        <p>Hard, boring work.<sup class="cite"><a href="#s4">4</a></sup> <i>Čapek's robots were made for <b>drudgery</b>, the very meaning of <i>robota</i>.</i></p>
+      </div>
+    </div>
+
+    <div id="quiz"><p class="callout"><span class="label">Quiz not loaded</span>If you can read this, the quiz script didn't run. Try opening the file in Chrome or Safari.</p></div>
+
+    <p class="muted"><b>Read more:</b> <a href="https://www.etymonline.com/word/robot" target="_blank" rel="noopener">Etymonline: robot</a>. All retells: <a href="../reference/curiosity-deck.html">the curiosity deck</a>. <b>Questions?</b> Ask Claude, e.g. "Which other English words come from Czech or Polish?"</p>
+  </section>
+
+  <hr>
+  <ol class="sources">
+    <li id="s1">Wikipedia, <a href="https://en.wikipedia.org/wiki/Robot">Robot</a> (etymology, citing Čapek's 1933 note in <i>Lidové noviny</i>) and <a href="https://en.wikipedia.org/wiki/R.U.R.">R.U.R.</a></li>
+    <li id="s2">Etymonline, <a href="https://www.etymonline.com/word/robot">robot</a>; Wikipedia, <a href="https://en.wikipedia.org/wiki/Corv%C3%A9e">Corvée</a> (robota in Bohemia, abolished 1848).</li>
+    <li id="s3">Wiktionary, <a href="https://en.wiktionary.org/wiki/robota">robota</a> (Czech and Polish).</li>
+    <li id="s4">Cambridge Dictionary, <a href="https://dictionary.cambridge.org/dictionary/english/drudgery">drudgery</a>.</li>
+  </ol>
+
+  <nav class="nav">
+    <a href="0021-crows-remember-faces.html">← Curiosity 21: Crows remember faces</a>
+    <a href="0023-the-coffee-pot-webcam.html">Curiosity 23: The coffee pot webcam →</a>
+  </nav>
+</main>
+
+<script src="../assets/guess.js"></script>
+<script src="../assets/timeline.js"></script>
+<script src="../assets/quiz.js"></script>
+<script>
+Guess.mount(document.getElementById("guess"), {
+  id: "0022",
+  prompt: "What did the Czech root of \"robot\" originally mean?",
+  options: ["Forced labour owed to lords", "A clever machine that thinks", "A metal doll that moves"],
+  answer: 0,
+  right: "Right! Your Polish probably helped.",
+  wrong: "Not quite. It meant forced labour: think of Polish \"robota\"."
+});
+
+Timeline.mount(document.getElementById("tl"), {
+  from: 1840, to: 1930,
+  points: [
+    { year: 1848, label: "Robota (serf labour) abolished", color: "var(--sun)", side: "up" },
+    { year: 1920, label: "Čapek writes R.U.R.", color: "var(--accent)", side: "up" },
+    { year: 1923, label: "\"Robot\" reaches English", color: "var(--sky)", side: "down" }
+  ],
+  spans: [
+    { from: 1848, to: 1920, label: "72 years", color: "var(--sun)" }
+  ],
+  caption: "When Čapek wrote, serf labour was a grandparents' memory."
+});
+
+Quiz.mount(document.getElementById("quiz"), {
+  id: "0022-robot-means-forced-labour",
+  questions: [
+    {
+      tag: "Robot: the root",
+      link: "https://www.etymonline.com/word/robot",
+      prompt: `<p class="line">"Czech <i>robota</i> originally meant forced <span class="gap"></span>, the work serfs owed their lords."</p><p class="q-hint">Type one word.</p>`,
+      accept: ["labour", "labor", "work"],
+      explain: `<i>Robota</i> meant <b>corvée</b>: unpaid, <b>forced labour</b> for a landlord. Polish <i>robota</i>, from the same root, just means "work".`
+    },
+    {
+      tag: "Robot: why the name fits",
+      link: "https://en.wikipedia.org/wiki/R.U.R.",
+      prompt: `<p>Why was "robot" such a fitting name for Čapek's creatures?</p>`,
+      options: [
+        "They were made to do the humans' drudgery",
+        "They were built from iron, steel and wires",
+        "They were first invented by poor Czech farmers",
+        "They were named after a scientist called Robot"
+      ],
+      answer: 0,
+      explain: `The creatures existed to do <b>forced work</b> for humans, exactly what <i>robota</i> meant. They were made of synthetic flesh, not metal, and "Rossum" is their fictional inventor.`
+    },
+    {
+      tag: "Review: honey never spoils",
+      link: "https://www.smithsonianmag.com/science-nature/the-science-behind-honeys-eternal-shelf-life-1218690/",
+      prompt: `<p class="muted">Review from Curiosity 16</p><p>Which combination keeps sealed honey from spoiling?</p>`,
+      options: [
+        "Very little water, acidity and hydrogen peroxide",
+        "Plenty of moisture, added salt and beeswax",
+        "Natural alcohol, cold storage and complete darkness",
+        "Added sugar, vinegar and a bee-made preservative"
+      ],
+      answer: 0,
+      explain: `Honey is <b>very dry</b> (microbes can't grow), <b>acidic</b>, and a bee enzyme makes small amounts of <b>hydrogen peroxide</b>.`
+    }
+  ]
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The tallest volcano</title>
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="stylesheet" href="../assets/quiz.css">
+<link rel="stylesheet" href="../assets/curio.css">
+</head>
+<body>
+<main>
+  <p class="kicker">Curiosity 25 · Space</p>
+  <h1>The tallest volcano</h1>
+  <p class="subtitle">Mars has a volcano that would cover Poland and tower over Everest.</p>
+
+  <div class="meta">
+    <span><b>Time</b> ~2 min</span>
+    <span><b>Win</b> a size comparison that sticks</span>
+    <span><b>Bonus</b> 1 C1 word</span>
+  </div>
+
+  <div id="guess"><p class="callout"><span class="label">Guess first</span>How much taller is Olympus Mons on Mars than Mount Everest (above sea level)? Decide before you scroll.</p></div>
+
+  <section data-after-guess>
+    <p class="reveal">Olympus Mons rises about 22 km, <mark>roughly 2.5 times the height of Everest</mark>, and its base is about the size of Poland.<sup class="cite"><a href="#s3">3</a></sup><sup class="cite"><a href="#s4">4</a></sup></p>
+
+    <div class="stats">
+      <div class="stat" style="--c: var(--accent)"><b>≈ 22 km</b><span>Olympus Mons, above the plains around it</span></div>
+      <div class="stat vs">vs</div>
+      <div class="stat" style="--c: var(--sky)"><b>8.85 km</b><span>Everest, above sea level</span></div>
+      <div class="stat" style="--c: var(--mint)"><b>≈ Poland</b><span>its base: about 300,000 km², like Poland or Arizona</span></div>
+    </div>
+
+    <p><b>Why it works:</b> Mars has no moving tectonic plates, so its crust sat over the same hot spot and lava kept piling up in one place. On Earth, plates drag volcanoes off their hot spots, which is why Hawaii is a chain of islands. Mars's gravity is also only about a third of Earth's.<sup class="cite"><a href="#s2">2</a></sup> Heights vary (21–26 km) because Mars has no sea level to measure from.<sup class="cite"><a href="#s1">1</a></sup></p>
+
+    <div class="retell">
+      <span class="label">Retell it · say it out loud once</span>
+      <ol>
+        <li><b>Hook:</b> "Where's the tallest volcano in the Solar System, and how big is it?"</li>
+        <li><b>Numbers:</b> "Olympus Mons on Mars: about 22 km high, two and a half Everests, and around 600 km wide, roughly the area of Poland."</li>
+        <li><b>Kicker:</b> "Its slopes are so gentle that standing on top, you wouldn't even know you were on a mountain."</li>
+      </ol>
+    </div>
+
+    <div class="words">
+      <div class="word" style="--c: var(--mint)">
+        <h3>dwarf<span class="pos">verb</span></h3>
+        <p>If one thing dwarfs another, it makes it seem small by comparison.<sup class="cite"><a href="#s5">5</a></sup> <i>Olympus Mons <b>dwarfs</b> Everest: it's about two and a half times as high.</i></p>
+      </div>
+    </div>
+
+    <div id="quiz"><p class="callout"><span class="label">Quiz not loaded</span>If you can read this, the quiz script didn't run. Try opening the file in Chrome or Safari.</p></div>
+
+    <p class="muted"><b>Read more:</b> <a href="https://www.usgs.gov/news/volcano-watch-volcanism-other-planets" target="_blank" rel="noopener">USGS Volcano Watch: Volcanism on other planets</a>. All retells: <a href="../reference/curiosity-deck.html">the curiosity deck</a>. <b>Questions?</b> Ask Claude, e.g. "Is Olympus Mons still an active volcano?"</p>
+  </section>
+
+  <hr>
+  <ol class="sources">
+    <li id="s1">Wikipedia, <a href="https://en.wikipedia.org/wiki/Olympus_Mons">Olympus Mons</a> (21.3 km above the Martian datum, 22–26 km above the plains; about 600 km wide, about 300,000 km²; average slope about 5%).</li>
+    <li id="s2">USGS Hawaiian Volcano Observatory, <a href="https://www.usgs.gov/news/volcano-watch-volcanism-other-planets">Volcano Watch: Volcanism on other planets</a>.</li>
+    <li id="s3">Wikipedia, <a href="https://en.wikipedia.org/wiki/Mount_Everest">Mount Everest</a> (8,849 m, 2020 survey).</li>
+    <li id="s4">Wikipedia, <a href="https://en.wikipedia.org/wiki/Poland">Poland</a> (312,696 km²) and <a href="https://en.wikipedia.org/wiki/Arizona">Arizona</a> (295,234 km²).</li>
+    <li id="s5">Cambridge Dictionary, <a href="https://dictionary.cambridge.org/dictionary/english/dwarf">dwarf</a>.</li>
+  </ol>
+
+  <nav class="nav">
+    <a href="0024-the-bacteria-myth.html">← Curiosity 24: The bacteria myth</a>
+    <a href="0026-the-great-emu-war.html">Curiosity 26: The Great Emu War →</a>
+  </nav>
+</main>
+
+<script src="../assets/guess.js"></script>
+<script src="../assets/quiz.js"></script>
+<script>
+Guess.mount(document.getElementById("guess"), {
+  id: "0025",
+  prompt: "How much taller is Olympus Mons than Everest?",
+  options: ["About 1.5 times as tall", "About 2.5 times as tall", "About 10 times as tall"],
+  answer: 1,
+  right: "Right! About two and a half Everests.",
+  wrong: "Not quite: it's about 2.5 times as tall."
+});
+
+Quiz.mount(document.getElementById("quiz"), {
+  id: "0025-the-tallest-volcano",
+  questions: [
+    {
+      tag: "Olympus Mons: the height",
+      link: "https://en.wikipedia.org/wiki/Olympus_Mons",
+      prompt: `<p>Roughly how many times Everest's height (above sea level) is Olympus Mons?</p><p class="q-hint">Type a number.</p>`,
+      accept: ["2.5", "2,5", "2.5 times", "two and a half", "two and a half times", "about 2.5", "2½"],
+      explain: `About <b>22 km</b> vs Everest's <b>8.85 km</b>: roughly <b>2.5 times</b>.`
+    },
+    {
+      tag: "Olympus Mons: why so big",
+      link: "https://www.usgs.gov/news/volcano-watch-volcanism-other-planets",
+      prompt: `<p>What is the main reason Olympus Mons grew so much bigger than any volcano on Earth?</p>`,
+      options: [
+        "Mars's crust stayed in place over one hot spot",
+        "Mars's volcanoes erupt far hotter lava than Earth's do",
+        "Mars was hit by asteroids that raised the ground",
+        "Mars has thick ice that props up its mountains"
+      ],
+      answer: 0,
+      explain: `With <b>no moving plates</b>, lava kept piling up over the <b>same hot spot</b>. On Earth the plates move volcanoes on, as with Hawaii. Weaker gravity helps too.`
+    },
+    {
+      tag: "Review: robot",
+      link: "https://en.wikipedia.org/wiki/Robot",
+      prompt: `<p class="muted">Review from Curiosity 22</p><p>Karel Čapek said the word "robot" was really suggested by his brother. What was the brother's first name?</p><p class="q-hint">Type one name.</p>`,
+      accept: ["josef", "joseph", "josef čapek", "josef capek"],
+      explain: `<b>Josef Čapek</b>, a painter and writer. Karel had wanted "labori"; Josef suggested "roboti", from <i>robota</i>, forced labour.`
+    }
+  ]
+});
+</script>
+</body>
+</html>

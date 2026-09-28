@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Napoleon was not short</title>
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="stylesheet" href="../assets/quiz.css">
+<link rel="stylesheet" href="../assets/curio.css">
+</head>
+<body>
+<main>
+  <p class="kicker">Curiosity 19 · History</p>
+  <h1>Napoleon was not short</h1>
+  <p class="subtitle">A unit mix-up and a British cartoonist shrank an emperor.</p>
+
+  <div class="meta">
+    <span><b>Time</b> ~2 min</span>
+    <span><b>Win</b> a myth you can debunk with numbers</span>
+    <span><b>Bonus</b> 1 C1 word</span>
+  </div>
+
+  <div id="guess"><p class="callout"><span class="label">Guess first</span>Was Napoleon short for his day, average for his day, or tall for his day? Decide before you scroll.</p></div>
+
+  <section data-after-guess>
+    <p class="reveal">Napoleon was about 1.69 m (5 ft 6½ in): <mark>roughly average, or a little above, for a Frenchman of his time</mark>.</p>
+
+    <div class="stats">
+      <div class="stat" style="--c: var(--accent)"><b>1.57 m</b><span>"5 ft 2" read in English inches</span></div>
+      <div class="stat vs">vs</div>
+      <div class="stat" style="--c: var(--mint)"><b>1.69 m</b><span>"5 pieds 2 pouces" in French units</span></div>
+      <div class="stat" style="--c: var(--sky)"><b>~1.65 m</b><span>a typical French conscript then</span></div>
+    </div>
+
+    <p><b>Why it feels wrong:</b> French records gave his height as about "5 pieds 2 pouces", but a French <i>pouce</i> (inch) was 2.71 cm, not 2.54, so English readers heard "5 foot 2".<sup class="cite"><a href="#s2">2</a></sup> British cartoonists, above all James Gillray, drew him as tiny "Little Boney", and his tall Guard grenadiers made him look small beside them.<sup class="cite"><a href="#s1">1</a></sup> Estimates range from 1.67 to 1.69 m.<sup class="cite"><a href="#s3">3</a></sup></p>
+
+    <div class="retell">
+      <span class="label">Retell it · say it out loud once</span>
+      <ol>
+        <li><b>Hook:</b> "How short was Napoleon, really?"</li>
+        <li><b>Numbers:</b> "His records say '5 foot 2', but in French inches, which were longer: about 1.69 m. The average French soldier was around 1.65."</li>
+        <li><b>Kicker:</b> "Napoleon wasn't short. He was shrunk by a unit conversion and a British cartoonist."</li>
+      </ol>
+    </div>
+
+    <div class="words">
+      <div class="word" style="--c: var(--accent)">
+        <h3>smear<span class="pos">noun</span></h3>
+        <p>An attempt to harm someone's reputation by publicly accusing them of something unpleasant.<sup class="cite"><a href="#s4">4</a></sup> <i>"Little Boney" began as a British <b>smear</b>, and it has outlived Napoleon by two centuries.</i></p>
+      </div>
+    </div>
+
+    <div id="quiz"><p class="callout"><span class="label">Quiz not loaded</span>If you can read this, the quiz script didn't run. Try opening the file in Chrome or Safari.</p></div>
+
+    <p class="muted"><b>Read more:</b> <a href="https://www.napoleon.org/en/history-of-the-two-empires/articles/was-napoleon-small/" target="_blank" rel="noopener">Fondation Napoléon: Was Napoleon small?</a> All retells: <a href="../reference/curiosity-deck.html">the curiosity deck</a>. <b>Questions?</b> Ask Claude, e.g. "Why were people shorter around 1800 than today?"</p>
+  </section>
+
+  <hr>
+  <ol class="sources">
+    <li id="s1">Fondation Napoléon, <a href="https://www.napoleon.org/en/history-of-the-two-empires/articles/was-napoleon-small/">Was Napoleon small?</a> (5 pieds 2 pouces 3 lignes = 1.686 m; conscripts 1.65–1.69 m; Guard grenadiers at least 1.76 m; "Little Boney").</li>
+    <li id="s2">Wikipedia, <a href="https://en.wikipedia.org/wiki/Traditional_French_units_of_measurement">Traditional French units of measurement</a> (<i>pouce</i> = 27.07 mm; <i>pied du roi</i> = 32.48 cm).</li>
+    <li id="s3">Wikipedia, <a href="https://en.wikipedia.org/wiki/Napoleon_complex">Napoleon complex</a> (about 1.67 m, close to average; Gillray popularised the myth).</li>
+    <li id="s4">Cambridge Dictionary, <a href="https://dictionary.cambridge.org/dictionary/english/smear">smear</a>.</li>
+  </ol>
+
+  <nav class="nav">
+    <a href="0018-honest-placebos.html">← Curiosity 18: Honest placebos</a>
+    <a href="0020-glass-is-not-a-liquid.html">Curiosity 20: Glass is not a liquid →</a>
+  </nav>
+</main>
+
+<script src="../assets/guess.js"></script>
+<script src="../assets/quiz.js"></script>
+<script>
+Guess.mount(document.getElementById("guess"), {
+  id: "0019",
+  prompt: "Compared with other Frenchmen of his time, Napoleon was…",
+  options: ["Short for his day", "Average for his day", "Tall for his day"],
+  answer: 1,
+  right: "Right! He was about average: the myth is British.",
+  wrong: "That's the myth. He was about average for his time."
+});
+
+const WP = "https://en.wikipedia.org/wiki/";
+Quiz.mount(document.getElementById("quiz"), {
+  id: "0019-napoleon-was-not-short",
+  questions: [
+    {
+      tag: "Napoleon: his real height",
+      link: "https://www.napoleon.org/en/history-of-the-two-empires/articles/was-napoleon-small/",
+      prompt: `<p>About how tall was Napoleon, in metres?</p><p class="q-hint">Type a number, e.g. 1.xx.</p>`,
+      accept: ["1.69", "1.69 m", "1,69", "1.68", "1.68 m", "1,68", "1.67", "1.7", "1.70", "1.7 m", "169", "169 cm", "168", "168 cm", "about 1.69"],
+      explain: `About <b>1.69 m</b> (estimates 1.67–1.69 m): roughly 5 ft 6½ in, about average for his era.`
+    },
+    {
+      tag: "Napoleon: the unit mix-up",
+      link: WP + "Traditional_French_units_of_measurement",
+      prompt: `<p>Why did "5 foot 2" make Napoleon sound shorter than he was?</p>`,
+      options: [
+        "A French inch was longer than an English inch",
+        "He was measured while lying down after his death",
+        "British doctors cut down the figure out of spite",
+        "His army records subtracted the height of his boots"
+      ],
+      answer: 0,
+      explain: `A <i>pouce</i> was <b>27.07 mm</b> against 25.4 mm for an English inch, so "5 pieds 2 pouces" is about 1.69 m, not 1.57 m.`
+    },
+    {
+      tag: "Review: more trees than stars",
+      link: "https://www.nature.com/articles/nature14967",
+      prompt: `<p class="muted">Review from Curiosity 9</p><p>The 2015 study found about 3 trillion trees. Roughly how many stars are in the Milky Way, at the <b>top</b> of NASA's range?</p><p class="q-hint">Type a number with its word, e.g. "5 million".</p>`,
+      accept: ["400 billion", "four hundred billion", "400,000,000,000", "400000000000", "about 400 billion"],
+      explain: `NASA says <b>100–400 billion</b> stars. Even the top figure is well under Earth's ~3 trillion trees.`
+    }
+  ]
+});
+</script>
+</body>
+</html>

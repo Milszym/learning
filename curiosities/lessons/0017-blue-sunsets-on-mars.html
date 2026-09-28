@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Blue sunsets on Mars</title>
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="stylesheet" href="../assets/quiz.css">
+<link rel="stylesheet" href="../assets/curio.css">
+</head>
+<body>
+<main>
+  <p class="kicker">Curiosity 17 · Space</p>
+  <h1>Blue sunsets on Mars</h1>
+  <p class="subtitle">On the Red Planet, the colours of the sky are flipped.</p>
+
+  <div class="meta">
+    <span><b>Time</b> ~2 min</span>
+    <span><b>Win</b> a sky-colour fact you can actually explain</span>
+    <span><b>Bonus</b> 1 C1 word</span>
+  </div>
+
+  <div id="guess"><p class="callout"><span class="label">Guess first</span>What colour is the glow around the setting Sun on Mars: deep red, pale blue, or dull grey? Decide before you scroll.</p></div>
+
+  <section data-after-guess>
+    <p class="reveal">On Mars, <mark>the sky around the setting Sun glows blue</mark>, while the rest of the sky turns yellow to orange.</p>
+
+    <div class="stats">
+      <div class="stat" style="--c: var(--accent)"><b>Red</b><span>Earth's sunset: air molecules scatter the blue away</span></div>
+      <div class="stat vs">vs</div>
+      <div class="stat" style="--c: var(--sky)"><b>Blue</b><span>Mars's sunset: fine dust sends blue forward</span></div>
+    </div>
+
+    <p><b>Why it feels wrong:</b> Mars's air is thin, about 0.6% of Earth's surface pressure, so fine dust does most of the scattering.<sup class="cite"><a href="#s2">2</a></sup> Those dust grains are just the right size to scatter blue light forward, so it stays close to the Sun, while red and yellow spread across the whole sky.<sup class="cite"><a href="#s1">1</a></sup> NASA's Curiosity rover photographed one in colour on 15 April 2015. Only the patch near the Sun is blue.</p>
+
+    <div class="retell">
+      <span class="label">Retell it · say it out loud once</span>
+      <ol>
+        <li><b>Hook:</b> "Earth has blue skies and red sunsets. What do you think Mars has?"</li>
+        <li><b>Detail:</b> "In 2015 NASA's Curiosity rover photographed a Martian sunset: a cold blue glow around the Sun, a yellow-orange sky everywhere else."</li>
+        <li><b>Kicker:</b> "On the Red Planet, the sunsets are blue."</li>
+      </ol>
+    </div>
+
+    <div class="words">
+      <div class="word" style="--c: var(--sky)">
+        <h3>hue<span class="pos">noun</span></h3>
+        <p>A colour, or a particular shade (lightness, darkness or strength) of a colour.<sup class="cite"><a href="#s3">3</a></sup> <i>As the Sun sets on Mars, the sky near it takes on a cold blue <b>hue</b>.</i></p>
+      </div>
+    </div>
+
+    <div id="quiz"><p class="callout"><span class="label">Quiz not loaded</span>If you can read this, the quiz script didn't run. Try opening the file in Chrome or Safari.</p></div>
+
+    <p class="muted"><b>Read more:</b> <a href="https://www.jpl.nasa.gov/news/nasas-curiosity-rover-views-serene-sundown-on-mars/" target="_blank" rel="noopener">NASA JPL: Curiosity Rover Views Serene Sundown on Mars</a>. All retells: <a href="../reference/curiosity-deck.html">the curiosity deck</a>. <b>Questions?</b> Ask Claude, e.g. "Why is Earth's sky blue but its sunsets red?"</p>
+  </section>
+
+  <hr>
+  <ol class="sources">
+    <li id="s1">NASA JPL, <a href="https://www.jpl.nasa.gov/news/nasas-curiosity-rover-views-serene-sundown-on-mars/">NASA's Curiosity Rover Views Serene Sundown on Mars</a> (sol 956, 15 April 2015; Mark Lemmon on the dust).</li>
+    <li id="s2">Wikipedia, <a href="https://en.wikipedia.org/wiki/Atmosphere_of_Mars">Atmosphere of Mars</a> (surface pressure about 610 Pa, 0.6% of Earth's).</li>
+    <li id="s3">Cambridge Dictionary, <a href="https://dictionary.cambridge.org/dictionary/english/hue">hue</a>.</li>
+  </ol>
+
+  <nav class="nav">
+    <a href="0016-honey-never-spoils.html">← Curiosity 16: Honey never spoils</a>
+    <a href="0018-honest-placebos.html">Curiosity 18: Honest placebos →</a>
+  </nav>
+</main>
+
+<script src="../assets/guess.js"></script>
+<script src="../assets/quiz.js"></script>
+<script>
+Guess.mount(document.getElementById("guess"), {
+  id: "0017",
+  prompt: "What colour is the glow around the setting Sun on Mars?",
+  options: ["Deep red", "Pale blue", "Dull grey"],
+  answer: 1,
+  right: "Right! The Red Planet has blue sunsets.",
+  wrong: "Surprisingly, it's blue: the opposite of Earth."
+});
+
+const WP = "https://en.wikipedia.org/wiki/";
+Quiz.mount(document.getElementById("quiz"), {
+  id: "0017-blue-sunsets-on-mars",
+  questions: [
+    {
+      tag: "Mars sunsets: the colour",
+      link: "https://www.jpl.nasa.gov/news/nasas-curiosity-rover-views-serene-sundown-on-mars/",
+      prompt: `<p>What colour is the sky right around the setting Sun on Mars?</p><p class="q-hint">Type one colour.</p>`,
+      accept: ["blue", "pale blue", "bluish", "blueish", "blue-ish", "light blue", "cold blue"],
+      explain: `<b>Blue</b>, as NASA's Curiosity rover saw on 15 April 2015. The rest of the sky is yellow to orange.`
+    },
+    {
+      tag: "Mars sunsets: why blue",
+      link: "https://www.jpl.nasa.gov/news/nasas-curiosity-rover-views-serene-sundown-on-mars/",
+      prompt: `<p>Why does the blue light stay close to the Sun on Mars?</p>`,
+      options: [
+        "Fine dust grains scatter blue light mostly forward",
+        "Air molecules scatter blue light in all directions",
+        "Iron in red soil reflects blue light upwards",
+        "Thin air makes ultraviolet light glow soft blue"
+      ],
+      answer: 0,
+      explain: `The dust is the right size to scatter blue light <b>forward</b>, keeping it near the Sun. Scattering "in all directions" is what air molecules do on Earth, which makes our whole sky blue.`
+    },
+    {
+      tag: "Review: OK was a joke",
+      link: WP + "OK",
+      prompt: `<p class="muted">Review from Curiosity 14</p><p>In what year did "o.k." first appear in print, in the <i>Boston Morning Post</i>?</p><p class="q-hint">Type a year.</p>`,
+      accept: ["1839"],
+      explain: `<b>1839</b> (23 March). The 1840 Van Buren campaign ("Old Kinderhook") then made it famous.`
+    }
+  ]
+});
+</script>
+</body>
+</html>

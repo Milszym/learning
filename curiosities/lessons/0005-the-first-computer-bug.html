@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The first computer bug</title>
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="stylesheet" href="../assets/quiz.css">
+<link rel="stylesheet" href="../assets/curio.css">
+</head>
+<body>
+<main>
+  <p class="kicker">Curiosity 5 · Tech</p>
+  <h1>The first computer bug</h1>
+  <p class="subtitle">A real moth, a famous logbook, and a word that was already 70 years old.</p>
+
+  <div class="meta">
+    <span><b>Time</b> ~2 min</span>
+    <span><b>Win</b> a myth you can gently correct</span>
+    <span><b>Bonus</b> 1 C1 word</span>
+  </div>
+
+  <div id="guess"><p class="callout"><span class="label">Guess first</span>When did people first call a technical fault a "bug"? Decide before you scroll.</p></div>
+
+  <section data-after-guess>
+    <p class="reveal">In 1947 a real moth was taped into a computer logbook, but <mark>engineers had called faults "bugs" since at least the 1870s</mark>.</p>
+
+    <div id="tl"></div>
+
+    <p><b>Why it feels wrong:</b> the moth story is true, just not the origin. On 9 September 1947, operators of Harvard's Mark II found a moth stuck in a relay and taped it in the log: "First actual case of bug being found."<sup class="cite"><a href="#s1">1</a></sup> That note is a joke: they already knew the word. Edison wrote of "bugs" in 1878.<sup class="cite"><a href="#s2">2</a></sup> Grace Hopper made the story famous, though she probably didn't find the moth.<sup class="cite"><a href="#s3">3</a></sup></p>
+
+    <div class="retell">
+      <span class="label">Retell it · say it out loud once</span>
+      <ol>
+        <li><b>Hook:</b> "Do you know why programming errors are called bugs?"</li>
+        <li><b>Numbers:</b> "In 1947, Harvard engineers found a real moth in their computer and taped it into the logbook. But Edison was already calling faults 'bugs' in 1878."</li>
+        <li><b>Kicker:</b> "The note said 'first actual case of bug being found': the joke only works if the word already existed."</li>
+      </ol>
+    </div>
+
+    <div class="words">
+      <div class="word" style="--c: var(--sun)">
+        <h3>apocryphal<span class="pos">adjective</span></h3>
+        <p>An apocryphal story is probably not true, although it is often told and believed.<sup class="cite"><a href="#s4">4</a></sup> <i>The moth is real, but the idea that it gave us the word "bug" is <b>apocryphal</b>.</i></p>
+      </div>
+    </div>
+
+    <div id="quiz"><p class="callout"><span class="label">Quiz not loaded</span>If you can read this, the quiz script didn't run. Try opening the file in Chrome or Safari.</p></div>
+
+    <p class="muted"><b>Read more:</b> <a href="https://americanhistory.si.edu/collections/object/nmah_334663" target="_blank" rel="noopener">Smithsonian: the log book with the computer bug</a>. All retells: <a href="../reference/curiosity-deck.html">the curiosity deck</a>. <b>Questions?</b> Ask Claude, e.g. "Why did Edison call faults bugs?"</p>
+  </section>
+
+  <hr>
+  <ol class="sources">
+    <li id="s1">Computer History Museum, <a href="https://www.computerhistory.org/tdih/september/9/">September 9: first instance of actual computer bug being found</a>; the page itself is held by the Smithsonian's <a href="https://americanhistory.si.edu/collections/object/nmah_334663">National Museum of American History</a>.</li>
+    <li id="s2">Wikipedia, <a href="https://en.wikipedia.org/wiki/Bug_(engineering)">Bug (engineering)</a> (Edison's 1878 letter: "'Bugs' – as such little faults and difficulties are called").</li>
+    <li id="s3">JSTOR Daily, <a href="https://daily.jstor.org/the-bug-in-the-computer-bug-story/">The bug in the computer bug story</a> (1889 <i>Pall Mall Gazette</i> on Edison's phonograph "bug"; the log was probably not Hopper's).</li>
+    <li id="s4">Cambridge Dictionary, <a href="https://dictionary.cambridge.org/dictionary/english/apocryphal">apocryphal</a>.</li>
+  </ol>
+
+  <nav class="nav">
+    <a href="0004-the-invisible-gorilla.html">← Curiosity 4: The invisible gorilla</a>
+    <a href="0006-when-nice-meant-foolish.html">Curiosity 6: When nice meant foolish →</a>
+  </nav>
+</main>
+
+<script src="../assets/guess.js"></script>
+<script src="../assets/timeline.js"></script>
+<script src="../assets/quiz.js"></script>
+<script>
+Guess.mount(document.getElementById("guess"), {
+  id: "0005",
+  prompt: "When did people first call a technical fault a \"bug\"?",
+  options: ["In the 1870s, by engineers", "In the 1940s, by programmers"],
+  answer: 0,
+  right: "Right! Edison was already using it in 1878.",
+  wrong: "Most people think so, but Edison used it in 1878."
+});
+
+Timeline.mount(document.getElementById("tl"), {
+  from: 1860, to: 1960,
+  points: [
+    { year: 1878, label: "Edison writes of \"bugs\"", color: "var(--sun)", side: "up" },
+    { year: 1889, label: "Press: a \"bug\" in his phonograph", color: "var(--grape)", side: "down" },
+    { year: 1947, label: "Moth taped into the Mark II log", color: "var(--sky)", side: "up" }
+  ],
+  spans: [
+    { from: 1878, to: 1947, label: "69 years of \"bugs\" before the moth", color: "var(--sun)" }
+  ],
+  caption: "Drawn to scale. The word was old news by the time the moth arrived."
+});
+
+const WP = "https://en.wikipedia.org/wiki/";
+Quiz.mount(document.getElementById("quiz"), {
+  id: "0005-the-first-computer-bug",
+  questions: [
+    {
+      tag: "Bug: the moth's year",
+      link: "https://www.computerhistory.org/tdih/september/9/",
+      prompt: `<p>In which year was the moth taped into the Harvard Mark II logbook?</p><p class="q-hint">Type a year.</p>`,
+      accept: ["1947", "in 1947", "nineteen forty-seven", "nineteen forty seven"],
+      explain: `<b>1947</b> (9 September). Edison's "bugs" letter dates from 1878, 69 years earlier.`
+    },
+    {
+      tag: "Bug: the joke in the log",
+      link: WP + "Bug_(engineering)",
+      prompt: `<p>Why does the note "First actual case of bug being found" show the word was already in use?</p>`,
+      options: [
+        "The joke only works if bug already meant a fault",
+        "The note was written down many decades after the event",
+        "The word bug was printed in big letters on relays",
+        "The moth was the first insect Harvard had ever seen"
+      ],
+      answer: 0,
+      explain: `"<b>Actual</b> case" is a pun: engineers already said "bug" for a fault, so finding a <b>real</b> insect was funny.`
+    },
+    {
+      tag: "Review: A day longer than a year",
+      link: "https://science.nasa.gov/venus/venus-facts/",
+      prompt: `<p class="muted">Review from Curiosity 2</p><p>Venus spins backwards. So, on Venus, in which direction does the Sun rise?</p><p class="q-hint">Type one word (a compass direction).</p>`,
+      accept: ["west", "in the west", "the west"],
+      explain: `In the <b>west</b>. Venus's backwards (retrograde) spin also makes one full turn (243 days) longer than its year (225 days).`
+    }
+  ]
+});
+</script>
+</body>
+</html>

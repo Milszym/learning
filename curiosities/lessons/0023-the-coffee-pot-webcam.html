@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The coffee pot webcam</title>
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="stylesheet" href="../assets/quiz.css">
+<link rel="stylesheet" href="../assets/curio.css">
+</head>
+<body>
+<main>
+  <p class="kicker">Curiosity 23 · Tech</p>
+  <h1>The coffee pot webcam</h1>
+  <p class="subtitle">The web's first famous live picture answered one question: is there any coffee left?</p>
+
+  <div class="meta">
+    <span><b>Time</b> ~2 min</span>
+    <span><b>Win</b> a geeky origin story for any tech chat</span>
+    <span><b>Bonus</b> 1 C1 word</span>
+  </div>
+
+  <div id="guess"><p class="callout"><span class="label">Guess first</span>The camera usually called the world's first webcam was pointed at what? Decide before you scroll.</p></div>
+
+  <section data-after-guess>
+    <p class="reveal">It watched <mark>a coffee pot in a Cambridge University computer lab</mark>, so people upstairs could avoid a wasted trip to an empty pot.</p>
+
+    <div id="tl"></div>
+
+    <p><b>Why it works:</b> In 1991 Quentin Stafford-Fraser and Paul Jardetzky pointed a camera at the pot by the Trojan Room, so colleagues on other floors could check it from their desks: a greyscale picture, updated about three times a minute.<sup class="cite"><a href="#s1">1</a></sup> In November 1993 it went on the World Wide Web and became a landmark of the early web. Switched off in 2001, the pot sold on eBay for £3,350.<sup class="cite"><a href="#s2">2</a></sup></p>
+
+    <div class="retell">
+      <span class="label">Retell it · say it out loud once</span>
+      <ol>
+        <li><b>Hook:</b> "What do you think the first webcam was pointed at?"</li>
+        <li><b>Numbers:</b> "Camera in 1991, on the web in 1993: a tiny grey picture of a Cambridge coffee pot, about three frames a minute. Switched off in 2001."</li>
+        <li><b>Kicker:</b> "The internet's first live stream was of thirsty scientists checking for coffee."</li>
+      </ol>
+    </div>
+
+    <div class="words">
+      <div class="word" style="--c: var(--mint)">
+        <h3>mundane<span class="pos">adjective</span></h3>
+        <p>Very ordinary and therefore not interesting.<sup class="cite"><a href="#s3">3</a></sup> <i>The first webcam had a gloriously <b>mundane</b> subject: a half-empty coffee pot.</i></p>
+      </div>
+    </div>
+
+    <div id="quiz"><p class="callout"><span class="label">Quiz not loaded</span>If you can read this, the quiz script didn't run. Try opening the file in Chrome or Safari.</p></div>
+
+    <p class="muted"><b>Read more:</b> <a href="https://www.cl.cam.ac.uk/coffee/qsf/coffee.html" target="_blank" rel="noopener">Quentin Stafford-Fraser: The Trojan Room coffee pot</a> (Cambridge Computer Laboratory). All retells: <a href="../reference/curiosity-deck.html">the curiosity deck</a>. <b>Questions?</b> Ask Claude, e.g. "How did the coffee pot camera actually get its pictures onto the web?"</p>
+  </section>
+
+  <hr>
+  <ol class="sources">
+    <li id="s1">Quentin Stafford-Fraser, <a href="https://www.cl.cam.ac.uk/coffee/qsf/coffee.html">The Trojan Room coffee pot: a (non-technical) biography</a>, University of Cambridge Computer Laboratory.</li>
+    <li id="s2">Wikipedia, <a href="https://en.wikipedia.org/wiki/Trojan_Room_coffee_pot">Trojan Room coffee pot</a>.</li>
+    <li id="s3">Cambridge Dictionary, <a href="https://dictionary.cambridge.org/dictionary/english/mundane">mundane</a>.</li>
+  </ol>
+
+  <nav class="nav">
+    <a href="0022-robot-means-forced-labour.html">← Curiosity 22: Robot means forced labour</a>
+    <a href="0024-the-bacteria-myth.html">Curiosity 24: The bacteria myth →</a>
+  </nav>
+</main>
+
+<script src="../assets/guess.js"></script>
+<script src="../assets/timeline.js"></script>
+<script src="../assets/quiz.js"></script>
+<script>
+Guess.mount(document.getElementById("guess"), {
+  id: "0023",
+  prompt: "The first webcam was pointed at…",
+  options: ["A coffee pot in a university lab", "A fish tank in a company office", "A busy street corner in central London"],
+  answer: 0,
+  right: "Right! The most famous early webcam was about coffee.",
+  wrong: "Good guess, but it was a coffee pot in a Cambridge lab."
+});
+
+Timeline.mount(document.getElementById("tl"), {
+  from: 1989, to: 2003,
+  points: [
+    { year: 1991, label: "Camera on the lab network", color: "var(--sun)", side: "up" },
+    { year: 1993, label: "Coffee pot goes on the web", color: "var(--accent)", side: "up" },
+    { year: 2001, label: "Switched off; pot sold on eBay", color: "var(--sky)", side: "up" }
+  ],
+  spans: [
+    { from: 1991, to: 1993, label: "lab only", color: "var(--sun)" },
+    { from: 1993, to: 2001, label: "8 years on the web", color: "var(--accent)" }
+  ],
+  caption: "Drawn to scale. A decade of coffee, watched live."
+});
+
+Quiz.mount(document.getElementById("quiz"), {
+  id: "0023-the-coffee-pot-webcam",
+  questions: [
+    {
+      tag: "Coffee pot: on the web",
+      link: "https://en.wikipedia.org/wiki/Trojan_Room_coffee_pot",
+      prompt: `<p>In what year did the Trojan Room coffee pot go on the World Wide Web?</p><p class="q-hint">Type a year.</p>`,
+      accept: ["1993", "november 1993", "nov 1993", "in 1993"],
+      explain: `The camera ran on the lab's own network from <b>1991</b>; it reached the web in <b>November 1993</b>.`
+    },
+    {
+      tag: "Coffee pot: why it existed",
+      link: "https://www.cl.cam.ac.uk/coffee/qsf/coffee.html",
+      prompt: `<p>Why did the researchers set up the camera in the first place?</p>`,
+      options: [
+        "To avoid climbing the stairs to an empty pot",
+        "To test a new camera for a TV broadcaster",
+        "To catch a colleague who was stealing their coffee",
+        "To show the public how their coffee was brewed"
+      ],
+      answer: 0,
+      explain: `People elsewhere in the building kept arriving to find the pot <b>empty</b>. A live picture let them check from their desks first.`
+    },
+    {
+      tag: "Review: taller in the morning",
+      link: "https://en.wikipedia.org/wiki/Intervertebral_disc",
+      prompt: `<p class="muted">Review from Curiosity 13</p><p>You're roughly 1–2 cm taller in the morning. What gets squashed in your spine during the day?</p><p class="q-hint">Type one or two words.</p>`,
+      accept: ["discs", "disks", "spinal discs", "spinal disks", "intervertebral discs", "intervertebral disks", "the discs", "disc", "disk", "the spinal discs"],
+      explain: `The <b>spinal (intervertebral) discs</b> lose a little fluid under load all day and soak it back up while you lie down at night.`
+    }
+  ]
+});
+</script>
+</body>
+</html>

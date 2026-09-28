@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A light-day away</title>
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="stylesheet" href="../assets/quiz.css">
+<link rel="stylesheet" href="../assets/curio.css">
+</head>
+<body>
+<main>
+  <p class="kicker">Curiosity 30 · Space</p>
+  <h1>A light-day away</h1>
+  <p class="subtitle">Our farthest spacecraft is so far that even light needs a day.</p>
+
+  <div class="meta">
+    <span><b>Time</b> ~2 min</span>
+    <span><b>Win</b> a sense of how far "far" really is</span>
+    <span><b>Bonus</b> 1 C1 word</span>
+  </div>
+
+  <div id="guess"><p class="callout"><span class="label">Guess first</span>Voyager 1 left Earth in 1977 and is the most distant human-made object. How long does its radio signal, moving at the speed of light, take to reach us now? Decide before you scroll.</p></div>
+
+  <section data-after-guess>
+    <p class="reveal">Its signal takes <mark>almost a full day</mark>, and on 18 November 2026 it takes exactly one.</p>
+
+    <div class="stats">
+      <div class="stat" style="--c: var(--sun)"><b>1977</b><span>launch, flying at about 61,000 km/h</span></div>
+      <div class="stat" style="--c: var(--sky)"><b>25.9 bn km</b><span>one light-day, reached 18 Nov 2026</span></div>
+      <div class="stat" style="--c: var(--grape)"><b>~2 days</b><span>to send a command and hear back</span></div>
+    </div>
+
+    <p><b>Why it feels wrong:</b> Light crosses from the Moon in about a second, so "a day" sounds impossible. But Voyager 1 has flown for 49 years.<sup class="cite"><a href="#s1">1</a></sup> In mid-2026 its signal took about 23.6 hours;<sup class="cite"><a href="#s2">2</a></sup> NASA calculates it crosses one light-day, 25.9 billion km, on 18 November 2026.<sup class="cite"><a href="#s1">1</a></sup> The exact figure shifts slightly as Earth circles the Sun.</p>
+
+    <div class="retell">
+      <span class="label">Retell it · say it out loud once</span>
+      <ol>
+        <li><b>Hook:</b> "How long would a 'hello' take to reach our farthest spacecraft?"</li>
+        <li><b>Numbers:</b> "Launched 1977, about 61,000 km/h. On 18 November 2026 it's 25.9 billion km away: one light-day."</li>
+        <li><b>Kicker:</b> "Ask Voyager a question today and you get the answer the day after tomorrow."</li>
+      </ol>
+    </div>
+
+    <div class="words">
+      <div class="word" style="--c: var(--sky)">
+        <h3>far-flung<span class="pos">adjective</span></h3>
+        <p>Used for places a great distance away, or for something spread over a very large area.<sup class="cite"><a href="#s3">3</a></sup> <i>Voyager 1 is our most <b>far-flung</b> messenger: its signal takes a day to get home.</i></p>
+      </div>
+    </div>
+
+    <div id="quiz"><p class="callout"><span class="label">Quiz not loaded</span>If you can read this, the quiz script didn't run. Try opening the file in Chrome or Safari.</p></div>
+
+    <p class="muted"><b>Read more:</b> <a href="https://science.nasa.gov/mission/voyager/voyager-1/voyager-1-what-is-a-light-day/" target="_blank" rel="noopener">NASA: Voyager 1, what is a light-day?</a> (live distance: <a href="https://science.nasa.gov/mission/voyager/where-are-voyager-1-and-voyager-2-now/" target="_blank" rel="noopener">where are the Voyagers now?</a>). All retells: <a href="../reference/curiosity-deck.html">the curiosity deck</a>. <b>Questions?</b> Ask Claude, e.g. "How does NASA still hear such a faint signal from Voyager 1?"</p>
+  </section>
+
+  <hr>
+  <ol class="sources">
+    <li id="s1">NASA Science, <a href="https://science.nasa.gov/mission/voyager/voyager-1/voyager-1-what-is-a-light-day/">Voyager 1: What is a light-day</a> (25.902 billion km at 02:16 PST, 18 Nov 2026; ~61,000 km/h).</li>
+    <li id="s2">EarthSky, <a href="https://earthsky.org/space/voyager-1-1-light-day-from-earth-november-17-18-2026/">Voyager 1 to reach 1 light-day from Earth on November 18</a> (about 25.45 billion km in mid-June 2026).</li>
+    <li id="s3">Cambridge Dictionary, <a href="https://dictionary.cambridge.org/dictionary/english/far-flung">far-flung</a>.</li>
+  </ol>
+
+  <nav class="nav">
+    <a href="0029-goodbye-means-god-be-with-you.html">← Curiosity 29: Goodbye means "God be with you"</a>
+    <a href="../reference/curiosity-deck.html">The curiosity deck →</a>
+  </nav>
+</main>
+
+<script src="../assets/guess.js"></script>
+<script src="../assets/quiz.js"></script>
+<script>
+Guess.mount(document.getElementById("guess"), {
+  id: "0030",
+  prompt: "How long does Voyager 1's signal take to reach Earth?",
+  options: ["Roughly one hour", "Roughly one day", "Roughly one week"],
+  answer: 1,
+  right: "Right! It's almost exactly a light-day away.",
+  wrong: "Not quite. It's almost exactly one day, a light-day away."
+});
+
+Quiz.mount(document.getElementById("quiz"), {
+  id: "0030-a-light-day-away",
+  questions: [
+    {
+      tag: "Voyager 1: the signal delay",
+      link: "https://science.nasa.gov/mission/voyager/voyager-1/voyager-1-what-is-a-light-day/",
+      prompt: `<p>By 18 November 2026, how many hours does Voyager 1's signal take to reach Earth?</p><p class="q-hint">Type a number of hours.</p>`,
+      accept: ["24", "24 hours", "twenty-four", "twenty four", "twenty-four hours", "one day", "a day", "1 day"],
+      explain: `<b>24 hours</b>: it is one light-day away, 25.9 billion km. In mid-2026 it was about 23.6 hours.`
+    },
+    {
+      tag: "Voyager 1: why so slow",
+      link: "https://science.nasa.gov/mission/voyager/where-are-voyager-1-and-voyager-2-now/",
+      prompt: `<p>Why does a message to Voyager 1 take a whole day?</p>`,
+      options: [
+        "Radio waves travel at light speed, no faster",
+        "Signals must bounce between many relay stations first",
+        "Interstellar gas slows radio waves to a crawl",
+        "The antennas on Earth listen just once daily"
+      ],
+      answer: 0,
+      explain: `Nothing outruns light, and <b>radio is light</b>: about 1.08 billion km per hour. At 25.9 billion km, that is 24 hours each way.`
+    },
+    {
+      tag: "Review: the bacteria myth",
+      link: "https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1002533",
+      prompt: `<p class="muted">Review from Curiosity 24</p><p>According to the 2016 estimate, how do bacteria compare with human cells in your body?</p>`,
+      options: [
+        "Roughly equal: about one to one",
+        "Ten bacteria for every human cell",
+        "A hundred bacteria per human cell",
+        "One bacterium per hundred of ours"
+      ],
+      answer: 0,
+      explain: `Sender, Fuchs &amp; Milo estimated about 38 trillion bacteria and 30 trillion human cells: <b>roughly 1:1</b>. The famous 10:1 was an old rough guess.`
+    }
+  ]
+});
+</script>
+</body>
+</html>

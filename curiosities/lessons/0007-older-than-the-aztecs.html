@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Older than the Aztecs</title>
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="stylesheet" href="../assets/quiz.css">
+<link rel="stylesheet" href="../assets/curio.css">
+</head>
+<body>
+<main>
+  <p class="kicker">Curiosity 7 · History</p>
+  <h1>Older than the Aztecs</h1>
+  <p class="subtitle">Oxford was already teaching students before the Aztec capital existed.</p>
+
+  <div class="meta">
+    <span><b>Time</b> ~2 min</span>
+    <span><b>Win</b> a date clash that rearranges your mental timeline</span>
+    <span><b>Bonus</b> 1 C1 word</span>
+  </div>
+
+  <div id="guess"><p class="callout"><span class="label">Guess first</span>Which came first: teaching at Oxford, or the founding of Tenochtitlan, the Aztec capital? Decide before you scroll.</p></div>
+
+  <section data-after-guess>
+    <p class="reveal">Teaching at Oxford existed by 1096, <mark>over two centuries before Tenochtitlan was founded</mark> in 1325.</p>
+
+    <div id="tl"></div>
+
+    <p><b>Why it feels wrong:</b> we file the Aztecs under "ancient" and Oxford under "Europe", so we never compare them. Oxford has no founding date, but teaching existed there in some form by 1096 and grew fast after 1167.<sup class="cite"><a href="#s1">1</a></sup> Tenochtitlan's traditional founding date is 1325<sup class="cite"><a href="#s2">2</a></sup>, and the Aztec Empire only formed in 1428.<sup class="cite"><a href="#s3">3</a></sup> The caveat: the Mexica people themselves arrived in the Valley of Mexico around 1250.</p>
+
+    <div class="retell">
+      <span class="label">Retell it · say it out loud once</span>
+      <ol>
+        <li><b>Hook:</b> "Which is older: Oxford University or the Aztec capital?"</li>
+        <li><b>Numbers:</b> "Oxford was teaching by 1096. Tenochtitlan was founded in 1325, and the Aztec Empire came in 1428."</li>
+        <li><b>Kicker:</b> "When the Aztecs built their capital, Oxford had already been teaching for over 200 years."</li>
+      </ol>
+    </div>
+
+    <div class="words">
+      <div class="word" style="--c: var(--sun)">
+        <h3>venerable<span class="pos">adjective</span></h3>
+        <p>Deserving respect because of age, high position, or religious or historical importance.<sup class="cite"><a href="#s4">4</a></sup> <i>Oxford is a <b>venerable</b> institution: it was teaching students before Tenochtitlan existed.</i></p>
+      </div>
+    </div>
+
+    <div id="quiz"><p class="callout"><span class="label">Quiz not loaded</span>If you can read this, the quiz script didn't run. Try opening the file in Chrome or Safari.</p></div>
+
+    <p class="muted"><b>Read more:</b> <a href="https://www.ox.ac.uk/about/the-university/history" target="_blank" rel="noopener">University of Oxford: our history</a>. All retells: <a href="../reference/curiosity-deck.html">the curiosity deck</a>. <b>Questions?</b> Ask Claude, e.g. "What was Tenochtitlan like when the Spanish arrived?"</p>
+  </section>
+
+  <hr>
+  <ol class="sources">
+    <li id="s1">University of Oxford, <a href="https://www.ox.ac.uk/about/the-university/history">Our history</a> ("no clear date of foundation, but teaching existed at Oxford in some form in 1096"); see also Wikipedia, <a href="https://en.wikipedia.org/wiki/University_of_Oxford">University of Oxford</a>.</li>
+    <li id="s2">Wikipedia, <a href="https://en.wikipedia.org/wiki/Tenochtitlan">Tenochtitlan</a> (founded 1325; exact date unclear, and some sources give 1345).</li>
+    <li id="s3">Wikipedia, <a href="https://en.wikipedia.org/wiki/Aztec_Empire">Aztec Empire</a> (Mexica arrive c. 1250; Tenochtitlan 1325; victory over Azcapotzalco 1428, Triple Alliance treaty 1430).</li>
+    <li id="s4">Cambridge Dictionary, <a href="https://dictionary.cambridge.org/dictionary/english/venerable">venerable</a>.</li>
+  </ol>
+
+  <nav class="nav">
+    <a href="0006-when-nice-meant-foolish.html">← Curiosity 6: When nice meant foolish</a>
+    <a href="0008-bananas-are-berries.html">Curiosity 8: Bananas are berries →</a>
+  </nav>
+</main>
+
+<script src="../assets/guess.js"></script>
+<script src="../assets/timeline.js"></script>
+<script src="../assets/quiz.js"></script>
+<script>
+Guess.mount(document.getElementById("guess"), {
+  id: "0007",
+  prompt: "Which came first?",
+  options: ["Teaching at Oxford University", "The founding of Tenochtitlan"],
+  answer: 0,
+  right: "Right! Oxford was teaching over 200 years earlier.",
+  wrong: "Most people guess that, but Oxford came 200+ years earlier."
+});
+
+Timeline.mount(document.getElementById("tl"), {
+  from: 1050, to: 1550,
+  points: [
+    { year: 1096, label: "Teaching at Oxford", color: "var(--sky)", side: "up" },
+    { year: 1167, label: "Oxford grows fast", color: "var(--grape)", side: "down" },
+    { year: 1325, label: "Tenochtitlan founded", color: "var(--sun)", side: "up" },
+    { year: 1428, label: "Aztec Empire forms", color: "var(--accent)", side: "down" }
+  ],
+  spans: [
+    { from: 1096, to: 1325, label: "229 years", color: "var(--sky)" }
+  ],
+  caption: "Drawn to scale. Oxford's head start is longer than the whole Aztec Empire lasted."
+});
+
+const WP = "https://en.wikipedia.org/wiki/";
+Quiz.mount(document.getElementById("quiz"), {
+  id: "0007-older-than-the-aztecs",
+  questions: [
+    {
+      tag: "Oxford: the first date",
+      link: WP + "University_of_Oxford",
+      prompt: `<p>By which year is there evidence of teaching at Oxford?</p><p class="q-hint">Type a year.</p>`,
+      accept: ["1096", "in 1096", "by 1096", "ten ninety-six", "ten ninety six"],
+      explain: `<b>1096</b>. Tenochtitlan was founded in 1325, 229 years later.`
+    },
+    {
+      tag: "Oxford: why the fact is safe",
+      link: WP + "University_of_Oxford",
+      prompt: `<p>Oxford has no exact founding date. Why does the fact still hold?</p>`,
+      options: [
+        "Even Oxford's later growth date, 1167, is well before 1325",
+        "Oxford has a royal founding charter dated to exactly 1096",
+        "The Aztec calendar dates were all later converted by Oxford",
+        "Tenochtitlan's founding date is recorded down to the exact day"
+      ],
+      answer: 0,
+      explain: `Even using <b>1167</b>, when Oxford grew rapidly, the gap to 1325 is over 150 years. (Its royal charter came only in 1248.)`
+    },
+    {
+      tag: "Review: Cleopatra and the Moon",
+      link: WP + "Great_Pyramid_of_Giza",
+      prompt: `<p class="muted">Review from Curiosity 1</p><p>The Great Pyramid of Giza was built for which pharaoh?</p><p class="q-hint">Type a name.</p>`,
+      accept: ["khufu", "cheops", "pharaoh khufu", "king khufu"],
+      explain: `<b>Khufu</b> (Cheops in Greek), around 2560 BC: about 2,500 years before Cleopatra.`
+    }
+  ]
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Crows remember faces</title>
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="stylesheet" href="../assets/quiz.css">
+<link rel="stylesheet" href="../assets/curio.css">
+</head>
+<body>
+<main>
+  <p class="kicker">Curiosity 21 · Nature</p>
+  <h1>Crows remember faces</h1>
+  <p class="subtitle">Upset one crow, and a whole neighbourhood may remember you for years.</p>
+
+  <div class="meta">
+    <span><b>Time</b> ~2 min</span>
+    <span><b>Win</b> a creepy-but-true animal story</span>
+    <span><b>Bonus</b> 1 C1 word</span>
+  </div>
+
+  <div id="guess"><p class="callout"><span class="label">Guess first</span>In 2006 a scientist in a caveman mask trapped seven crows. How long did the local crows keep scolding that mask? Decide before you scroll.</p></div>
+
+  <section data-after-guess>
+    <p class="reveal">Seattle's crows scolded the mask for <mark>about 17 years</mark>, including crows that were never trapped.</p>
+
+    <div class="stats">
+      <div class="stat" style="--c: var(--sky)"><b>7</b><span>crows trapped in 2006 by people in the mask</span></div>
+      <div class="stat" style="--c: var(--accent)"><b>47 of 53</b><span>crows that scolded him on one masked walk</span></div>
+      <div class="stat" style="--c: var(--grape)"><b>17 years</b><span>until the scolding stopped (September 2023)</span></div>
+    </div>
+
+    <p><b>Why it works:</b> John Marzluff's team at the University of Washington trapped and ringed crows while wearing a caveman mask; a "neutral" Dick Cheney mask was mostly ignored, so the birds were reading faces, not masks in general.<sup class="cite"><a href="#s1">1</a></sup><sup class="cite"><a href="#s3">3</a></sup> Crows that had only watched, and chicks born later, learned the grudge from others.<sup class="cite"><a href="#s2">2</a></sup> Scolding peaked in 2013, then faded.<sup class="cite"><a href="#s3">3</a></sup></p>
+
+    <div class="retell">
+      <span class="label">Retell it · say it out loud once</span>
+      <ol>
+        <li><b>Hook:</b> "How long do you think a crow can hold a grudge against one human face?"</li>
+        <li><b>Numbers:</b> "Seven crows trapped in 2006 by a man in a caveman mask. Once, 47 of 53 crows scolded him. It stopped only in 2023."</li>
+        <li><b>Kicker:</b> "Crows that were never caught joined in: they taught each other who the villain was."</li>
+      </ol>
+    </div>
+
+    <div class="words">
+      <div class="word" style="--c: var(--mint)">
+        <h3>hold a grudge<span class="pos">idiom</span></h3>
+        <p>To keep a strong feeling of anger and dislike for someone who you feel treated you badly, often for a long time.<sup class="cite"><a href="#s4">4</a></sup> <i>Seattle's crows <b>held a grudge</b> against the caveman mask for 17 years.</i></p>
+      </div>
+    </div>
+
+    <div id="quiz"><p class="callout"><span class="label">Quiz not loaded</span>If you can read this, the quiz script didn't run. Try opening the file in Chrome or Safari.</p></div>
+
+    <p class="muted"><b>Read more:</b> <a href="https://yalebooks.yale.edu/2025/01/21/crows-remember-a-facefor-a-long-time/" target="_blank" rel="noopener">John Marzluff: Crows remember a face… for a long time!</a> (Yale University Press). All retells: <a href="../reference/curiosity-deck.html">the curiosity deck</a>. <b>Questions?</b> Ask Claude, e.g. "Which parts of a crow's brain light up when it sees a dangerous face?"</p>
+  </section>
+
+  <hr>
+  <ol class="sources">
+    <li id="s1">Marzluff et al., <a href="https://doi.org/10.1016/j.anbehav.2009.12.022">Lasting recognition of threatening people by wild American crows</a>, Animal Behaviour 79 (2010).</li>
+    <li id="s2">John M. Marzluff, <a href="https://yalebooks.yale.edu/2025/01/21/crows-remember-a-facefor-a-long-time/">Crows remember a face… for a long time!</a>, Yale University Press (2025).</li>
+    <li id="s3">Urban@UW, University of Washington, <a href="https://urban.uw.edu/news/crows-hold-grudges-against-individual-humans-for-up-to-17-years/">Crows hold grudges against individual humans for up to 17 years</a>.</li>
+    <li id="s4">Cambridge Dictionary, <a href="https://dictionary.cambridge.org/dictionary/english/grudge">grudge</a> (hold/bear a grudge).</li>
+  </ol>
+
+  <nav class="nav">
+    <a href="0020-glass-is-not-a-liquid.html">← Curiosity 20: Glass is not a liquid</a>
+    <a href="0022-robot-means-forced-labour.html">Curiosity 22: Robot means forced labour →</a>
+  </nav>
+</main>
+
+<script src="../assets/guess.js"></script>
+<script src="../assets/quiz.js"></script>
+<script>
+Guess.mount(document.getElementById("guess"), {
+  id: "0021",
+  prompt: "How long did the local crows keep scolding the caveman mask?",
+  options: ["About three weeks", "About one year", "About five years", "About 17 years"],
+  answer: 3,
+  right: "Right! Hardly anyone guesses that long.",
+  wrong: "Most people guess far shorter. It was about 17 years."
+});
+
+Quiz.mount(document.getElementById("quiz"), {
+  id: "0021-crows-remember-faces",
+  questions: [
+    {
+      tag: "Crows: how long",
+      link: "https://urban.uw.edu/news/crows-hold-grudges-against-individual-humans-for-up-to-17-years/",
+      prompt: `<p>For about how many years did Seattle's crows keep scolding the caveman mask?</p><p class="q-hint">Type a number.</p>`,
+      accept: ["17", "17 years", "seventeen", "seventeen years", "about 17"],
+      explain: `From the trapping in <b>2006</b> to a silent masked walk in <b>September 2023</b>: about <b>17 years</b>.`
+    },
+    {
+      tag: "Crows: spreading the grudge",
+      link: "https://yalebooks.yale.edu/2025/01/21/crows-remember-a-facefor-a-long-time/",
+      prompt: `<p>Many crows that scolded the mask had never been trapped. How did they know?</p>`,
+      options: [
+        "They learned it by watching other crows scold the mask",
+        "They could smell the researcher right through the rubber mask",
+        "They attacked every single masked person they met on campus",
+        "They were the same seven birds seen again and again"
+      ],
+      answer: 0,
+      explain: `Crows learn danger <b>socially</b>: birds that watched the trapping, and chicks born later, picked up the grudge from knowing crows. A neutral mask was mostly ignored.`
+    },
+    {
+      tag: "Review: honest placebos",
+      link: "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0015591",
+      prompt: `<p class="muted">Review from Curiosity 18</p><p>In Kaptchuk's 2010 IBS study, what were patients told about their pills?</p>`,
+      options: [
+        "That they were placebos, inert just like sugar pills",
+        "That they were a new and very strong painkiller",
+        "Nothing at all about what the pills really contained",
+        "That half were real pills and half were fake"
+      ],
+      answer: 0,
+      explain: `The bottle said <b>"placebo pills"</b>, and patients were told the pills were inert. They still improved more than the no-treatment group.`
+    }
+  ]
+});
+</script>
+</body>
+</html>

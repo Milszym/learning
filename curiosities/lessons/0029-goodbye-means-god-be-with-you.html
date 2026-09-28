@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Goodbye means "God be with you"</title>
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="stylesheet" href="../assets/quiz.css">
+<link rel="stylesheet" href="../assets/curio.css">
+</head>
+<body>
+<main>
+  <p class="kicker">Curiosity 29 · Language</p>
+  <h1>Goodbye means "God be with you"</h1>
+  <p class="subtitle">You say a blessing every day. It's just been worn down.</p>
+
+  <div class="meta">
+    <span><b>Time</b> ~2 min</span>
+    <span><b>Win</b> the story hidden in an everyday word</span>
+    <span><b>Bonus</b> 1 C1 word</span>
+  </div>
+
+  <div id="guess"><p class="callout"><span class="label">Guess first</span>"Goodbye" started life as a longer phrase that got squashed. Which one? Decide before you scroll.</p></div>
+
+  <section data-after-guess>
+    <p class="reveal">"Goodbye" is a squashed <mark>"God be with ye"</mark>.</p>
+
+    <div id="tl"></div>
+
+    <p><b>Why it works:</b> Phrases we say constantly wear down. "God be with ye" (late 1300s) shrank through forms like "God be wy you" and "God b'uy" to "godbwye" in the 1570s.<sup class="cite"><a href="#s1">1</a></sup> Then "God" became "good", because people matched it to other farewells like "good day" and "good night".<sup class="cite"><a href="#s1">1</a></sup><sup class="cite"><a href="#s2">2</a></sup> By the 1590s it was "good-bye", and speakers no longer heard the blessing inside.</p>
+
+    <div class="retell">
+      <span class="label">Retell it · say it out loud once</span>
+      <ol>
+        <li><b>Hook:</b> "Which word do you say every day that is secretly a blessing?"</li>
+        <li><b>Detail:</b> "'God be with ye' was squeezed into 'godbwye' by the 1570s, then 'God' turned into 'good', like 'good day'."</li>
+        <li><b>Kicker:</b> "Every goodbye is a little prayer with the God worn off."</li>
+      </ol>
+    </div>
+
+    <div class="words">
+      <div class="word" style="--c: var(--sky)">
+        <h3>contraction<span class="pos">noun</span></h3>
+        <p>A short form of a word or combination of words, often used instead of the full form in spoken English.<sup class="cite"><a href="#s3">3</a></sup> <i>"Goodbye" began as a <b>contraction</b> of "God be with ye", just as "don't" is one of "do not".</i></p>
+      </div>
+    </div>
+
+    <div id="quiz"><p class="callout"><span class="label">Quiz not loaded</span>If you can read this, the quiz script didn't run. Try opening the file in Chrome or Safari.</p></div>
+
+    <p class="muted"><b>Read more:</b> <a href="https://www.etymonline.com/word/good-bye" target="_blank" rel="noopener">Etymonline: good-bye</a>. All retells: <a href="../reference/curiosity-deck.html">the curiosity deck</a>. <b>Questions?</b> Ask Claude, e.g. "Do other languages hide God in their farewells, like 'adieu'?"</p>
+  </section>
+
+  <hr>
+  <ol class="sources">
+    <li id="s1">Online Etymology Dictionary, <a href="https://www.etymonline.com/word/good-bye">good-bye</a> (1590s, from "godbwye", 1570s, from "God be with ye", late 14c.).</li>
+    <li id="s2">Wiktionary, <a href="https://en.wiktionary.org/wiki/goodbye">goodbye</a> (etymology: the chain of shorter forms; "God" to "good" by analogy with "good morning", "good night").</li>
+    <li id="s3">Cambridge Dictionary, <a href="https://dictionary.cambridge.org/dictionary/english/contraction">contraction</a>.</li>
+  </ol>
+
+  <nav class="nav">
+    <a href="0028-the-toughest-animal.html">← Curiosity 28: The toughest animal</a>
+    <a href="0030-a-light-day-away.html">Curiosity 30: A light-day away →</a>
+  </nav>
+</main>
+
+<script src="../assets/guess.js"></script>
+<script src="../assets/timeline.js"></script>
+<script src="../assets/quiz.js"></script>
+<script>
+Guess.mount(document.getElementById("guess"), {
+  id: "0029",
+  prompt: "Which phrase was squashed into \"goodbye\"?",
+  options: ["\"Good day to ye\"", "\"God be with ye\""],
+  answer: 1,
+  right: "Right! It's a blessing that lost its shape.",
+  wrong: "A clever guess, since \"good day\" did play a part. But the source is \"God be with ye\"."
+});
+
+Timeline.mount(document.getElementById("tl"), {
+  from: 1350, to: 2030,
+  points: [
+    { year: 1390, label: "\"God be with ye\"", color: "var(--grape)", side: "up" },
+    { year: 1575, label: "\"godbwye\"", color: "var(--sky)", side: "down" },
+    { year: 1595, label: "\"good-bye\"", color: "var(--mint)", side: "up" },
+    { year: 2026, label: "Your goodbye today", color: "var(--sun)", side: "down" }
+  ],
+  spans: [
+    { from: 1390, to: 1575, label: "≈ 2 centuries of squeezing", color: "var(--grape)" }
+  ],
+  caption: "To scale, with approximate dates: late 1300s, 1570s, 1590s."
+});
+
+const WP = "https://en.wikipedia.org/wiki/";
+Quiz.mount(document.getElementById("quiz"), {
+  id: "0029-goodbye-means-god-be-with-you",
+  questions: [
+    {
+      tag: "Goodbye: the full phrase",
+      link: "https://www.etymonline.com/word/good-bye",
+      prompt: `<p class="line">"Goodbye" is a contraction of "<span class="gap"></span>".</p><p class="q-hint">Type the four-word phrase.</p>`,
+      accept: ["God be with ye", "God be with you", "God be wi' ye", "God be wi' you", "God be with thee"],
+      explain: `<b>God be with ye</b> (late 1300s), squeezed to "godbwye" by the 1570s.`
+    },
+    {
+      tag: "Goodbye: why God became good",
+      link: "https://en.wiktionary.org/wiki/goodbye",
+      prompt: `<p>Why did "God" turn into "good" in the word?</p>`,
+      options: [
+        "People copied other farewells like good day",
+        "Church leaders banned God in casual speech",
+        "Printers kept misspelling the word as good",
+        "Kings ordered a friendlier, less holy farewell"
+      ],
+      answer: 0,
+      explain: `By <b>analogy with "good day", "good night"</b> and similar farewells. Language change like this is gradual and unplanned.`
+    },
+    {
+      tag: "Review: the Great Emu War",
+      link: WP + "Emu_War",
+      prompt: `<p class="muted">Review from Curiosity 26</p><p>Roughly how many emus did the soldiers face in 1932?</p><p class="q-hint">Type a number.</p>`,
+      accept: ["20000", "20,000", "20 000", "twenty thousand", "about 20,000", "about 20000", "around 20,000"],
+      explain: `About <b>20,000</b> emus, against three soldiers with two Lewis guns. The emus won.`
+    }
+  ]
+});
+</script>
+</body>
+</html>

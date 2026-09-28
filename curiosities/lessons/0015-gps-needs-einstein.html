@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GPS needs Einstein</title>
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="stylesheet" href="../assets/quiz.css">
+<link rel="stylesheet" href="../assets/curio.css">
+</head>
+<body>
+<main>
+  <p class="kicker">Curiosity 15 · Tech</p>
+  <h1>GPS needs Einstein</h1>
+  <p class="subtitle">Your phone's map quietly relies on relativity every single day.</p>
+
+  <div class="meta">
+    <span><b>Time</b> ~2 min</span>
+    <span><b>Win</b> the best everyday proof of relativity</span>
+    <span><b>Bonus</b> 1 C1 word</span>
+  </div>
+
+  <div id="guess"><p class="callout"><span class="label">Guess first</span>If engineers ignored Einstein's relativity, how far off would GPS positions drift each day: ten centimetres, ten metres, or ten kilometres? Decide before you scroll.</p></div>
+
+  <section data-after-guess>
+    <p class="reveal">Satellite clocks gain about <mark>38 microseconds a day</mark>; left uncorrected, GPS errors would grow by roughly 10 km a day.</p>
+
+    <div class="stats">
+      <div class="stat" style="--c: var(--sky)"><b>+45 µs</b><span>a day faster: weaker gravity up there</span></div>
+      <div class="stat" style="--c: var(--accent)"><b>−7 µs</b><span>a day slower: orbital speed</span></div>
+      <div class="stat" style="--c: var(--sun)"><b>+38 µs</b><span>net gain a day ≈ 11 km of light travel</span></div>
+    </div>
+
+    <p><b>Why it works:</b> General relativity says clocks in weaker gravity tick faster; special relativity says fast-moving clocks tick slower. At 20,000 km up, gravity wins.<sup class="cite"><a href="#s1">1</a></sup> GPS measures distance by light's travel time, and in 38 µs light covers about 11 km. So each satellite clock is tuned to tick slightly slow before launch.<sup class="cite"><a href="#s2">2</a></sup> The "10 km a day" is a rough conversion; the real failure would be messier.</p>
+
+    <div class="retell">
+      <span class="label">Retell it · say it out loud once</span>
+      <ol>
+        <li><b>Hook:</b> "Did you know your phone's map would be useless without Einstein?"</li>
+        <li><b>Numbers:</b> "Weaker gravity makes satellite clocks gain 45 microseconds a day, their speed loses 7: net 38. That's about 10 km of error a day."</li>
+        <li><b>Kicker:</b> "Every time you follow a blue dot, you're testing relativity."</li>
+      </ol>
+    </div>
+
+    <div class="words">
+      <div class="word" style="--c: var(--sky)">
+        <h3>negligible<span class="pos">adjective</span></h3>
+        <p>Too slight or small in amount to be of importance.<sup class="cite"><a href="#s3">3</a></sup> <i>38 microseconds sounds <b>negligible</b>, but at the speed of light it's about 11 kilometres.</i></p>
+      </div>
+    </div>
+
+    <div id="quiz"><p class="callout"><span class="label">Quiz not loaded</span>If you can read this, the quiz script didn't run. Try opening the file in Chrome or Safari.</p></div>
+
+    <p class="muted"><b>Read more:</b> <a href="https://www.astronomy.ohio-state.edu/pogge.1/Ast162/Unit5/gps.html" target="_blank" rel="noopener">Ohio State University (Richard Pogge): Real-World Relativity, the GPS Navigation System</a>. All retells: <a href="../reference/curiosity-deck.html">the curiosity deck</a>. <b>Questions?</b> Ask Claude, e.g. "Why does weaker gravity make a clock tick faster?"</p>
+  </section>
+
+  <hr>
+  <ol class="sources">
+    <li id="s1">Richard Pogge, Ohio State University, <a href="https://www.astronomy.ohio-state.edu/pogge.1/Ast162/Unit5/gps.html">Real-World Relativity: The GPS Navigation System</a> (45 − 7 = 38 µs a day; about 10 km a day).</li>
+    <li id="s2">Neil Ashby, University of Colorado, <a href="https://www.aapt.org/doorway/TGRU/articles/Ashbyarticle.pdf">Relativistic Effects in the Global Positioning System</a> (net fractional shift 4.465 × 10⁻¹⁰, about 38.6 µs a day; the "factory frequency offset").</li>
+    <li id="s3">Cambridge Dictionary, <a href="https://dictionary.cambridge.org/dictionary/english/negligible">negligible</a>.</li>
+  </ol>
+
+  <nav class="nav">
+    <a href="0014-ok-was-a-joke.html">← Curiosity 14: OK was a joke</a>
+    <a href="0016-honey-never-spoils.html">Curiosity 16: Honey never spoils →</a>
+  </nav>
+</main>
+
+<script src="../assets/guess.js"></script>
+<script src="../assets/quiz.js"></script>
+<script>
+Guess.mount(document.getElementById("guess"), {
+  id: "0015",
+  prompt: "Without relativity corrections, how far would GPS drift each day?",
+  options: ["About ten centimetres", "About ten metres", "About ten kilometres"],
+  answer: 2,
+  right: "Right! Tiny time errors become huge distance errors.",
+  wrong: "Much worse than that: about ten kilometres a day."
+});
+
+const WP = "https://en.wikipedia.org/wiki/";
+Quiz.mount(document.getElementById("quiz"), {
+  id: "0015-gps-needs-einstein",
+  questions: [
+    {
+      tag: "GPS: the net drift",
+      link: "https://www.astronomy.ohio-state.edu/pogge.1/Ast162/Unit5/gps.html",
+      prompt: `<p>About how many microseconds a day do GPS satellite clocks gain, net, compared with clocks on the ground?</p><p class="q-hint">Type a number.</p>`,
+      accept: ["38", "38 microseconds", "38 µs", "thirty-eight", "thirty eight", "38.6", "39", "about 38"],
+      explain: `About <b>38 µs a day</b>: +45 from weaker gravity, −7 from orbital speed.`
+    },
+    {
+      tag: "GPS: why the clocks run fast",
+      link: WP + "Gravitational_time_dilation",
+      prompt: `<p>Speed slows the satellite clocks down. So why do they end up running <i>fast</i> overall?</p>`,
+      options: [
+        "Weaker gravity up there speeds them up by even more",
+        "Their atomic clocks are built to tick faster on purpose",
+        "Sunlight in orbit warms the clocks and speeds them up",
+        "Being closer to the Sun makes all clocks run faster"
+      ],
+      answer: 0,
+      explain: `<b>Gravitational time dilation</b>: clocks higher in Earth's gravity tick faster (+45 µs a day), outweighing the slowdown from speed (−7 µs). In fact they're built to tick slightly <i>slow</i> to compensate.`
+    },
+    {
+      tag: "Review: the first computer bug",
+      link: WP + "Bug_(engineering)",
+      prompt: `<p class="muted">Review from Curiosity 5</p><p>Why is the 1947 moth <i>not</i> the origin of the word "bug"?</p>`,
+      options: [
+        "Edison and others called faults 'bugs' long before",
+        "The moth came from another computer, in 1957",
+        "Journalists forged the famous logbook entry much later",
+        "Grace Hopper coined the word as wartime slang"
+      ],
+      answer: 0,
+      explain: `Engineers used "bug" for a fault since at least the 1870s: <b>Edison wrote of "Bugs" in 1878</b>. The 1947 moth was a joke on an existing word: the "first <i>actual</i> case of bug being found".`
+    }
+  ]
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The toughest animal</title>
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="stylesheet" href="../assets/quiz.css">
+<link rel="stylesheet" href="../assets/curio.css">
+</head>
+<body>
+<main>
+  <p class="kicker">Curiosity 28 · Nature</p>
+  <h1>The toughest animal</h1>
+  <p class="subtitle">About half a millimetre long, and it has survived open space.</p>
+
+  <div class="meta">
+    <span><b>Time</b> ~2 min</span>
+    <span><b>Win</b> the ultimate "tough animal" fact</span>
+    <span><b>Bonus</b> 1 C1 word</span>
+  </div>
+
+  <div id="guess"><p class="callout"><span class="label">Guess first</span>In 2007 dried-out tardigrades ("water bears") spent 10 days outside a spacecraft, in open space. What happened when they came home? Decide before you scroll.</p></div>
+
+  <section data-after-guess>
+    <p class="reveal">Dried tardigrades <mark>survived 10 days in open space</mark> and came back to life with a drop of water.</p>
+
+    <div class="stats">
+      <div class="stat" style="--c: var(--grape)"><b>10</b><span>days exposed to space, September 2007</span></div>
+      <div class="stat" style="--c: var(--sky)"><b>~270 km</b><span>orbit height (258–281 km)</span></div>
+      <div class="stat" style="--c: var(--sun)"><b>UV</b><span>the real killer: few survived full sunlight</span></div>
+    </div>
+
+    <p><b>Why it works:</b> Vacuum kills mainly by drying you out, and these tardigrades went up already dried, curled into a dormant "tun" with metabolism almost stopped. So vacuum and cosmic radiation alone caused no loss in survival.<sup class="cite"><a href="#s1">1</a></sup> Unfiltered solar UV was different: under the full spectrum, only a handful recovered.<sup class="cite"><a href="#s2">2</a></sup> They became the first animals known to survive open space.<sup class="cite"><a href="#s3">3</a></sup></p>
+
+    <div class="retell">
+      <span class="label">Retell it · say it out loud once</span>
+      <ol>
+        <li><b>Hook:</b> "Which animal has been left outside a spacecraft for ten days and lived?"</li>
+        <li><b>Numbers:</b> "2007, ESA's FOTON-M3 mission: about 270 km up, 10 days. Vacuum alone killed none extra; raw sunlight killed most."</li>
+        <li><b>Kicker:</b> "They didn't fight space. They switched themselves off and waited for water."</li>
+      </ol>
+    </div>
+
+    <div class="words">
+      <div class="word" style="--c: var(--mint)">
+        <h3>hardy<span class="pos">adjective</span></h3>
+        <p>Strong enough to bear extreme conditions or difficult situations.<sup class="cite"><a href="#s4">4</a></sup> <i>Tardigrades are so <b>hardy</b> that they survived ten days in open space.</i></p>
+      </div>
+    </div>
+
+    <div id="quiz"><p class="callout"><span class="label">Quiz not loaded</span>If you can read this, the quiz script didn't run. Try opening the file in Chrome or Safari.</p></div>
+
+    <p class="muted"><b>Read more:</b> <a href="https://pubmed.ncbi.nlm.nih.gov/18786368/" target="_blank" rel="noopener">Jönsson et al. (2008), <i>Current Biology</i>: Tardigrades survive exposure to space in low Earth orbit</a>. All retells: <a href="../reference/curiosity-deck.html">the curiosity deck</a>. <b>Questions?</b> Ask Claude, e.g. "How does a tardigrade survive being completely dried out?"</p>
+  </section>
+
+  <hr>
+  <ol class="sources">
+    <li id="s1">Jönsson, Rabbow, Schill et al. (2008), <a href="https://pubmed.ncbi.nlm.nih.gov/18786368/">Tardigrades survive exposure to space in low Earth orbit</a>, <i>Current Biology</i> 18(17).</li>
+    <li id="s2">Wikipedia, <a href="https://en.wikipedia.org/wiki/Tardigrade">Tardigrade</a> (FOTON-M3 results by exposure group).</li>
+    <li id="s3">National Geographic, <a href="https://www.nationalgeographic.com/science/article/tardigrades-become-first-animals-to-survive-vacuum-of-space">Tardigrades become first animals to survive vacuum of space</a>.</li>
+    <li id="s4">Cambridge Dictionary, <a href="https://dictionary.cambridge.org/dictionary/english/hardy">hardy</a>.</li>
+  </ol>
+
+  <nav class="nav">
+    <a href="0027-the-monty-hall-problem.html">← Curiosity 27: The Monty Hall problem</a>
+    <a href="0029-goodbye-means-god-be-with-you.html">Curiosity 29: Goodbye means "God be with you" →</a>
+  </nav>
+</main>
+
+<script src="../assets/guess.js"></script>
+<script src="../assets/quiz.js"></script>
+<script>
+Guess.mount(document.getElementById("guess"), {
+  id: "0028",
+  prompt: "Dried tardigrades spent 10 days in open space. Then what?",
+  options: ["Many revived once they were given water", "None survived the first hours in space"],
+  answer: 0,
+  right: "Right! Rehydrated, many simply woke up again.",
+  wrong: "A fair guess for any animal. But many tardigrades woke up again with water."
+});
+
+const WP = "https://en.wikipedia.org/wiki/";
+Quiz.mount(document.getElementById("quiz"), {
+  id: "0028-the-toughest-animal",
+  questions: [
+    {
+      tag: "Tardigrades: time in space",
+      link: "https://pubmed.ncbi.nlm.nih.gov/18786368/",
+      prompt: `<p>How many days did the tardigrades spend exposed to open space in 2007?</p><p class="q-hint">Type a number.</p>`,
+      accept: ["10", "ten", "10 days", "ten days"],
+      explain: `<b>10 days</b> in low Earth orbit, on the outside of ESA's FOTON-M3 capsule, in September 2007.`
+    },
+    {
+      tag: "Tardigrades: why vacuum didn't kill them",
+      link: WP + "Tardigrades_in_space",
+      prompt: `<p>Why could the tardigrades shrug off the vacuum of space?</p>`,
+      options: [
+        "Already dried out, they had no water left",
+        "Their thick shells held the air pressure in",
+        "The capsule shielded them from the harsh vacuum",
+        "They breathed stored oxygen for the whole trip"
+      ],
+      answer: 0,
+      explain: `Vacuum kills mainly by <b>extreme drying</b>, and the tardigrades were already dried and dormant. Solar UV, not vacuum, killed most of those exposed to it.`
+    },
+    {
+      tag: "Review: the Monty Hall problem",
+      link: WP + "Monty_Hall_problem",
+      prompt: `<p class="muted">Review from Curiosity 27</p><p>In the Monty Hall problem, how often does switching doors win the car?</p><p class="q-hint">Type a fraction.</p>`,
+      accept: ["2/3", "two thirds", "two-thirds", "2 in 3", "two in three", "2 out of 3", "two out of three", "66%", "67%", "66.7%"],
+      explain: `<b>2/3</b>. Your first pick is right only 1 time in 3, and the host, who knows, never reveals the car.`
+    }
+  ]
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bananas are berries</title>
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="stylesheet" href="../assets/quiz.css">
+<link rel="stylesheet" href="../assets/curio.css">
+</head>
+<body>
+<main>
+  <p class="kicker">Curiosity 8 · Nature</p>
+  <h1>Bananas are berries</h1>
+  <p class="subtitle">The fruit with "berry" in its name is the one that isn't.</p>
+
+  <div class="meta">
+    <span><b>Time</b> ~2 min</span>
+    <span><b>Win</b> a fruit fact that starts arguments</span>
+    <span><b>Bonus</b> 1 C1 word</span>
+  </div>
+
+  <div id="guess"><p class="callout"><span class="label">Guess first</span>To a botanist, which one is a true berry: a strawberry or a banana? Decide before you scroll.</p></div>
+
+  <section data-after-guess>
+    <p class="reveal">Botanically, <mark>a banana is a berry and a strawberry is not</mark>.</p>
+
+    <div class="stats">
+      <div class="stat" style="--c: var(--sun)"><b>1</b><span>flower with one ovary makes a banana: a true berry</span></div>
+      <div class="stat vs">vs</div>
+      <div class="stat" style="--c: var(--accent)"><b>~200</b><span>tiny fruits (the "seeds") on one strawberry</span></div>
+    </div>
+
+    <p><b>Why it feels wrong:</b> "Berry" is a kitchen word, far older than botany. For botanists, a berry is a fleshy fruit grown from one flower with a single ovary: bananas, grapes, tomatoes, blueberries.<sup class="cite"><a href="#s1">1</a></sup><sup class="cite"><a href="#s4">4</a></sup> A strawberry's red flesh is the swollen receptacle, the base of the flower. Each "seed" on the outside is an achene, a tiny dry fruit with its own seed inside.<sup class="cite"><a href="#s2">2</a></sup><sup class="cite"><a href="#s3">3</a></sup></p>
+
+    <div class="retell">
+      <span class="label">Retell it · say it out loud once</span>
+      <ol>
+        <li><b>Hook:</b> "Is a banana a berry? And is a strawberry?"</li>
+        <li><b>Detail:</b> "A berry grows from one flower with one ovary. A strawberry's flesh is the swollen flower base, dotted with about 200 tiny fruits."</li>
+        <li><b>Kicker:</b> "Those 'seeds' on a strawberry are its real fruits. The berry is the banana."</li>
+      </ol>
+    </div>
+
+    <div class="words">
+      <div class="word" style="--c: var(--sun)">
+        <h3>misnomer<span class="pos">noun</span></h3>
+        <p>A name that does not suit what it refers to, or the use of such a name.<sup class="cite"><a href="#s5">5</a></sup> <i>"Strawberry" is a botanical <b>misnomer</b>: it isn't a berry at all.</i></p>
+      </div>
+    </div>
+
+    <div id="quiz"><p class="callout"><span class="label">Quiz not loaded</span>If you can read this, the quiz script didn't run. Try opening the file in Chrome or Safari.</p></div>
+
+    <p class="muted"><b>Read more:</b> <a href="https://strawberry.calpoly.edu/news/test-your-strawberry-anatomy-skills-part-2" target="_blank" rel="noopener">Cal Poly Strawberry Center: strawberry anatomy</a>. All retells: <a href="../reference/curiosity-deck.html">the curiosity deck</a>. <b>Questions?</b> Ask Claude, e.g. "Is a tomato a fruit or a vegetable, then?"</p>
+  </section>
+
+  <hr>
+  <ol class="sources">
+    <li id="s1">Wikipedia, <a href="https://en.wikipedia.org/wiki/Berry_(botany)">Berry (botany)</a> (definition and examples).</li>
+    <li id="s2">Wikipedia, <a href="https://en.wikipedia.org/wiki/Strawberry">Strawberry</a> (an aggregate accessory fruit; the "seeds" are achenes).</li>
+    <li id="s3">Cal Poly Strawberry Center, <a href="https://strawberry.calpoly.edu/news/test-your-strawberry-anatomy-skills-part-2">Test your strawberry anatomy skills, Part 2</a> (about 200 achenes on a medium strawberry).</li>
+    <li id="s4">Wikipedia, <a href="https://en.wikipedia.org/wiki/Banana">Banana</a> (botanically a berry).</li>
+    <li id="s5">Cambridge Dictionary, <a href="https://dictionary.cambridge.org/dictionary/english/misnomer">misnomer</a>.</li>
+  </ol>
+
+  <nav class="nav">
+    <a href="0007-older-than-the-aztecs.html">← Curiosity 7: Older than the Aztecs</a>
+    <a href="0009-more-trees-than-stars.html">Curiosity 9: More trees than stars →</a>
+  </nav>
+</main>
+
+<script src="../assets/guess.js"></script>
+<script src="../assets/quiz.js"></script>
+<script>
+Guess.mount(document.getElementById("guess"), {
+  id: "0008",
+  prompt: "To a botanist, which one is a true berry?",
+  options: ["A ripe red strawberry", "A ripe yellow banana"],
+  answer: 1,
+  right: "Right! Most people pick the strawberry. Here's why you're correct.",
+  wrong: "You're in good company: the name fools almost everyone. It's the banana."
+});
+
+const WP = "https://en.wikipedia.org/wiki/";
+Quiz.mount(document.getElementById("quiz"), {
+  id: "0008-bananas-are-berries",
+  questions: [
+    {
+      tag: "Berries: the strawberry's fruits",
+      link: "https://strawberry.calpoly.edu/news/test-your-strawberry-anatomy-skills-part-2",
+      prompt: `<p>Roughly how many tiny fruits (achenes, the "seeds") sit on the outside of a medium strawberry?</p><p class="q-hint">Type a number.</p>`,
+      accept: ["200", "about 200", "around 200", "~200", "200 achenes", "200 seeds", "two hundred"],
+      explain: `About <b>200</b>. Each one is a small dry fruit with a seed inside; the red flesh is the swollen flower base.`
+    },
+    {
+      tag: "Berries: the definition",
+      link: WP + "Berry_(botany)",
+      prompt: `<p>What makes a banana a berry in the botanical sense?</p>`,
+      options: [
+        "It grows from one flower with a single ovary",
+        "It grows in bunches that hang from a stalk",
+        "It has soft, sweet flesh and a peelable skin",
+        "It keeps on ripening after it has been picked"
+      ],
+      answer: 0,
+      explain: `A botanical berry is a <b>fleshy fruit from one flower with one ovary</b>. Taste, shape and skin don't matter.`
+    },
+    {
+      tag: "Review: Older than the Aztecs",
+      link: WP + "Tenochtitlan",
+      prompt: `<p class="muted">Review from Curiosity 7</p><p>Teaching at Oxford existed by 1096. In which year did the Aztecs found Tenochtitlan, by tradition?</p><p class="q-hint">Type a year.</p>`,
+      accept: ["1325", "ad 1325", "1325 ad", "in 1325"],
+      explain: `By tradition, <b>1325</b>: more than two centuries after teaching began at Oxford.`
+    }
+  ]
+});
+</script>
+</body>
+</html>

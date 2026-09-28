@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>When nice meant foolish</title>
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="stylesheet" href="../assets/quiz.css">
+<link rel="stylesheet" href="../assets/curio.css">
+</head>
+<body>
+<main>
+  <p class="kicker">Curiosity 6 · Language</p>
+  <h1>When nice meant foolish</h1>
+  <p class="subtitle">Seven hundred years ago, calling someone "nice" was an insult.</p>
+
+  <div class="meta">
+    <span><b>Time</b> ~2 min</span>
+    <span><b>Win</b> a word story that surprises native speakers</span>
+    <span><b>Bonus</b> 1 C1 word</span>
+  </div>
+
+  <div id="guess"><p class="callout"><span class="label">Guess first</span>When "nice" first appeared in English, around 1300, what did it mean? Decide before you scroll.</p></div>
+
+  <section data-after-guess>
+    <p class="reveal">"Nice" comes from Latin <i>nescius</i>, "not knowing", and <mark>first meant foolish or ignorant</mark>.</p>
+
+    <div id="tl"></div>
+
+    <p><b>Why it feels wrong:</b> today "nice" is the mildest compliment there is. But <i>nescius</i> is <i>ne-</i> ("not") + <i>scire</i> ("to know"), and Old French <i>nice</i> meant simple or stupid.<sup class="cite"><a href="#s1">1</a></sup> In medieval English it was used to call people silly.<sup class="cite"><a href="#s2">2</a></sup> Over centuries it drifted through "timid", "fussy" and "precise" (still heard in "a nice distinction") and reached "pleasant" only in the 1700s.<sup class="cite"><a href="#s1">1</a></sup></p>
+
+    <div class="retell">
+      <span class="label">Retell it · say it out loud once</span>
+      <ol>
+        <li><b>Hook:</b> "Would you be offended if someone called you nice? In 1300 you should have been."</li>
+        <li><b>Detail:</b> "It comes from Latin <i>nescius</i>, 'not knowing'. It meant foolish, then fussy, then precise, and only became 'pleasant' in the 1700s."</li>
+        <li><b>Kicker:</b> "'Nice' took nearly 500 years to travel from 'foolish' to 'pleasant'."</li>
+      </ol>
+    </div>
+
+    <div class="words">
+      <div class="word" style="--c: var(--mint)">
+        <h3>pejorative<span class="pos">adjective</span></h3>
+        <p>Expressing disapproval, or suggesting that something is not good or not important.<sup class="cite"><a href="#s3">3</a></sup> <i>In medieval English, "nice" was a <b>pejorative</b> word: it meant foolish.</i></p>
+      </div>
+    </div>
+
+    <div id="quiz"><p class="callout"><span class="label">Quiz not loaded</span>If you can read this, the quiz script didn't run. Try opening the file in Chrome or Safari.</p></div>
+
+    <p class="muted"><b>Read more:</b> <a href="https://www.etymonline.com/word/nice" target="_blank" rel="noopener">Etymonline: nice</a>. All retells: <a href="../reference/curiosity-deck.html">the curiosity deck</a>. <b>Questions?</b> Ask Claude, e.g. "Which other English words changed from bad to good?"</p>
+  </section>
+
+  <hr>
+  <ol class="sources">
+    <li id="s1">Online Etymology Dictionary, <a href="https://www.etymonline.com/word/nice">nice</a> (late 13c. "foolish, ignorant"; late 14c. "fussy"; 1500s "precise"; 1769 "agreeable"; 1830 "kind").</li>
+    <li id="s2">Anglo-Norman Dictionary, <a href="https://anglo-norman.net/word-of-the-month-nice-an-anglo-norman-insult/">Nice! An Anglo-Norman insult</a>.</li>
+    <li id="s3">Cambridge Dictionary, <a href="https://dictionary.cambridge.org/dictionary/english/pejorative">pejorative</a>.</li>
+  </ol>
+
+  <nav class="nav">
+    <a href="0005-the-first-computer-bug.html">← Curiosity 5: The first computer bug</a>
+    <a href="0007-older-than-the-aztecs.html">Curiosity 7: Older than the Aztecs →</a>
+  </nav>
+</main>
+
+<script src="../assets/guess.js"></script>
+<script src="../assets/timeline.js"></script>
+<script src="../assets/quiz.js"></script>
+<script>
+Guess.mount(document.getElementById("guess"), {
+  id: "0006",
+  prompt: "What did \"nice\" first mean in English?",
+  options: ["Kind and friendly", "Silly and foolish", "Rich and powerful"],
+  answer: 1,
+  right: "Right! It started life as an insult.",
+  wrong: "Not quite: it meant foolish or ignorant."
+});
+
+Timeline.mount(document.getElementById("tl"), {
+  from: 1250, to: 2000,
+  points: [
+    { year: 1290, label: "\"foolish, ignorant\"", color: "var(--accent)", side: "up" },
+    { year: 1390, label: "\"fussy\"", color: "var(--grape)", side: "down" },
+    { year: 1550, label: "\"precise, careful\"", color: "var(--sky)", side: "up" },
+    { year: 1769, label: "\"pleasant\"", color: "var(--mint)", side: "down" }
+  ],
+  spans: [
+    { from: 1290, to: 1769, label: "≈ 480 years from foolish to pleasant", color: "var(--mint)" }
+  ],
+  caption: "Drawn to scale. Dates are approximate first records of each sense."
+});
+
+const WP = "https://en.wikipedia.org/wiki/";
+Quiz.mount(document.getElementById("quiz"), {
+  id: "0006-when-nice-meant-foolish",
+  questions: [
+    {
+      tag: "Nice: the first meaning",
+      link: "https://www.etymonline.com/word/nice",
+      prompt: `<p>Around 1300, calling someone "nice" meant they were…</p><p class="q-hint">Type one adjective.</p>`,
+      accept: ["foolish", "stupid", "silly", "ignorant", "senseless", "simple"],
+      explain: `<b>Foolish</b> or ignorant. The "pleasant" sense only appears in the 1700s.`
+    },
+    {
+      tag: "Nice: the Latin root",
+      link: "https://www.etymonline.com/word/nice",
+      prompt: `<p>Why does the Latin root <i>nescius</i> explain the old meaning of "nice"?</p>`,
+      options: [
+        "It literally meant not knowing, so ignorant or foolish",
+        "It literally meant well dressed, so rich or important",
+        "It literally meant from Nice, so French or foreign",
+        "It literally meant very small, so weak or childish"
+      ],
+      answer: 0,
+      explain: `<i>ne-</i> ("not") + <i>scire</i> ("to know"): <b>not knowing</b>. The same root gives the rare word <i>nescience</i>, "ignorance".`
+    },
+    {
+      tag: "Review: Cleopatra and the Moon",
+      link: WP + "Great_Pyramid_of_Giza",
+      prompt: `<p class="muted">Review from Curiosity 1</p><p>Roughly when was the Great Pyramid of Giza built?</p><p class="q-hint">Type a year BC (a number is enough).</p>`,
+      accept: ["2560", "2560 bc", "c. 2560 bc", "about 2560 bc", "around 2560 bc", "2560 bce", "2500", "2500 bc", "2600", "2600 bc", "2550", "2550 bc", "2570", "2570 bc"],
+      explain: `About <b>2560 BC</b> (most estimates fall between 2700 and 2500 BC), some 2,500 years before Cleopatra.`
+    }
+  ]
+});
+</script>
+</body>
+</html>
