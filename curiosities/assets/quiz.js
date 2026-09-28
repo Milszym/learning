@@ -121,19 +121,33 @@
       let opts;
       if (q.accept) {
         // Typed recall: q.accept lists every acceptable answer; the first is shown as the model answer.
+        // The Check button is type="button" (not "submit"): embedded pages sometimes sandbox
+        // this snippet inside a form-less or forms-disabled context, which silently swallows
+        // native form submission before our "submit" handler ever runs.
         opts = el("form", "q-type");
         opts.innerHTML =
           `<input type="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Type your answer…" aria-label="Your answer">` +
-          `<button type="submit" class="q-check">Check</button>`;
+          `<button type="button" class="q-check">Check</button>`;
         const input = opts.querySelector("input");
-        opts.addEventListener("submit", e => {
-          e.preventDefault();
+        const button = opts.querySelector("button");
+        const check = () => {
           if (box.dataset.done || !input.value.trim()) return;
           const correct = q.accept.map(normalize).includes(normalize(input.value));
           input.disabled = true;
-          opts.querySelector("button").disabled = true;
+          button.disabled = true;
           input.classList.add(correct ? "is-right" : "is-wrong");
           finish(correct, input, correct ? null : q.accept[0]);
+        };
+        button.addEventListener("click", check);
+        input.addEventListener("keydown", e => {
+          if (e.key !== "Enter") return;
+          e.preventDefault();
+          check();
+        });
+        // Belt and braces for mobile keyboards whose "Go"/"Done" key submits the form directly.
+        opts.addEventListener("submit", e => {
+          e.preventDefault();
+          check();
         });
       } else {
         opts = el("div", "q-opts");

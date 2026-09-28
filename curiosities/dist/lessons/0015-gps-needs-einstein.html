@@ -364,7 +364,7 @@ td em { color: var(--accent); font-style: normal; font-weight: 800; }
 
     <div id="quiz"><p class="callout"><span class="label">Quiz not loaded</span>If you can read this, the quiz script didn't run. Try opening the file in Chrome or Safari.</p></div>
 
-    <p class="muted"><b>Read more:</b> <a href="https://www.astronomy.ohio-state.edu/pogge.1/Ast162/Unit5/gps.html" target="_blank" rel="noopener">Ohio State University (Richard Pogge): Real-World Relativity, the GPS Navigation System</a>. All retells: <a href="../reference/curiosity-deck.html">the curiosity deck</a>. <b>Questions?</b> Ask Claude, e.g. "Why does weaker gravity make a clock tick faster?"</p>
+    <p class="muted"><b>Read more:</b> <a href="https://www.astronomy.ohio-state.edu/pogge.1/Ast162/Unit5/gps.html" target="_blank" rel="noopener">Ohio State University (Richard Pogge): Real-World Relativity, the GPS Navigation System</a>. <b>Questions?</b> Ask Claude, e.g. "Why does weaker gravity make a clock tick faster?"</p>
   </section>
 
   <hr>
@@ -373,11 +373,6 @@ td em { color: var(--accent); font-style: normal; font-weight: 800; }
     <li id="s2">Neil Ashby, University of Colorado, <a href="https://www.aapt.org/doorway/TGRU/articles/Ashbyarticle.pdf">Relativistic Effects in the Global Positioning System</a> (net fractional shift 4.465 × 10⁻¹⁰, about 38.6 µs a day; the "factory frequency offset").</li>
     <li id="s3">Cambridge Dictionary, <a href="https://dictionary.cambridge.org/dictionary/english/negligible">negligible</a>.</li>
   </ol>
-
-  <nav class="nav">
-    <a href="0014-ok-was-a-joke.html">← Curiosity 14: OK was a joke</a>
-    <a href="0016-honey-never-spoils.html">Curiosity 16: Honey never spoils →</a>
-  </nav>
 </main>
 
 <script>
@@ -575,19 +570,33 @@ td em { color: var(--accent); font-style: normal; font-weight: 800; }
       let opts;
       if (q.accept) {
         // Typed recall: q.accept lists every acceptable answer; the first is shown as the model answer.
+        // The Check button is type="button" (not "submit"): embedded pages sometimes sandbox
+        // this snippet inside a form-less or forms-disabled context, which silently swallows
+        // native form submission before our "submit" handler ever runs.
         opts = el("form", "q-type");
         opts.innerHTML =
           `<input type="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Type your answer…" aria-label="Your answer">` +
-          `<button type="submit" class="q-check">Check</button>`;
+          `<button type="button" class="q-check">Check</button>`;
         const input = opts.querySelector("input");
-        opts.addEventListener("submit", e => {
-          e.preventDefault();
+        const button = opts.querySelector("button");
+        const check = () => {
           if (box.dataset.done || !input.value.trim()) return;
           const correct = q.accept.map(normalize).includes(normalize(input.value));
           input.disabled = true;
-          opts.querySelector("button").disabled = true;
+          button.disabled = true;
           input.classList.add(correct ? "is-right" : "is-wrong");
           finish(correct, input, correct ? null : q.accept[0]);
+        };
+        button.addEventListener("click", check);
+        input.addEventListener("keydown", e => {
+          if (e.key !== "Enter") return;
+          e.preventDefault();
+          check();
+        });
+        // Belt and braces for mobile keyboards whose "Go"/"Done" key submits the form directly.
+        opts.addEventListener("submit", e => {
+          e.preventDefault();
+          check();
         });
       } else {
         opts = el("div", "q-opts");

@@ -364,7 +364,7 @@ td em { color: var(--accent); font-style: normal; font-weight: 800; }
 
     <div id="quiz"><p class="callout"><span class="label">Quiz not loaded</span>If you can read this, the quiz script didn't run. Try opening the file in Chrome or Safari.</p></div>
 
-    <p class="muted"><b>Read more:</b> <a href="https://pubmed.ncbi.nlm.nih.gov/6600017/" target="_blank" rel="noopener">Reilly, Tyrrell &amp; Troup (1984), "Circadian variation in human stature"</a>. All retells: <a href="../reference/curiosity-deck.html">the curiosity deck</a>. <b>Questions?</b> Ask Claude, e.g. "Why do astronauts get taller in space?"</p>
+    <p class="muted"><b>Read more:</b> <a href="https://pubmed.ncbi.nlm.nih.gov/6600017/" target="_blank" rel="noopener">Reilly, Tyrrell &amp; Troup (1984), "Circadian variation in human stature"</a>. <b>Questions?</b> Ask Claude, e.g. "Why do astronauts get taller in space?"</p>
   </section>
 
   <hr>
@@ -375,11 +375,6 @@ td em { color: var(--accent); font-style: normal; font-weight: 800; }
     <li id="s4">Floyd, B. et al. (2017), <a href="https://pubmed.ncbi.nlm.nih.gov/28400060/">Factors influencing diurnal variation in height among adults</a>, <i>HOMO</i> 68(3).</li>
     <li id="s5">Cambridge Dictionary, <a href="https://dictionary.cambridge.org/dictionary/english/imperceptible">imperceptible</a>.</li>
   </ol>
-
-  <nav class="nav">
-    <a href="0012-mammoths-and-pyramids.html">← Curiosity 12: Mammoths and pyramids</a>
-    <a href="0014-ok-was-a-joke.html">Curiosity 14: OK was a joke →</a>
-  </nav>
 </main>
 
 <script>
@@ -577,19 +572,33 @@ td em { color: var(--accent); font-style: normal; font-weight: 800; }
       let opts;
       if (q.accept) {
         // Typed recall: q.accept lists every acceptable answer; the first is shown as the model answer.
+        // The Check button is type="button" (not "submit"): embedded pages sometimes sandbox
+        // this snippet inside a form-less or forms-disabled context, which silently swallows
+        // native form submission before our "submit" handler ever runs.
         opts = el("form", "q-type");
         opts.innerHTML =
           `<input type="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Type your answer…" aria-label="Your answer">` +
-          `<button type="submit" class="q-check">Check</button>`;
+          `<button type="button" class="q-check">Check</button>`;
         const input = opts.querySelector("input");
-        opts.addEventListener("submit", e => {
-          e.preventDefault();
+        const button = opts.querySelector("button");
+        const check = () => {
           if (box.dataset.done || !input.value.trim()) return;
           const correct = q.accept.map(normalize).includes(normalize(input.value));
           input.disabled = true;
-          opts.querySelector("button").disabled = true;
+          button.disabled = true;
           input.classList.add(correct ? "is-right" : "is-wrong");
           finish(correct, input, correct ? null : q.accept[0]);
+        };
+        button.addEventListener("click", check);
+        input.addEventListener("keydown", e => {
+          if (e.key !== "Enter") return;
+          e.preventDefault();
+          check();
+        });
+        // Belt and braces for mobile keyboards whose "Go"/"Done" key submits the form directly.
+        opts.addEventListener("submit", e => {
+          e.preventDefault();
+          check();
         });
       } else {
         opts = el("div", "q-opts");

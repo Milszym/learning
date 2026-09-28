@@ -18,7 +18,7 @@ The whole lesson must take 2–3 minutes (the user found the 12-minute version f
    - `.words` with ONE `.word` card: word, part of speech, a short Cambridge definition, and a short example (≤ 12 words).
    - `<div id="quiz">` with the same fallback as lesson 1.
    - ONE `<p class="muted">` line: `<b>Read more:</b>` the single best source. Nothing else.
-5. `<hr>`, `<ol class="sources">` (`id="s1"`…), `<nav class="nav">` with ← previous and next → links. Lesson 30's next link goes to the curiosity deck.
+5. `<hr>`, `<ol class="sources">` (`id="s1"`…). No `<nav>` and no links back to the curiosity deck: each lesson must stay a fully self-contained page that works when embedded elsewhere on its own.
 6. Scripts: guess.js, timeline.js (only if used), quiz.js, then one inline `<script>` with the mount calls.
 
 Use only existing CSS classes. No `<style>` blocks, no new JS files, no external scripts.
